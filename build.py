@@ -11,12 +11,28 @@ from urllib.error import URLError
 # CONFIGURATION — add or remove feeds here
 # ─────────────────────────────────────────────
 RSS_FEEDS = [
-    {"source": "BBC Environment",       "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"},
-    {"source": "The Guardian Climate",  "url": "https://www.theguardian.com/environment/climate-crisis/rss"},
-    {"source": "Carbon Brief",          "url": "https://www.carbonbrief.org/feed/"},
-    {"source": "Reuters Environment",   "url": "https://feeds.reuters.com/reuters/environment"},
-    {"source": "Inside Climate News",   "url": "https://insideclimatenews.org/feed/"},
-    {"source": "NASA Climate",          "url": "https://climate.nasa.gov/news/rss.xml"},
+   RSS_FEEDS = [
+    # Right-leaning / sceptic
+    {"source": "The Spectator",       "url": "https://www.spectator.co.uk/feed/"},
+    {"source": "GB News",             "url": "https://www.gbnews.com/feeds/news.rss"},
+    {"source": "Daily Mail",          "url": "https://www.dailymail.co.uk/news/environment/index.rss"},
+
+    # Centre
+    {"source": "BBC Environment",     "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"},
+    {"source": "Reuters",             "url": "https://feeds.reuters.com/reuters/environment"},
+    {"source": "Sky News",            "url": "https://feeds.skynews.com/feeds/rss/environment.xml"},
+
+    # Centre-left
+    {"source": "The Guardian",        "url": "https://www.theguardian.com/environment/climate-crisis/rss"},
+    {"source": "The Independent",     "url": "https://www.independent.co.uk/climate-change/rss"},
+
+    # Specialist / activist
+    {"source": "Carbon Brief",        "url": "https://www.carbonbrief.org/feed/"},
+    {"source": "Climate Home News",   "url": "https://www.climatechangenews.com/feed/"},
+
+    # Science
+    {"source": "Yale Environment 360","url": "https://e360.yale.edu/feed.xml"},
+    {"source": "NASA Climate",        "url": "https://climate.nasa.gov/news/rss.xml"},
 ]
 
 MAX_ARTICLES_PER_FEED = 5   # how many articles to pull per source
