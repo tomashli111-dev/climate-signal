@@ -68,7 +68,83 @@ def fetch_articles():
             print(f"✓ {feed_config['source']}: {min(len(feed.entries), MAX_ARTICLES_PER_FEED)} articles")
         except Exception as e:
             print(f"✗ {feed_config['source']}: {e}")
-    return articles
+    # ── KEYWORD FILTER ──────────────────────────────────────────
+    TIER1 = [
+        'climate change', 'climate crisis', 'climate emergency', 'climate action',
+        'climate policy', 'climate summit', 'climate target', 'climate model',
+        'climate finance', 'climate activist', 'climate sceptic', 'climate skeptic',
+        'climate denier', 'climate alarmist', 'climate hysteria', 'climate cult',
+        'climate agenda', 'climate lobby', 'climate litigation', 'climate lawsuit',
+        'global warming', 'greenhouse gas', 'greenhouse effect',
+        'carbon emissions', 'carbon footprint', 'carbon capture', 'carbon offset',
+        'carbon tax', 'carbon budget', 'carbon neutral', 'carbon dioxide',
+        'carbon price', 'carbon market', 'carbon border', 'carbon tariff',
+        'stranded assets', 'scope 3 emissions', 'methane emissions',
+        'net zero', 'decarbonisation', 'decarbonization',
+        'paris agreement', 'cop29', 'cop30', 'ipcc', 'unfccc',
+        'emissions trading', 'emissions target', 'emissions reduction',
+        'just transition', 'green new deal', 'loss and damage fund',
+        'nature-based solutions', 'biodiversity net gain', 'environment act',
+        'seventh carbon budget', 'sixth carbon budget', 'clean power 2030',
+        'great british energy', 'energy security bill', 'climate change committee',
+        'fossil fuel', 'renewable energy', 'clean energy', 'energy transition',
+        'offshore wind', 'wind farm', 'solar power', 'solar panel', 'solar farm',
+        'green hydrogen', 'hydrogen fuel', 'tidal power', 'tidal energy',
+        'nuclear energy', 'battery storage', 'energy storage', 'grid capacity',
+        'oil industry', 'north sea oil', 'north sea licence', 'rosebank',
+        'cambo oilfield', 'fracking', 'coal power',
+        'electric vehicle', 'ev charging', 'ev mandate', 'petrol ban',
+        'diesel ban', 'boiler ban', 'boiler upgrade', 'heat pump',
+        'ulez', 'low emission zone', 'war on motorists', 'war on drivers',
+        'forced electric', 'ban on petrol', 'ban on diesel',
+        'biodiversity', 'species extinction', 'habitat loss', 'deforestation',
+        'reforestation', 'rewilding', 'ocean acidification', 'sea level rise',
+        'arctic ice', 'glacier retreat', 'permafrost', 'coral reef',
+        'marine protected', 'nature recovery', 'wildlife corridor',
+        'species decline', 'bee population', 'insect population',
+        'plastic pollution', 'microplastics', 'water pollution', 'toxic waste',
+        'sewage dumping', 'river pollution', 'air pollution', 'particulate matter',
+        'green blob', 'eco zealot', 'eco madness', 'green madness',
+        'net zero madness', 'net zero cost', 'net zero burden', 'net zero bill',
+        'green levies', 'green tax', 'green agenda', 'green ideology',
+        'green obsession', 'green targets', 'eco activist',
+        'extinction rebellion', 'just stop oil', 'insulate britain',
+        'greenwashing', 'esg', 'fuel poverty', 'energy poverty',
+        'wind subsidy', 'solar subsidy', 'wind farm backlash',
+        'hottest year', 'hottest ever', 'record temperature', 'record heat',
+        'extreme weather event', 'climate report', 'ipcc report',
+    ]
+
+    TIER2 = [
+        'flooding', 'flash flood', 'drought', 'heatwave', 'heat stress',
+        'wildfire', 'water scarcity', 'storm surge', 'extreme weather',
+        'energy bills', 'energy costs', 'energy crisis', 'energy price',
+        'electricity price', 'heating costs', 'gas price',
+        'sustainability', 'sustainable', 'sustainable development',
+        'circular economy', 'food waste', 'sustainable agriculture',
+        'regenerative farming', 'soil health',
+        'rainforest', 'wetlands', 'ecosystem', 'nature reserve',
+        'oil', 'gas', 'coal', 'pollution',
+    ]
+
+    def is_relevant(article):
+        text = (article['title'] + ' ' + article['raw_summary']).lower()
+        if any(kw in text for kw in TIER1):
+            return True
+        tier2_matches = sum(1 for kw in TIER2 if kw in text)
+        if tier2_matches >= 2:
+            return True
+        return False
+
+    filtered = []
+    for article in articles:
+        if is_relevant(article):
+            filtered.append(article)
+        else:
+            print(f"  ✗ Filtered out: {article['title'][:60]}")
+
+    print(f"After keyword filter: {len(filtered)}/{len(articles)} articles kept")
+    return filtered
 
 # ─────────────────────────────────────────────
 # CALL CLAUDE API FOR SUMMARY + TONE
