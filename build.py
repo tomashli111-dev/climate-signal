@@ -11,29 +11,28 @@ from urllib.error import URLError, HTTPError
 # CONFIGURATION
 # ─────────────────────────────────────────────
 RSS_FEEDS = [
-    # Right-leaning / sceptic — high volume, need more articles
-    {"source": "The Spectator",        "url": "https://www.spectator.co.uk/feed/",                                 "max": 50},
-    {"source": "GB News",              "url": "https://www.gbnews.com/feeds/news.rss",                             "max": 50},
-    {"source": "Daily Mail",           "url": "https://www.dailymail.co.uk/news/environment/index.rss",            "max": 50},
+    # Right-leaning / sceptic
+    {"source": "The Spectator",        "url": "https://www.spectator.co.uk/feed/",                                      "max": 50},
+    {"source": "GB News",              "url": "https://www.gbnews.com/feeds/news.rss",                                  "max": 50},
+    {"source": "Daily Mail",           "url": "https://www.dailymail.co.uk/news/environment/index.rss",                 "max": 50},
+    {"source": "The Sun",              "url": "https://www.thesun.co.uk/feed/",                                         "max": 50},
+    {"source": "The Telegraph",        "url": "https://www.telegraph.co.uk/rss.xml",                                    "max": 50},
+    {"source": "The Express",          "url": "https://www.express.co.uk/posts/rss",                                    "max": 50},
+    {"source": "The Times",            "url": "https://openrss.org/thetimes.co.uk/environment",                         "max": 20},
 
     # Centre
-    {"source": "BBC Environment",      "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",     "max": 20},
-    {"source": "Reuters",              "url": "https://feeds.reuters.com/reuters/environment",                      "max": 20},
-    {"source": "Sky News",             "url": "https://feeds.skynews.com/feeds/rss/environment.xml",               "max": 20},
+    {"source": "BBC Environment",      "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",          "max": 20},
+    {"source": "Sky News",             "url": "https://feeds.skynews.com/feeds/rss/environment.xml",                    "max": 20},
+    {"source": "ITV News",             "url": "https://www.itv.com/news/index.rss",                                     "max": 50},
+    {"source": "Evening Standard",     "url": "https://www.standard.co.uk/news/rss",                                    "max": 50},
+    {"source": "The i",                "url": "https://inews.co.uk/feed",                                               "max": 20},
 
     # Centre-left
-    {"source": "The Guardian",         "url": "https://www.theguardian.com/environment/climate-crisis/rss",        "max": 20},
-    {"source": "The Independent",      "url": "https://www.independent.co.uk/climate-change/rss",                  "max": 20},
-
-    # Specialist
-    {"source": "Carbon Brief",         "url": "https://www.carbonbrief.org/feed/",                                 "max": 10},
-    {"source": "Climate Home News",    "url": "https://www.climatechangenews.com/feed/",                           "max": 10},
-
-    # Science
-    {"source": "Yale Environment 360", "url": "https://e360.yale.edu/feed.xml",                                    "max": 10},
-    {"source": "NASA Climate",         "url": "https://climate.nasa.gov/news/rss.xml",                             "max": 10},
+    {"source": "The Guardian",         "url": "https://www.theguardian.com/environment/climate-crisis/rss",             "max": 20},
+    {"source": "The Independent",      "url": "https://www.independent.co.uk/climate-change/rss",                       "max": 20},
+    {"source": "The Mirror",           "url": "https://www.mirror.co.uk/?service=rss",                                  "max": 50},
+    {"source": "Channel 4 News",       "url": "https://www.channel4.com/news/feed",                                     "max": 50},
 ]
-
 ROLLING_DAYS = 7
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
