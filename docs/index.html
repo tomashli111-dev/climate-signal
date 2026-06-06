@@ -1,80 +1,420 @@
-TIER1 = [
-    # Core climate
-    'climate change', 'climate crisis', 'climate emergency', 'climate action',
-    'climate policy', 'climate summit', 'climate target', 'climate model',
-    'climate finance', 'climate activist', 'climate sceptic', 'climate skeptic',
-    'climate denier', 'climate alarmist', 'climate hysteria', 'climate cult',
-    'climate agenda', 'climate lobby', 'climate litigation', 'climate lawsuit',
-    'global warming', 'greenhouse gas', 'greenhouse effect',
-    'carbon emissions', 'carbon footprint', 'carbon capture', 'carbon offset',
-    'carbon tax', 'carbon budget', 'carbon neutral', 'carbon dioxide',
-    'carbon price', 'carbon market', 'carbon border', 'carbon tariff',
-    'stranded assets', 'scope 3 emissions', 'methane emissions',
-    'net zero', 'decarbonisation', 'decarbonization',
 
-    # Policy & agreements
-    'paris agreement', 'cop29', 'cop30', 'ipcc', 'unfccc',
-    'emissions trading', 'emissions target', 'emissions reduction',
-    'just transition', 'green new deal', 'loss and damage fund',
-    'nature-based solutions', 'biodiversity net gain', 'environment act',
-    'seventh carbon budget', 'sixth carbon budget', 'clean power 2030',
-    'great british energy', 'energy security bill', 'climate change committee',
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Signal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=Geist+Mono:wght@300;400&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#0e0e0e; --ink2:#3a3a3a; --ink3:#888;
+      --paper:#f5f0e8; --paper2:#ede8dc; --paper3:#e4ddd0;
+      --border:rgba(0,0,0,0.12); --border2:rgba(0,0,0,0.07);
+      --tone-alarm:#c0392b;     --tone-alarm-bg:#fdf0ee;
+      --tone-hopeful:#1a6b3a;   --tone-hopeful-bg:#eef6f1;
+      --tone-neutral:#555;      --tone-neutral-bg:#f0ede8;
+      --tone-solutions:#1a4a8a; --tone-solutions-bg:#eef2fa;
+      --tone-political:#8a5a00; --tone-political-bg:#fdf5e6;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--paper);color:var(--ink);font-family:'Geist',sans-serif;font-weight:300;min-height:100vh;}
 
-    # Energy — specific enough
-    'fossil fuel', 'renewable energy', 'clean energy', 'energy transition',
-    'offshore wind', 'wind farm', 'wind turbine', 'solar power', 'solar panel',
-    'solar farm', 'green hydrogen', 'hydrogen fuel', 'tidal power', 'tidal energy',
-    'nuclear energy', 'battery storage', 'energy storage', 'grid capacity',
-    'north sea oil', 'north sea licence', 'rosebank oilfield',
-    'cambo oilfield', 'fracking', 'coal power', 'coal mine',
-    'oil industry', 'oil drilling', 'gas drilling', 'gas pipeline',
+    .masthead{border-bottom:3px solid var(--ink);padding:1.5rem 2.5rem 1rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:1rem;}
+    .masthead-left{font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--ink3);letter-spacing:0.04em;line-height:1.6;}
+    .masthead-title{text-align:center;}
+    .masthead-title h1{font-family:'Fraunces',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:0.9;}
+    .masthead-title .tagline{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-top:0.4rem;}
+    .masthead-right{text-align:right;font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--ink3);letter-spacing:0.04em;line-height:1.6;}
 
-    # Transport & net zero policy
-    'electric vehicle', 'ev charging', 'ev mandate', 'petrol ban',
-    'diesel ban', 'boiler ban', 'boiler upgrade', 'heat pump',
-    'ulez', 'low emission zone', 'war on motorists', 'war on drivers',
-    'ban on petrol', 'ban on diesel',
+    .ticker{display:flex;align-items:center;border-bottom:1px solid var(--border);overflow:hidden;}
+    .ticker-label{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:0.45rem 1rem;white-space:nowrap;flex-shrink:0;}
+    .ticker-items{display:flex;overflow-x:auto;scrollbar-width:none;flex:1;}
+    .ticker-items::-webkit-scrollbar{display:none;}
+    .ticker-item{font-family:'Geist Mono',monospace;font-size:0.68rem;padding:0.45rem 1.25rem;border-right:1px solid var(--border);white-space:nowrap;color:var(--ink2);}
+    .ticker-item strong{color:var(--ink);font-weight:500;}
 
-    # Nature & biodiversity
-    'biodiversity', 'species extinction', 'habitat loss', 'deforestation',
-    'reforestation', 'rewilding', 'ocean acidification', 'sea level rise',
-    'arctic ice', 'glacier retreat', 'permafrost', 'coral reef',
-    'marine protected area', 'nature recovery', 'wildlife corridor',
-    'species decline', 'bee population', 'insect population',
+    .stats-bar{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto;scrollbar-width:none;}
+    .stats-bar::-webkit-scrollbar{display:none;}
+    .stat-item{font-family:'Geist Mono',monospace;font-size:0.68rem;padding:0.55rem 1.25rem;border-right:1px solid var(--border);white-space:nowrap;color:var(--ink2);}
+    .stat-item strong{color:var(--ink);font-weight:500;}
 
-    # Pollution — specific
-    'plastic pollution', 'microplastics', 'water pollution', 'toxic waste',
-    'sewage dumping', 'river pollution', 'air pollution', 'particulate matter',
-    'nitrogen dioxide', 'pm2.5',
+    .filter-bar{display:flex;align-items:center;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;background:var(--paper2);}
+    .filter-bar::-webkit-scrollbar{display:none;}
+    .filter-label-tag{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);padding:0.55rem 1rem;border-right:1px solid var(--border);white-space:nowrap;flex-shrink:0;}
+    .filter-btn{font-family:'Geist Mono',monospace;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.55rem 1.1rem;border:none;border-right:1px solid var(--border);background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.1s;white-space:nowrap;}
+    .filter-btn:hover{background:var(--paper3);color:var(--ink);}
+    .filter-btn.active{background:var(--ink);color:var(--paper);}
 
-    # Sceptic / tabloid framing
-    'green blob', 'eco zealot', 'eco madness', 'green madness',
-    'net zero madness', 'net zero cost', 'net zero burden', 'net zero bill',
-    'green levies', 'green tax', 'green ideology',
-    'green obsession', 'green targets', 'eco activist',
-    'extinction rebellion', 'just stop oil', 'insulate britain',
-    'greenwashing', 'fuel poverty', 'energy poverty',
-    'wind subsidy', 'solar subsidy', 'wind farm backlash',
+    .layout{display:grid;grid-template-columns:1fr 260px;min-height:calc(100vh - 220px);}
+    @media(max-width:768px){.layout{grid-template-columns:1fr;}.sidebar,.masthead-left,.masthead-right{display:none;}}
 
-    # Science & reporting
-    'hottest year', 'hottest ever', 'record temperature', 'record heat',
-    'extreme weather event', 'climate report', 'ipcc report',
-    'global temperature', 'temperature record',
+    .topic-section{border-bottom:2px solid var(--ink);}
+    .topic-header{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 1.5rem;background:var(--paper2);border-bottom:1px solid var(--border);gap:1rem;flex-wrap:wrap;cursor:pointer;user-select:none;}
+    .topic-header:hover{background:var(--paper3);}
+    .topic-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;}
+    .topic-count{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);}
+    .topic-toggle{font-family:'Geist Mono',monospace;font-size:0.65rem;color:var(--ink3);transition:transform 0.2s;}
+    .topic-toggle.open{transform:rotate(180deg);}
+    .topic-tone-bar{display:flex;height:4px;width:100%;}
+    .topic-tone-seg{height:100%;transition:width 0.6s ease;}
+    .topic-tone-legend{display:flex;gap:12px;padding:0.5rem 1.5rem;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+    .legend-item{display:flex;align-items:center;gap:5px;font-family:'Geist Mono',monospace;font-size:0.6rem;color:var(--ink3);}
+    .legend-dot{width:7px;height:7px;border-radius:1px;flex-shrink:0;}
+    .topic-articles.collapsed{display:none;}
 
-    # UK specific policy
-    'energy security bill', 'great british energy', 'national grid upgrade',
-    'climate change committee', 'carbon budget uk',
-    'north sea energy', 'clean power target',
-]
+    .article{border-bottom:1px solid var(--border);position:relative;}
+    .article-main{padding:1.2rem 1.5rem;display:grid;grid-template-columns:1fr auto;gap:1rem;transition:background 0.1s;cursor:pointer;}
+    .article-main:hover{background:var(--paper2);}
+    .article-body{min-width:0;}
+    .article-meta{display:flex;align-items:center;gap:8px;margin-bottom:0.4rem;flex-wrap:wrap;}
+    .source-tag{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
+    .meta-dot{width:2px;height:2px;border-radius:50%;background:var(--ink3);}
+    .article-date{font-family:'Geist Mono',monospace;font-size:0.6rem;color:var(--ink3);}
+    .article-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.45rem;letter-spacing:-0.02em;}
+    .article-title:hover{color:#333;}
+    .article-summary{font-size:0.82rem;color:var(--ink2);line-height:1.65;margin-bottom:0.55rem;}
+    .article-summary.low-confidence{color:var(--ink3);font-style:italic;}
+    .low-confidence-badge{font-family:'Geist Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:2px 7px;border-radius:2px;margin-left:8px;}
+    .article-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+    .read-more{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:color 0.1s,border-color 0.1s;}
+    .read-more:hover{color:var(--ink);border-color:var(--ink);}
+    .show-source-btn{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;padding:0;transition:color 0.1s;}
+    .show-source-btn:hover{color:var(--ink);}
+    .tone-col{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;padding-top:2px;}
+    .tone-badge{font-family:'Geist Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap;}
+    .tone-badge.alarmist{background:var(--tone-alarm-bg);color:var(--tone-alarm);}
+    .tone-badge.hopeful{background:var(--tone-hopeful-bg);color:var(--tone-hopeful);}
+    .tone-badge.neutral{background:var(--tone-neutral-bg);color:var(--tone-neutral);}
+    .tone-badge.solutions{background:var(--tone-solutions-bg);color:var(--tone-solutions);}
+    .tone-badge.political{background:var(--tone-political-bg);color:var(--tone-political);}
+    .tone-stripe{position:absolute;left:0;top:0;bottom:0;width:3px;}
+    .tone-stripe.alarmist{background:var(--tone-alarm);}
+    .tone-stripe.hopeful{background:var(--tone-hopeful);}
+    .tone-stripe.neutral{background:#ccc;}
+    .tone-stripe.solutions{background:var(--tone-solutions);}
+    .tone-stripe.political{background:var(--tone-political);}
 
-TIER2 = [
-    'flooding', 'flash flood', 'drought', 'heatwave', 'heat stress',
-    'wildfire', 'water scarcity', 'storm surge', 'extreme weather',
-    'energy bills', 'energy costs', 'energy crisis', 'energy price',
-    'electricity price', 'heating costs',
-    'sustainability', 'sustainable development',
-    'circular economy', 'sustainable agriculture',
-    'regenerative farming', 'soil health',
-    'rainforest', 'wetlands', 'ecosystem', 'nature reserve',
-    'coal industry', 'oil spill', 'gas leak', 'air quality',
-]
+    .source-panel{display:none;border-top:1px solid var(--border);background:var(--paper2);}
+    .source-panel.open{display:block;}
+    .source-tabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+    .source-tabs::-webkit-scrollbar{display:none;}
+    .source-tab{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;color:var(--ink3);border-right:1px solid var(--border);border-bottom:2px solid transparent;transition:all 0.1s;background:none;border-top:none;border-left:none;white-space:nowrap;}
+    .source-tab.active{color:var(--ink);border-bottom-color:var(--ink);background:var(--paper);}
+    .source-content{padding:1rem 1.5rem;}
+    .source-content.hidden{display:none;}
+    .source-text{font-size:0.8rem;color:var(--ink2);line-height:1.7;font-style:italic;}
+    .source-empty{font-size:0.78rem;color:var(--ink3);font-style:italic;}
+    .analysis-note{font-size:0.78rem;color:var(--ink2);line-height:1.7;}
+    .analysis-note strong{font-weight:500;color:var(--ink);}
+    .data-label{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;}
+
+    .sidebar{padding:0;}
+    .sidebar-block{border-bottom:1px solid var(--border);padding:1.2rem 1.25rem;}
+    .sidebar-block h3{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+    .tone-key-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.85rem;}
+    .tone-key-dot{width:8px;height:8px;border-radius:1px;flex-shrink:0;margin-top:4px;}
+    .tone-key-item h4{font-size:0.78rem;font-weight:500;color:var(--ink);margin-bottom:2px;}
+    .tone-key-item p{font-size:0.72rem;color:var(--ink3);line-height:1.4;}
+    .tone-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:0.55rem;}
+    .tone-bar-name{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink2);width:64px;flex-shrink:0;}
+    .tone-bar-track{flex:1;height:5px;background:var(--paper3);overflow:hidden;}
+    .tone-bar-fill{height:100%;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
+    .tone-bar-pct{font-family:'Geist Mono',monospace;font-size:0.6rem;color:var(--ink3);width:26px;text-align:right;}
+    .source-row{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);}
+    .source-row:last-child{border-bottom:none;}
+    .source-count-badge{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
+    .topic-nav-item{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);cursor:pointer;transition:color 0.1s;}
+    .topic-nav-item:last-child{border-bottom:none;}
+    .topic-nav-item:hover{color:var(--ink);}
+    .topic-nav-count{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
+
+    .empty-state{padding:5rem 2rem;text-align:center;color:var(--ink3);}
+    .empty-state h2{font-family:'Fraunces',serif;font-size:1.8rem;color:var(--ink2);margin-bottom:0.75rem;font-weight:300;font-style:italic;}
+    .empty-state p{font-size:0.85rem;line-height:1.7;max-width:380px;margin:0 auto;}
+
+    footer{border-top:2px solid var(--ink);padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    footer span{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.04em;}
+  </style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-left">
+    <div id="todays-date">—</div>
+    <div><span id="stat-articles">—</span> articles · <span id="stat-sources">—</span> sources · 7-day rolling</div>
+  </div>
+  <div class="masthead-title">
+    <h1>Climate Signal</h1>
+    <div class="tagline">Media tone analysis · Daily briefing</div>
+  </div>
+  <div class="masthead-right">
+    <div>Dominant tone</div>
+    <div><strong id="stat-tone">—</strong></div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-label">Latest</div>
+  <div class="ticker-items" id="ticker-items"><div class="ticker-item">Loading…</div></div>
+</div>
+
+<div class="stats-bar" id="stats-bar"><div class="stat-item">Loading…</div></div>
+
+<div class="filter-bar">
+  <div class="filter-label-tag">Filter tone</div>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="alarmist">Alarmist</button>
+  <button class="filter-btn" data-filter="hopeful">Hopeful</button>
+  <button class="filter-btn" data-filter="neutral">Neutral</button>
+  <button class="filter-btn" data-filter="solutions">Solutions</button>
+  <button class="filter-btn" data-filter="political">Political</button>
+</div>
+
+<div class="layout">
+  <main class="feed" id="feed"></main>
+  <aside class="sidebar">
+    <div class="sidebar-block">
+      <h3>Jump to topic</h3>
+      <div id="topic-nav"></div>
+    </div>
+    <div class="sidebar-block">
+      <h3>Overall tone breakdown</h3>
+      <div class="tone-bar-row"><span class="tone-bar-name">Alarmist</span><div class="tone-bar-track"><div class="tone-bar-fill" id="bar-alarmist" style="width:0%;background:var(--tone-alarm)"></div></div><span class="tone-bar-pct" id="pct-alarmist">—</span></div>
+      <div class="tone-bar-row"><span class="tone-bar-name">Hopeful</span><div class="tone-bar-track"><div class="tone-bar-fill" id="bar-hopeful" style="width:0%;background:var(--tone-hopeful)"></div></div><span class="tone-bar-pct" id="pct-hopeful">—</span></div>
+      <div class="tone-bar-row"><span class="tone-bar-name">Neutral</span><div class="tone-bar-track"><div class="tone-bar-fill" id="bar-neutral" style="width:0%;background:#aaa"></div></div><span class="tone-bar-pct" id="pct-neutral">—</span></div>
+      <div class="tone-bar-row"><span class="tone-bar-name">Solutions</span><div class="tone-bar-track"><div class="tone-bar-fill" id="bar-solutions" style="width:0%;background:var(--tone-solutions)"></div></div><span class="tone-bar-pct" id="pct-solutions">—</span></div>
+      <div class="tone-bar-row"><span class="tone-bar-name">Political</span><div class="tone-bar-track"><div class="tone-bar-fill" id="bar-political" style="width:0%;background:var(--tone-political)"></div></div><span class="tone-bar-pct" id="pct-political">—</span></div>
+    </div>
+    <div class="sidebar-block">
+      <h3>Sources</h3>
+      <div id="source-list"></div>
+    </div>
+    <div class="sidebar-block">
+      <h3>Tone key</h3>
+      <div class="tone-key-item"><div class="tone-key-dot" style="background:var(--tone-alarm)"></div><div><h4>Alarmist</h4><p>Crisis framing, fear-led language</p></div></div>
+      <div class="tone-key-item"><div class="tone-key-dot" style="background:var(--tone-hopeful)"></div><div><h4>Hopeful</h4><p>Progress, optimism, positive outcomes</p></div></div>
+      <div class="tone-key-item"><div class="tone-key-dot" style="background:#aaa"></div><div><h4>Neutral</h4><p>Factual, measured, reportorial</p></div></div>
+      <div class="tone-key-item"><div class="tone-key-dot" style="background:var(--tone-solutions)"></div><div><h4>Solutions</h4><p>Tech, policy, or behavioural fixes</p></div></div>
+      <div class="tone-key-item"><div class="tone-key-dot" style="background:var(--tone-political)"></div><div><h4>Political</h4><p>Policy debate, blame, partisan framing</p></div></div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>Climate Signal — personal media monitoring project</span>
+  <span id="footer-updated">Updated daily at 08:00 BST</span>
+</footer>
+
+<script>
+const TONES=['alarmist','hopeful','neutral','solutions','political'];
+const TONE_COLORS={alarmist:'var(--tone-alarm)',hopeful:'var(--tone-hopeful)',neutral:'#aaa',solutions:'var(--tone-solutions)',political:'var(--tone-political)'};
+
+async function loadArticles(){
+  try{
+    const res=await fetch('articles.json?v='+Date.now());
+    if(!res.ok) throw new Error('no data');
+    render(await res.json());
+  }catch(e){
+    document.getElementById('feed').innerHTML=`<div class="empty-state"><h2>No articles yet</h2><p>Run the daily build workflow to populate this page.</p></div>`;
+  }
+}
+
+function toneCounts(articles){
+  const c={};TONES.forEach(t=>c[t]=0);
+  articles.forEach(a=>{if(c[a.tone]!==undefined)c[a.tone]++;});
+  return c;
+}
+
+function toneBar(counts,total){
+  if(!total) return '';
+  return TONES.map(t=>`<div class="topic-tone-seg" style="width:${counts[t]/total*100}%;background:${TONE_COLORS[t]}"></div>`).join('');
+}
+
+function toneLegend(counts,total){
+  return TONES.filter(t=>counts[t]>0).map(t=>
+    `<div class="legend-item"><div class="legend-dot" style="background:${TONE_COLORS[t]}"></div>${t} ${Math.round(counts[t]/total*100)}%</div>`
+  ).join('');
+}
+
+function render(data){
+  const{articles,generated_at,topics}=data;
+  if(!articles||!articles.length){
+    document.getElementById('feed').innerHTML=`<div class="empty-state"><h2>No articles yet</h2><p>Run the daily build workflow to populate this page.</p></div>`;
+    return;
+  }
+
+  const d=generated_at?new Date(generated_at):new Date();
+  document.getElementById('todays-date').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('stat-articles').textContent=articles.length;
+  document.getElementById('stat-sources').textContent=[...new Set(articles.map(a=>a.source))].length;
+  document.getElementById('footer-updated').textContent='Last updated '+d.toLocaleString('en-GB');
+
+  const overall=toneCounts(articles);
+  const dominant=Object.entries(overall).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('stat-tone').textContent=dominant[0].charAt(0).toUpperCase()+dominant[0].slice(1);
+
+  setTimeout(()=>{
+    TONES.forEach(t=>{
+      const pct=Math.round(overall[t]/articles.length*100);
+      const b=document.getElementById('bar-'+t);
+      const p=document.getElementById('pct-'+t);
+      if(b)b.style.width=pct+'%';
+      if(p)p.textContent=pct+'%';
+    });
+  },200);
+
+  document.getElementById('stats-bar').innerHTML=TONES.map(t=>{
+    const pct=Math.round(overall[t]/articles.length*100);
+    return `<div class="stat-item" style="border-left:3px solid ${TONE_COLORS[t]}"><strong>${pct}%</strong> ${t}</div>`;
+  }).join('');
+
+  const srcCounts={};
+  articles.forEach(a=>srcCounts[a.source]=(srcCounts[a.source]||0)+1);
+  document.getElementById('source-list').innerHTML=Object.entries(srcCounts)
+    .sort((a,b)=>b[1]-a[1])
+    .map(([s,c])=>`<div class="source-row"><span>${s}</span><span class="source-count-badge">${c}</span></div>`)
+    .join('');
+
+  document.getElementById('ticker-items').innerHTML=articles.slice(0,8)
+    .map(a=>`<div class="ticker-item"><strong>${a.source}</strong> — ${a.title.substring(0,55)}${a.title.length>55?'…':''}</div>`)
+    .join('');
+
+  const topicList=topics||[...new Set(articles.map(a=>a.topic))].sort();
+  const grouped={};
+  topicList.forEach(t=>grouped[t]=[]);
+  articles.forEach(a=>{const t=a.topic||'Other';if(!grouped[t])grouped[t]=[];grouped[t].push(a);});
+
+  document.getElementById('topic-nav').innerHTML=topicList
+    .filter(t=>grouped[t]?.length>0)
+    .map(t=>`<div class="topic-nav-item" onclick="scrollToTopic('${t.replace(/'/g,"\\'")}')"><span>${t}</span><span class="topic-nav-count">${grouped[t].length}</span></div>`)
+    .join('');
+
+  document.getElementById('feed').innerHTML=topicList
+    .filter(t=>grouped[t]?.length>0)
+    .map(t=>{
+      const arts=grouped[t];
+      const counts=toneCounts(arts);
+      const sid='topic-'+t.replace(/[^a-z0-9]/gi,'-').toLowerCase();
+      return `
+        <div class="topic-section" id="${sid}" data-topic="${t}">
+          <div class="topic-header" onclick="toggleTopic(this)">
+            <div>
+              <div class="topic-title">${t}</div>
+              <div class="topic-count">${arts.length} article${arts.length!==1?'s':''}</div>
+            </div>
+            <span class="topic-toggle open">▲</span>
+          </div>
+          <div class="topic-tone-bar">${toneBar(counts,arts.length)}</div>
+          <div class="topic-tone-legend">${toneLegend(counts,arts.length)}</div>
+          <div class="topic-articles">${arts.map(articleHTML).join('')}</div>
+        </div>`;
+    }).join('');
+}
+
+function articleHTML(a){
+  const pid='panel-'+Math.random().toString(36).substr(2,9);
+  const hasRss=a.raw_rss&&a.raw_rss.trim();
+  const hasMeta=a.raw_meta&&a.raw_meta.trim()&&a.raw_meta!==a.raw_rss;
+  const hasContent=a.raw_content&&a.raw_content.trim()&&a.raw_content!==a.raw_rss;
+  const dataUsed=[hasRss&&'RSS excerpt',hasContent&&'full RSS content',hasMeta&&'page meta description'].filter(Boolean).join(' + ')||'title only';
+
+  return `
+    <div class="article" data-tone="${a.tone}">
+      <div class="tone-stripe ${a.tone}"></div>
+      <div class="article-main" onclick="window.open('${a.url}','_blank')">
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="source-tag">${a.source}</span>
+            <div class="meta-dot"></div>
+            <span class="article-date">${a.date}</span>
+            ${a.low_confidence?'<span class="low-confidence-badge">low data</span>':''}
+          </div>
+          <a class="article-title" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${a.title}</a>
+          <p class="article-summary${a.low_confidence?' low-confidence':''}">${a.summary}</p>
+          <div class="article-footer">
+            <a class="read-more" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>
+            <button class="show-source-btn" onclick="event.stopPropagation();togglePanel('${pid}',this)">▸ Show source data</button>
+          </div>
+        </div>
+        <div class="tone-col">
+          <span class="tone-badge ${a.tone}">${a.tone}</span>
+        </div>
+      </div>
+      <div class="source-panel" id="${pid}">
+        <div class="source-tabs">
+          <button class="source-tab active" onclick="switchTab(this,'${pid}-rss')">RSS excerpt</button>
+          <button class="source-tab" onclick="switchTab(this,'${pid}-content')">Full RSS content</button>
+          <button class="source-tab" onclick="switchTab(this,'${pid}-meta')">Page description</button>
+          <button class="source-tab" onclick="switchTab(this,'${pid}-about')">About this analysis</button>
+        </div>
+        <div class="source-content" id="${pid}-rss">
+          <div class="data-label">Raw RSS excerpt</div>
+          ${hasRss?`<p class="source-text">"${a.raw_rss}"</p>`:`<p class="source-empty">No RSS excerpt available for this article.</p>`}
+        </div>
+        <div class="source-content hidden" id="${pid}-content">
+          <div class="data-label">Full RSS content (content:encoded)</div>
+          ${hasContent?`<p class="source-text">"${a.raw_content}"</p>`:`<p class="source-empty">No full RSS content available — this feed only provides a short excerpt.</p>`}
+        </div>
+        <div class="source-content hidden" id="${pid}-meta">
+          <div class="data-label">Page meta description</div>
+          ${hasMeta?`<p class="source-text">"${a.raw_meta}"</p>`:`<p class="source-empty">No page description could be fetched — the site may have blocked automated access.</p>`}
+        </div>
+        <div class="source-content hidden" id="${pid}-about">
+          <div class="data-label">About this analysis</div>
+          <p class="analysis-note">
+            <strong>Data used:</strong> ${dataUsed}<br><br>
+            <strong>What Claude did:</strong> Read the available source data and produced a summary, tone classification, and topic label. Claude was instructed to base the summary strictly on the provided text — not to add outside knowledge or fill in details not present in the source.<br><br>
+            <strong>Limitations:</strong> ${a.low_confidence?'Very limited source data was available — the summary and tone classification may not accurately reflect the article\'s full content. ':''}The tone classification is based on language and framing in the available text, not the full article. Tone labels are AI-generated estimates and may not perfectly reflect the article\'s intent.
+          </p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function togglePanel(id,btn){
+  const panel=document.getElementById(id);
+  const isOpen=panel.classList.toggle('open');
+  btn.textContent=isOpen?'▾ Hide source data':'▸ Show source data';
+}
+
+function switchTab(btn,contentId){
+  const panel=btn.closest('.source-panel');
+  panel.querySelectorAll('.source-tab').forEach(t=>t.classList.remove('active'));
+  panel.querySelectorAll('.source-content').forEach(c=>c.classList.add('hidden'));
+  btn.classList.add('active');
+  document.getElementById(contentId).classList.remove('hidden');
+}
+
+function toggleTopic(header){
+  const articles=header.closest('.topic-section').querySelector('.topic-articles');
+  const toggle=header.querySelector('.topic-toggle');
+  articles.classList.toggle('collapsed');
+  toggle.classList.toggle('open');
+}
+
+function scrollToTopic(topic){
+  const el=document.getElementById('topic-'+topic.replace(/[^a-z0-9]/gi,'-').toLowerCase());
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.article').forEach(a=>{
+      a.style.display=(f==='all'||a.dataset.tone===f)?'block':'none';
+    });
+    document.querySelectorAll('.topic-section').forEach(sec=>{
+      const visible=[...sec.querySelectorAll('.article')].some(a=>a.style.display!=='none');
+      sec.style.display=visible?'block':'none';
+    });
+  });
+});
+
+loadArticles();
+</script>
+</body>
+</html>
