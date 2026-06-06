@@ -1,6 +1,46 @@
 {
-  "generated_at": "2026-06-05T23:36:24.779048+00:00",
+  "generated_at": "2026-06-06T00:05:37.928598+00:00",
   "articles": [
+    {
+      "title": "British parents pay £400 a DAY to teach their children basic manners including how to hold conversation and eat at the table",
+      "url": "https://www.gbnews.com/news/british-parents-children-basic-manners-lessons",
+      "source": "GB News",
+      "date": "5 Jun 2026",
+      "summary": "British parents are paying £400 a day to teach their children basic manners, including how to hold a conversation and eat at the table. A recent survey of 2,000 parents and teenagers revealed 59 per c...",
+      "tone": "neutral"
+    },
+    {
+      "title": "Prince and Princess of Wales spent £400k on Forest Lodge renovations before moving into eight-bedroom property",
+      "url": "https://www.gbnews.com/royal/prince-princess-of-wales-forest-lodge-renovations-cost",
+      "source": "GB News",
+      "date": "5 Jun 2026",
+      "summary": "A National Audit Office report published today has disclosed that the Crown Estate invested close to £400,000 refurbishing Forest Lodge ahead of the Prince and Princess of Wales taking up residence la...",
+      "tone": "neutral"
+    },
+    {
+      "title": "How Labour ditched two 'forgotten by-elections' for Andy Burnham's battle and threw the Tories a North Sea lifeline",
+      "url": "https://www.gbnews.com/politics/labour-andy-burnham-north-sea-aberdeen-south-makerfield",
+      "source": "GB News",
+      "date": "5 Jun 2026",
+      "summary": "Andy Burnham, a Westminster wannabe who soon hopes to contest his third Labour leadership race, is being mobbed by southern supporters as he plots his path to No10. Labour MPs and activists have been ...",
+      "tone": "neutral"
+    },
+    {
+      "title": "Year 6 teacher 'pulled sickie' to go on stag do in Portugal and ripped out passport pages to cover up ruse",
+      "url": "https://www.gbnews.com/news/yorkshire-news-teacher-sickie-stag-do-portugal",
+      "source": "GB News",
+      "date": "5 Jun 2026",
+      "summary": "A teacher \"pulled sickie\" to go on a stag do in Portugal and ripped out passport pages to cover up the ruse.Joe Wilson was a Year 6 teacher at Listerdale Junior Academy in Rotherham, South Yorkshire.A...",
+      "tone": "neutral"
+    },
+    {
+      "title": "'It's about making money!' Keir Starmer lays into Fifa over World Cup bottle ban",
+      "url": "https://www.gbnews.com/sport/football/world-cup-keir-starmer-fifa-bottle-ban-money",
+      "source": "GB News",
+      "date": "5 Jun 2026",
+      "summary": "Sir Keir Starmer has laid into Fifa over its decision to stop fans from bringing in refillable water bottles into World Cup stadiums.Fifa U-turned on their decision on June 2, with the move being crit...",
+      "tone": "neutral"
+    },
     {
       "title": "Astronauts return to ISS after sheltering during air leak repair attempt",
       "url": "https://www.bbc.com/news/articles/c5y7yryg01mo?at_medium=RSS&at_campaign=rss",
@@ -44,7 +84,7 @@
     {
       "title": "Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’",
       "url": "https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists",
-      "source": "The Guardian Climate",
+      "source": "The Guardian",
       "date": "5 Jun 2026",
       "summary": "Experts say dismantling the ocean observation system will ‘severely degrade’ the accuracy of weather predictionsThe Trump administration’s plan to dismantle an ocean observation system vital to unders...",
       "tone": "neutral"
@@ -52,7 +92,7 @@
     {
       "title": "Trump uses wartime powers to dole out $700m to ‘clean, beautiful’ coal",
       "url": "https://www.theguardian.com/us-news/2026/jun/04/trump-coal-defense-production-act",
-      "source": "The Guardian Climate",
+      "source": "The Guardian",
       "date": "4 Jun 2026",
       "summary": "US president announces plans for two new coal plants, in Alaska and West Virginia, using Defense Production ActDonald Trump is using wartime presidential authority to hand $700m to coal-fired power pl...",
       "tone": "neutral"
@@ -60,7 +100,7 @@
     {
       "title": "California and New York weaken climate rules as red states ramp up green energy",
       "url": "https://www.theguardian.com/environment/2026/jun/04/climate-crisis-blue-states-california-new-york",
-      "source": "The Guardian Climate",
+      "source": "The Guardian",
       "date": "4 Jun 2026",
       "summary": "Republican-led states growing renewable capabilities at faster rate as Texas emerges as clean-energy leaderDemocratic-led states are eroding their climate policies, as red states are scaling up their ...",
       "tone": "neutral"
@@ -68,7 +108,7 @@
     {
       "title": "‘That’s a bad combination’: why Australia may be in for a slushy snow season",
       "url": "https://www.theguardian.com/australia-news/2026/jun/05/australia-ski-season-snow-climate-change-el-nino-impact",
-      "source": "The Guardian Climate",
+      "source": "The Guardian",
       "date": "4 Jun 2026",
       "summary": "Snow arrives in time for the start of ski season, but climate change and El Niño mean it may not stick around for long, experts sayFollow our Australia news live blog for latest updatesGet our breakin...",
       "tone": "neutral"
@@ -76,9 +116,33 @@
     {
       "title": "‘An equal and habitable world is possible’: academics set out sweeping vision for planetary survival",
       "url": "https://www.theguardian.com/environment/2026/jun/04/world-inequality-lab-equality-academics-planetary-survival",
-      "source": "The Guardian Climate",
+      "source": "The Guardian",
       "date": "4 Jun 2026",
       "summary": "Global report provides an alternative to climate breakdown, political extremism and economic tensions• ‘Happiness is not just about GDP’: ambitious plan or utopia?Humanity can raise living standards, ...",
+      "tone": "neutral"
+    },
+    {
+      "title": "Visa problems shut poorest countries out of crucial UN climate talks in Bonn",
+      "url": "https://www.independent.co.uk/climate-change/un-climate-crisis-talks-bonn-yemen-b2990324.html",
+      "source": "The Independent",
+      "date": "5 Jun 2026",
+      "summary": "Several of the world’s poorest and most climate vulnerable countries say their negotiating abilities will be hurt at talks in Germany this month due to their delegates being unable to obtain visas",
+      "tone": "neutral"
+    },
+    {
+      "title": "What storing beauty products in plastic does to your health",
+      "url": "https://www.independent.co.uk/climate-change/news/vitamin-c-bees-superdrug-one-b2990313.html",
+      "source": "The Independent",
+      "date": "5 Jun 2026",
+      "summary": "Ahead of Plastic Free Beauty Day on June 17, medical professionals look at the impact of microplastics in our skincare routines.",
+      "tone": "neutral"
+    },
+    {
+      "title": "How the war in Iran could impact £3bn of UK pensions",
+      "url": "https://www.independent.co.uk/climate-change/iran-war-uk-pensions-economy-b2988979.html",
+      "source": "The Independent",
+      "date": "5 Jun 2026",
+      "summary": "New analysis from the Bureau of Investigative Journalism and The Independent finds that billions of pounds of UK pensions have been left exposed to the ongoing conflict in the Middle East. Josephine M...",
       "tone": "neutral"
     },
     {
@@ -122,43 +186,83 @@
       "tone": "neutral"
     },
     {
-      "title": "Feds Will Soon Impose New Framework on Colorado River if States Can’t Agree How to Manage It",
-      "url": "https://insideclimatenews.org/news/05062026/colorado-river-federal-management-plan/",
-      "source": "Inside Climate News",
+      "title": "Offshore oil and gas expansion threatens key marine ecosystems, report warns",
+      "url": "https://www.climatechangenews.com/2026/06/05/planned-offshore-oil-and-gas-expansion-threatens-key-marine-ecosystems-report-fossil-fuels/",
+      "source": "Climate Home News",
       "date": "5 Jun 2026",
-      "summary": "BOULDER, Colo.—The federal government will impose a 10-year operating framework for managing water use in the Colorado River Basin by the end of this summer if the seven states that rely on the river ...",
+      "summary": "Sea life in countries like Kenya is under threat from planned new oil and gas production, environmentalists analysis has found\nThe post Offshore oil and gas expansion threatens key marine ecosystems, ...",
       "tone": "neutral"
     },
     {
-      "title": "Trump Administration Doubles Down on Coal Power in North Carolina",
-      "url": "https://insideclimatenews.org/news/05062026/duke-energy-federal-funding-for-coal-power-upgrades/",
-      "source": "Inside Climate News",
+      "title": "The scramble to stockpile critical minerals could drive up energy transition costs",
+      "url": "https://www.climatechangenews.com/2026/06/05/the-scramble-to-stockpile-critical-minerals-could-drive-up-energy-transition-costs/",
+      "source": "Climate Home News",
       "date": "5 Jun 2026",
-      "summary": "Duke Energy could receive $28.4 million in taxpayer money to upgrade two coal-fired power units in Person County, North Carolina, where residents are already contending with the construction of new na...",
+      "summary": "Researchers warn that uncoordinated stockpiling could push up prices of minerals needed for clean energy technologies and delay their roll out\nThe post The scramble to stockpile critical minerals coul...",
       "tone": "neutral"
     },
     {
-      "title": "Mangrove Forests Fight Climate Change—But Climate Change Is Fighting Back",
-      "url": "https://insideclimatenews.org/news/05062026/sea-level-rise-impacts-mangrove-forests/",
-      "source": "Inside Climate News",
-      "date": "5 Jun 2026",
-      "summary": "Mangrove forests have adapted over tens of millions of years to survive in harsh flooding from salty seas, while locking away vast stores of climate-warming carbon and protecting the world’s coastline...",
+      "title": "What to expect from the Bonn climate talks",
+      "url": "https://www.climatechangenews.com/2026/06/04/what-to-expect-from-the-bonn-climate-talks/",
+      "source": "Climate Home News",
+      "date": "4 Jun 2026",
+      "summary": "Climate Home News will be on the ground at the SB64 June Climate Meetings  - here's what we're watching out for\nThe post What to expect from the Bonn climate talks appeared first on Climate Home News.",
       "tone": "neutral"
     },
     {
-      "title": "Iran War Jeopardizes Global Food Security",
-      "url": "https://insideclimatenews.org/news/05062026/iran-war-jeopardizes-global-food-security/",
-      "source": "Inside Climate News",
-      "date": "5 Jun 2026",
-      "summary": "The worldwide fallout from the U.S. war in Iran isn’t limited to gas prices. The largely blocked Strait of Hormuz has become “a critical failure point for global food security,” Máximo Torero Cullen, ...",
+      "title": "China’s carbon emissions rise again as more clean power is wasted",
+      "url": "https://www.climatechangenews.com/2026/06/04/chinas-carbon-emissions-rise-again-as-more-clean-power-is-wasted/",
+      "source": "Climate Home News",
+      "date": "4 Jun 2026",
+      "summary": "The economic powerhouse burned more coal and gas in the first quarter of 2026, despite record wind and solar build-out\nThe post China&#8217;s carbon emissions rise again as more clean power is wasted ...",
       "tone": "neutral"
     },
     {
-      "title": "New BLM Grazing Rules Eliminate Tribal Buffalo From Public Lands",
-      "url": "https://insideclimatenews.org/news/05062026/blm-grazing-rules-eliminate-tribal-buffalo/",
-      "source": "Inside Climate News",
+      "title": "Investor climate group closes down, blaming “limits” of shareholder activism",
+      "url": "https://www.climatechangenews.com/2026/06/03/investor-climate-group-closes-down-blaming-limits-of-shareholder-activism/",
+      "source": "Climate Home News",
+      "date": "3 Jun 2026",
+      "summary": "Canadian campaign group Investors for Paris Compliance shut in May, saying efforts to push companies to tackle climate change have become less effective  \nThe post Investor climate group closes down, ...",
+      "tone": "neutral"
+    },
+    {
+      "title": "Former Crew Detail Harm Inflicted by Unregulated Squid Fishing",
+      "url": "https://e360.yale.edu/digest/squid-fishing-report",
+      "source": "Yale Environment 360",
       "date": "5 Jun 2026",
-      "summary": "SEATTLE—Tribal bison were on an extraordinary roll before the second term of President Donald J. Trump. Herds were expanding across Indian Country, as was Native consumption of bison meat, which is le...",
+      "summary": "Former crew members on squid fishing expeditions report environmental destruction and labor abuses, due to a regulatory vacuum.Read more on E360 →",
+      "tone": "neutral"
+    },
+    {
+      "title": "Humans Are Changing How Nature Smells, With Risks for Wildlife",
+      "url": "https://e360.yale.edu/features/smellscapes",
+      "source": "Yale Environment 360",
+      "date": "4 Jun 2026",
+      "summary": "A growing body of research shows how air pollution, fertilizers, and fungicides are altering the chemical signals that plants and animals use to communicate. Scientists warn that insect reproduction, ...",
+      "tone": "neutral"
+    },
+    {
+      "title": "U.S. to Dismantle System Tracking Atlantic Currents That Are at Risk of Collapse",
+      "url": "https://e360.yale.edu/digest/trump-ooi-amoc",
+      "source": "Yale Environment 360",
+      "date": "3 Jun 2026",
+      "summary": "The Trump administration is moving to dismantle an ocean observation system consisting of more than 900 instruments in the Pacific and Atlantic oceans. Data supplied by the system has been used to stu...",
+      "tone": "neutral"
+    },
+    {
+      "title": "Tire Pollution May Threaten Human Health, Study Finds",
+      "url": "https://e360.yale.edu/digest/tire-particle-study",
+      "source": "Yale Environment 360",
+      "date": "2 Jun 2026",
+      "summary": "Tiny particles of rubber cast off by car tires, which have long been known to harm wildlife, may also pose a risk to humans, according to a new study.Read more on E360 →",
+      "tone": "neutral"
+    },
+    {
+      "title": "The Pilgrimage to Mecca Is Becoming More Dangerous as Mideast Warms",
+      "url": "https://e360.yale.edu/digest/mecca-climate-change",
+      "source": "Yale Environment 360",
+      "date": "1 Jun 2026",
+      "summary": "Global heating has “fundamentally altered” the climate of Mecca, Saudi Arabia, and is exposing millions of hajj pilgrims to extreme and dangerous heat even in months outside summer, a new analysis has...",
       "tone": "neutral"
     }
   ]
