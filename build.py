@@ -12,27 +12,26 @@ from urllib.error import URLError, HTTPError
 # ─────────────────────────────────────────────
 RSS_FEEDS = [
     # Right-leaning / sceptic
-    {"source": "The Spectator",        "url": "https://www.spectator.co.uk/feed/",                                      "max": 50},
-    {"source": "GB News",              "url": "https://www.gbnews.com/feeds/news.rss",                                  "max": 50},
-    {"source": "Daily Mail",           "url": "https://www.dailymail.co.uk/news/environment/index.rss",                 "max": 50},
-    {"source": "The Sun",              "url": "https://www.thesun.co.uk/feed/",                                         "max": 50},
-    {"source": "The Telegraph",        "url": "https://www.telegraph.co.uk/rss.xml",                                    "max": 50},
-    {"source": "The Express",          "url": "https://www.express.co.uk/posts/rss",                                    "max": 50},
-    {"source": "The Times",            "url": "https://openrss.org/thetimes.co.uk/environment",                         "max": 20},
+    {"source": "The Spectator",    "url": "https://www.spectator.co.uk/feed/",                                "max": 50},
+    {"source": "GB News",          "url": "https://www.gbnews.com/feeds/news.rss",                            "max": 50},
+    {"source": "Daily Mail",       "url": "https://www.dailymail.co.uk/sciencetech/index.rss",                "max": 50},
+    {"source": "The Sun",          "url": "https://www.thesun.co.uk/feed/",                                   "max": 50},
+    {"source": "The Telegraph",    "url": "https://www.telegraph.co.uk/rss.xml",                              "max": 50},
+    {"source": "The Express",      "url": "https://www.express.co.uk/posts/rss",                              "max": 50},
 
     # Centre
-    {"source": "BBC Environment",      "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",          "max": 20},
-    {"source": "Sky News",             "url": "https://feeds.skynews.com/feeds/rss/environment.xml",                    "max": 20},
-    {"source": "ITV News",             "url": "https://www.itv.com/news/index.rss",                                     "max": 50},
-    {"source": "Evening Standard",     "url": "https://www.standard.co.uk/news/rss",                                    "max": 50},
-    {"source": "The i",                "url": "https://inews.co.uk/feed",                                               "max": 20},
+    {"source": "BBC Environment",  "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",    "max": 20},
+    {"source": "Sky News",         "url": "https://feeds.skynews.com/feeds/rss/home.xml",                     "max": 50},
+    {"source": "Evening Standard", "url": "https://www.standard.co.uk/news/rss",                              "max": 50},
+    {"source": "The i",            "url": "https://inews.co.uk/feed",                                         "max": 20},
 
     # Centre-left
-    {"source": "The Guardian",         "url": "https://www.theguardian.com/environment/climate-crisis/rss",             "max": 20},
-    {"source": "The Independent",      "url": "https://www.independent.co.uk/climate-change/rss",                       "max": 20},
-    {"source": "The Mirror",           "url": "https://www.mirror.co.uk/?service=rss",                                  "max": 50},
-    {"source": "Channel 4 News",       "url": "https://www.channel4.com/news/feed",                                     "max": 50},
+    {"source": "The Guardian",     "url": "https://www.theguardian.com/environment/climate-crisis/rss",       "max": 20},
+    {"source": "The Independent",  "url": "https://www.independent.co.uk/rss",                                "max": 50},
+    {"source": "The Mirror",       "url": "https://www.mirror.co.uk/?service=rss",                            "max": 50},
+    {"source": "Channel 4 News",   "url": "https://www.channel4.com/news/feed",                               "max": 50},
 ]
+
 ROLLING_DAYS = 7
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
@@ -52,71 +51,92 @@ TOPICS = [
 # KEYWORD FILTER
 # ─────────────────────────────────────────────
 TIER1 = [
+    # Core climate
     'climate change', 'climate crisis', 'climate emergency', 'climate action',
     'climate policy', 'climate summit', 'climate target', 'climate model',
     'climate finance', 'climate activist', 'climate sceptic', 'climate skeptic',
     'climate denier', 'climate alarmist', 'climate hysteria', 'climate cult',
     'climate agenda', 'climate lobby', 'climate litigation', 'climate lawsuit',
+    'climate science', 'climate data', 'climate report',
     'global warming', 'greenhouse gas', 'greenhouse effect',
     'carbon emissions', 'carbon footprint', 'carbon capture', 'carbon offset',
     'carbon tax', 'carbon budget', 'carbon neutral', 'carbon dioxide',
     'carbon price', 'carbon market', 'carbon border', 'carbon tariff',
-    'stranded assets', 'scope 3 emissions', 'methane emissions',
+    'stranded assets', 'scope 3 emissions', 'methane emissions', 'co2 emissions',
     'net zero', 'decarbonisation', 'decarbonization',
-    'paris agreement', 'cop29', 'cop30', 'ipcc', 'unfccc',
+
+    # Policy & agreements
+    'paris agreement', 'cop29', 'cop30', 'cop31', 'ipcc', 'unfccc',
     'emissions trading', 'emissions target', 'emissions reduction',
     'just transition', 'green new deal', 'loss and damage fund',
     'nature-based solutions', 'biodiversity net gain', 'environment act',
     'seventh carbon budget', 'sixth carbon budget', 'clean power 2030',
     'great british energy', 'energy security bill', 'climate change committee',
+    'net zero strategy', 'green finance',
+
+    # Energy
     'fossil fuel', 'renewable energy', 'clean energy', 'energy transition',
-    'offshore wind', 'wind farm', 'wind turbine', 'solar power', 'solar panel',
-    'solar farm', 'green hydrogen', 'hydrogen fuel', 'tidal power', 'tidal energy',
-    'nuclear energy', 'battery storage', 'energy storage', 'grid capacity',
-    'north sea oil', 'north sea licence', 'rosebank oilfield',
-    'cambo oilfield', 'fracking', 'coal power', 'coal mine',
-    'oil industry', 'oil drilling', 'gas drilling', 'gas pipeline',
-    'electric vehicle', 'ev charging', 'ev mandate', 'petrol ban',
-    'diesel ban', 'boiler ban', 'boiler upgrade', 'heat pump',
+    'offshore wind', 'onshore wind', 'wind farm', 'wind turbine', 'wind power',
+    'solar power', 'solar panel', 'solar farm', 'solar energy',
+    'green hydrogen', 'hydrogen fuel', 'tidal power', 'tidal energy',
+    'nuclear energy', 'nuclear power', 'battery storage', 'energy storage',
+    'grid capacity', 'north sea oil', 'north sea gas', 'north sea licence',
+    'rosebank oilfield', 'cambo oilfield', 'fracking', 'coal power', 'coal mine',
+    'coal fired', 'oil industry', 'oil drilling', 'gas drilling', 'gas pipeline',
+    'oil spill', 'energy poverty', 'fuel poverty',
+    'green levies', 'green tax', 'wind subsidy', 'solar subsidy',
+
+    # Transport
+    'electric vehicle', 'electric car', 'ev charging', 'ev mandate',
+    'petrol ban', 'diesel ban', 'boiler ban', 'boiler upgrade', 'heat pump',
     'ulez', 'low emission zone', 'war on motorists', 'war on drivers',
-    'ban on petrol', 'ban on diesel',
+    'ban on petrol', 'ban on diesel', 'zero emission vehicle',
+
+    # Nature & biodiversity
     'biodiversity', 'species extinction', 'habitat loss', 'deforestation',
     'reforestation', 'rewilding', 'ocean acidification', 'sea level rise',
-    'arctic ice', 'glacier retreat', 'permafrost', 'coral reef',
-    'marine protected area', 'nature recovery', 'wildlife corridor',
-    'species decline', 'bee population', 'insect population',
+    'arctic ice', 'arctic melt', 'glacier retreat', 'permafrost',
+    'coral reef', 'coral bleaching', 'marine protected area', 'nature recovery',
+    'wildlife corridor', 'species decline', 'bee population', 'insect population',
+    'endangered species', 'habitat destruction', 'rainforest destruction',
+    'mangrove', 'kelp forest', 'peatland', 'wetlands loss',
+
+    # Pollution
     'plastic pollution', 'microplastics', 'water pollution', 'toxic waste',
     'sewage dumping', 'river pollution', 'air pollution', 'particulate matter',
-    'nitrogen dioxide', 'pm2.5',
+    'nitrogen dioxide', 'pm2.5', 'chemical pollution',
+
+    # Sceptic / tabloid framing
     'green blob', 'eco zealot', 'eco madness', 'green madness',
     'net zero madness', 'net zero cost', 'net zero burden', 'net zero bill',
-    'green levies', 'green tax', 'green ideology',
-    'green obsession', 'green targets', 'eco activist',
+    'green ideology', 'green obsession', 'green targets', 'eco activist',
     'extinction rebellion', 'just stop oil', 'insulate britain',
-    'greenwashing', 'fuel poverty', 'energy poverty',
-    'wind subsidy', 'solar subsidy', 'wind farm backlash',
+    'greenwashing', 'wind farm backlash', 'solar farm backlash',
+
+    # Climate science & reporting
     'hottest year', 'hottest ever', 'record temperature', 'record heat',
-    'extreme weather event', 'climate report', 'ipcc report',
-    'global temperature', 'temperature record',
-    'energy security bill', 'great british energy', 'national grid upgrade',
+    'extreme weather event', 'ipcc report', 'global temperature',
+    'temperature record', 'sea level', 'el nino', 'el niño',
+    'sea defences', 'environment agency', 'natural england',
+
+    # UK specific policy
     'climate change committee', 'carbon budget uk',
     'north sea energy', 'clean power target',
 ]
 
 TIER2 = [
     'flooding', 'flash flood', 'drought', 'heatwave', 'heat stress',
-    'wildfire', 'water scarcity', 'storm surge', 'extreme weather',
+    'wildfire', 'water scarcity', 'storm surge',
     'energy bills', 'energy costs', 'energy crisis', 'energy price',
     'electricity price', 'heating costs',
     'sustainability', 'sustainable development',
     'circular economy', 'sustainable agriculture',
     'regenerative farming', 'soil health',
-    'rainforest', 'wetlands', 'ecosystem', 'nature reserve',
-    'coal industry', 'oil spill', 'gas leak', 'air quality',
+    'ecosystem', 'coal industry', 'gas leak', 'air quality',
+    'el nino', 'flood risk',
 ]
 
 def is_relevant(article):
-    # Check title + RSS summary + content encoded
     text = (
         article.get('title', '') + ' ' +
         article.get('raw_rss', '') + ' ' +
@@ -130,7 +150,7 @@ def is_relevant(article):
     return False
 
 # ─────────────────────────────────────────────
-# FETCH META DESCRIPTION FROM ARTICLE PAGE
+# FETCH META DESCRIPTION
 # ─────────────────────────────────────────────
 def fetch_meta_description(url):
     try:
@@ -140,15 +160,12 @@ def fetch_meta_description(url):
         })
         with urlopen(req, timeout=10) as response:
             html = response.read(50000).decode('utf-8', errors='ignore')
-
         og = re.search(r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\'](.*?)["\']', html, re.IGNORECASE)
         if og:
             return og.group(1).strip()
-
         meta = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', html, re.IGNORECASE)
         if meta:
             return meta.group(1).strip()
-
         return ""
     except Exception:
         return ""
@@ -180,19 +197,16 @@ def fetch_articles():
                 title = entry.get("title", "").strip()
                 url = entry.get("link", "")
 
-                # Standard RSS summary/description
                 raw_rss = entry.get("summary", entry.get("description", ""))
                 raw_rss = re.sub(r'<[^>]+>', '', raw_rss).strip()
                 raw_rss = raw_rss[:800]
 
-                # content:encoded — richer full text some feeds provide
                 raw_content = ""
                 if hasattr(entry, "content") and entry.content:
                     raw_content = entry.content[0].get("value", "")
                     raw_content = re.sub(r'<[^>]+>', '', raw_content).strip()
                     raw_content = raw_content[:1500]
 
-                # Use the richest available text for analysis
                 raw_summary = raw_content if len(raw_content) > len(raw_rss) else raw_rss
 
                 pub_date_str = ""
@@ -212,9 +226,9 @@ def fetch_articles():
                         "source": feed_config["source"],
                         "title": title,
                         "url": url,
-                        "raw_summary": raw_summary,   # richest available for Claude
-                        "raw_rss": raw_rss,           # standard RSS excerpt for display
-                        "raw_content": raw_content,   # content:encoded for display
+                        "raw_summary": raw_summary,
+                        "raw_rss": raw_rss,
+                        "raw_content": raw_content,
                         "date": pub_date_str,
                         "pub_date_iso": pub_date_dt.isoformat() if pub_date_dt else "",
                     })
@@ -224,7 +238,6 @@ def fetch_articles():
         except Exception as e:
             print(f"✗ {feed_config['source']}: {e}")
 
-    # Keyword filter
     filtered = []
     for article in articles:
         if is_relevant(article):
@@ -236,10 +249,9 @@ def fetch_articles():
     return filtered
 
 # ─────────────────────────────────────────────
-# CALL CLAUDE API FOR SUMMARY + TONE + TOPIC
+# CLAUDE API
 # ─────────────────────────────────────────────
 def analyse_article(article):
-    # Check if we have enough data to do meaningful analysis
     available_text = (
         article.get('raw_rss', '') + ' ' +
         article.get('raw_content', '') + ' ' +
@@ -254,9 +266,7 @@ def analyse_article(article):
             "low_confidence": len(available_text) < 50,
         }
 
-    # Flag low confidence if we have very little to work with
     low_confidence = len(available_text) < 50
-
     if low_confidence:
         return {
             "summary": "Insufficient source data for a reliable summary — click to read the full article.",
@@ -265,7 +275,6 @@ def analyse_article(article):
             "low_confidence": True,
         }
 
-    # Build source data string
     source_data = f"Title: {article['title']}\nSource: {article['source']}\n"
     if article.get('raw_rss'):
         source_data += f"RSS excerpt: {article['raw_rss']}\n"
