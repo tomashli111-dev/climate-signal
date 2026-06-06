@@ -40,6 +40,7 @@ RSS_FEEDS = [
 
 ROLLING_DAYS = 7
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+JINA_MIN_LENGTH = 200  # minimum characters to consider Jina result useful
 
 # ─────────────────────────────────────────────
 # KEYWORD FILTER
@@ -117,7 +118,8 @@ def is_relevant(article):
     text = (
         article.get('title', '') + ' ' +
         article.get('raw_rss', '') + ' ' +
-        article.get('raw_content', '')
+        article.get('raw_content', '') + ' ' +
+        article.get('jina_text', '')
     ).lower()
     if any(kw in text for kw in TIER1):
         return True
@@ -127,9 +129,41 @@ def is_relevant(article):
     return False
 
 # ─────────────────────────────────────────────
-# FETCH META DESCRIPTION
+# FETCH FULL ARTICLE TEXT VIA JINA
 # ─────────────────────────────────────────────
-def fetch_meta_description(url):
+def fetch_article_text(url):
+    """
+    Try Jina Reader first for full article text.
+    Falls back to meta description if Jina fails or returns too little.
+    Returns (jina_text, meta_description, source_used)
+    """
+    jina_text = ""
+    meta_description = ""
+
+    # Try Jina Reader
+    try:
+        jina_url = f"https://r.jina.ai/{url}"
+        req = Request(jina_url, headers={
+            'User-Agent': 'Mozilla/5.0 (compatible; ClimateSignalBot/1.0)',
+            'Accept': 'text/plain',
+            'X-Return-Format': 'text',
+        })
+        with urlopen(req, timeout=15) as response:
+            raw = response.read(100000).decode('utf-8', errors='ignore')
+            # Strip Jina metadata header (first few lines)
+            lines = raw.split('\n')
+            content_lines = [l for l in lines if not l.startswith('Title:') and
+                           not l.startswith('URL:') and
+                           not l.startswith('Published') and
+                           not l.startswith('Description:') and
+                           not l.startswith('Warning:')]
+            jina_text = '\n'.join(content_lines).strip()
+            jina_text = jina_text[:3000]  # cap at 3000 chars for Claude
+
+    except Exception:
+        pass
+
+    # Try meta description as fallback / supplement
     try:
         req = Request(url, headers={
             'User-Agent': 'Mozilla/5.0 (compatible; ClimateSignalBot/1.0)',
@@ -139,13 +173,23 @@ def fetch_meta_description(url):
             html = response.read(50000).decode('utf-8', errors='ignore')
         og = re.search(r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\'](.*?)["\']', html, re.IGNORECASE)
         if og:
-            return og.group(1).strip()
-        meta = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', html, re.IGNORECASE)
-        if meta:
-            return meta.group(1).strip()
-        return ""
+            meta_description = og.group(1).strip()
+        else:
+            meta = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', html, re.IGNORECASE)
+            if meta:
+                meta_description = meta.group(1).strip()
     except Exception:
-        return ""
+        pass
+
+    # Determine best source
+    if len(jina_text) >= JINA_MIN_LENGTH:
+        source_used = "full article (Jina)"
+    elif meta_description:
+        source_used = "page description"
+    else:
+        source_used = "RSS excerpt only"
+
+    return jina_text, meta_description, source_used
 
 # ─────────────────────────────────────────────
 # LOAD EXISTING ARCHIVE
@@ -211,27 +255,27 @@ def fetch_articles():
                     })
                     count += 1
 
-            print(f"✓ {feed_config['source']} ({feed_config['url'].split('/')[2]}): {count} articles")
+            print(f"✓ {feed_config['source']}: {count} articles")
         except Exception as e:
             print(f"✗ {feed_config['source']}: {e}")
 
-    # Deduplicate by URL before filtering
+    # Deduplicate by URL
     seen = set()
     unique = []
     for a in articles:
         if a['url'] not in seen:
             seen.add(a['url'])
             unique.append(a)
-    articles = unique
 
+    # Keyword filter — uses RSS text at this stage
     filtered = []
-    for article in articles:
+    for article in unique:
         if is_relevant(article):
             filtered.append(article)
         else:
             print(f"  ✗ Filtered out: {article['title'][:60]}")
 
-    print(f"After keyword filter: {len(filtered)}/{len(articles)} articles kept")
+    print(f"After keyword filter: {len(filtered)}/{len(unique)} articles kept")
     return filtered
 
 # ─────────────────────────────────────────────
@@ -308,11 +352,24 @@ No other text."""
 # STEP 2: ASSIGN ARTICLE TO TOPIC + SUMMARY
 # ─────────────────────────────────────────────
 def analyse_article(article, topics):
-    available_text = (
-        article.get('raw_rss', '') + ' ' +
-        article.get('raw_content', '') + ' ' +
-        article.get('raw_meta', '')
-    ).strip()
+    # Build best available source data
+    jina_text = article.get('jina_text', '')
+    meta = article.get('raw_meta', '')
+    raw_rss = article.get('raw_rss', '')
+    raw_content = article.get('raw_content', '')
+    source_used = article.get('source_used', 'RSS excerpt only')
+
+    # Pick richest available text
+    if len(jina_text) >= JINA_MIN_LENGTH:
+        primary_text = jina_text[:2000]
+    elif raw_content:
+        primary_text = raw_content
+    elif meta:
+        primary_text = meta
+    else:
+        primary_text = raw_rss
+
+    available_text = primary_text.strip()
 
     if not ANTHROPIC_API_KEY:
         return {
@@ -330,12 +387,11 @@ def analyse_article(article, topics):
         }
 
     source_data = f"Title: {article['title']}\nSource: {article['source']}\n"
-    if article.get('raw_rss'):
-        source_data += f"RSS excerpt: {article['raw_rss']}\n"
-    if article.get('raw_content') and article['raw_content'] != article.get('raw_rss'):
-        source_data += f"Full RSS content: {article['raw_content']}\n"
-    if article.get('raw_meta') and article['raw_meta'] not in (article.get('raw_rss',''), article.get('raw_content','')):
-        source_data += f"Page description: {article['raw_meta']}\n"
+    source_data += f"Article text ({source_used}):\n{available_text}\n"
+
+    # Add RSS excerpt too if it's different and we have full text
+    if len(jina_text) >= JINA_MIN_LENGTH and raw_rss and raw_rss not in jina_text[:200]:
+        source_data += f"RSS excerpt: {raw_rss[:200]}\n"
 
     topics_list = "\n".join(f"- {t}" for t in topics)
 
@@ -344,20 +400,20 @@ def analyse_article(article, topics):
 Available data:
 {source_data}
 
-Important: Base your summary ONLY on the information provided above. Do not add details not present in the source.
+Important: Base your summary ONLY on the information provided above.
 
 Topics available (pick the single best fit):
 {topics_list}
 
 Respond with ONLY a JSON object:
 {{
-  "summary": "1-2 sentence plain-English summary based strictly on the source data.",
+  "summary": "2-3 sentence plain-English summary based strictly on the source data.",
   "topic": "exact topic name from the list above"
 }}
 
 No other text."""
 
-    result = claude(prompt, max_tokens=250)
+    result = claude(prompt, max_tokens=300)
     if result:
         try:
             parsed = json.loads(result)
@@ -429,15 +485,19 @@ def main():
     new_articles = [a for a in new_raw if a['url'] not in existing_urls]
     print(f"\nNew articles to process: {len(new_articles)}")
 
+    # Fetch full article text via Jina + meta description
     if new_articles:
-        print("\nFetching meta descriptions...")
+        print("\nFetching article text via Jina Reader...")
         for i, article in enumerate(new_articles):
-            meta = fetch_meta_description(article['url'])
-            article['meta_description'] = meta
-            status = "✓" if meta else "✗"
-            print(f"  {status} [{i+1}/{len(new_articles)}] {article['source']}: {article['title'][:45]}...")
-            time.sleep(0.2)
+            jina_text, meta_desc, source_used = fetch_article_text(article['url'])
+            article['jina_text'] = jina_text
+            article['raw_meta'] = meta_desc
+            article['source_used'] = source_used
+            status = "✓ full" if len(jina_text) >= JINA_MIN_LENGTH else ("✓ meta" if meta_desc else "✗ rss only")
+            print(f"  {status} [{i+1}/{len(new_articles)}] {article['source']}: {article['title'][:40]}...")
+            time.sleep(0.3)  # polite delay for Jina
 
+    # Build processed new articles
     processed_new = []
     for article in new_articles:
         processed_new.append({
@@ -448,7 +508,9 @@ def main():
             "pub_date_iso": article["pub_date_iso"],
             "raw_rss": article.get("raw_rss", ""),
             "raw_content": article.get("raw_content", ""),
-            "raw_meta": article.get("meta_description", ""),
+            "raw_meta": article.get("raw_meta", ""),
+            "jina_text": article.get("jina_text", ""),
+            "source_used": article.get("source_used", "RSS excerpt only"),
             "raw_summary": article.get("raw_summary", ""),
             "summary": "",
             "topic": "",
