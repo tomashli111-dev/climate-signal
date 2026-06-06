@@ -602,7 +602,7 @@
     const container = document.getElementById('articles-container');
 
     try {
-      const res = await fetch('articles.json');
+      const res = await fetch('articles.json?v=' + Date.now());
       if (!res.ok) throw new Error('No data yet');
       const data = await res.json();
       renderArticles(data);
