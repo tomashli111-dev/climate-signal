@@ -1,6 +1,77 @@
 {
-  "generated_at": "2026-06-06T12:01:09.242625+00:00",
+  "generated_at": "2026-06-06T18:14:51.133466+00:00",
+  "topics": [
+    "Net Zero & Climate Policy",
+    "Wind & Solar Energy",
+    "Oil, Gas & Fossil Fuels",
+    "Electric Vehicles & Transport",
+    "Nature & Biodiversity",
+    "Extreme Weather & Climate Science",
+    "Pollution & Environment",
+    "International Climate Politics",
+    "Other"
+  ],
   "articles": [
+    {
+      "title": "A disease of deforestation: how Ebola is linked to the smartphone in your pocket",
+      "url": "https://www.theguardian.com/world/2026/jun/05/ebola-mineral-mining-smartphones-congo",
+      "source": "The Guardian",
+      "date": "5 Jun 2026",
+      "pub_date_iso": "2026-06-05T09:00:30+00:00",
+      "summary": "As demand for cobalt, gold and other minerals grows, mining is accelerating deforestation in the Congo basin – and increasing the risk of deadly Ebola outbreaksFor decades after the discovery of Ebola...",
+      "tone": "neutral",
+      "topic": "Other",
+      "raw_rss": "As demand for cobalt, gold and other minerals grows, mining is accelerating deforestation in the Congo basin – and increasing the risk of deadly Ebola outbreaksFor decades after the discovery of Ebolavirus in 1976, outbreaks of the disease were relatively small and contained, affecting a few hundred people at most.Not any more. In recent years, outbreaks of Ebola have been much larger, affecting thousands and even tens of thousands of people across multiple countries. The 2014 outbreak of Ebola in west Africa infected more than 28,000 people in 10 countries on three continents. The current eruption, which began in early May and shows no signs of abating, has caused 363 confirmed cases in the Democratic Republic of the Congo and has crossed into Uganda.Sonia Shah is the author of five books",
+      "raw_meta": "As demand for cobalt, gold and other minerals grows, mining is accelerating deforestation in the Congo basin – and increasing the risk of deadly Ebola outbreaks"
+    },
+    {
+      "title": "Indonesia’s failing Just Energy Transition Partnership is a cautionary tale",
+      "url": "https://www.climatechangenews.com/2026/06/03/indonesias-failing-just-energy-transition-partnership-is-a-cautionary-tale/",
+      "source": "Climate Home News",
+      "date": "3 Jun 2026",
+      "pub_date_iso": "2026-06-03T10:07:07+00:00",
+      "summary": "The government has abandoned its plan to shut down a major coal plant, which was a key part of the deal, raising doubts about the donor-backed approach\nThe post Indonesia&#8217;s failing Just Energy T...",
+      "tone": "neutral",
+      "topic": "Other",
+      "raw_rss": "The government has abandoned its plan to shut down a major coal plant, which was a key part of the deal, raising doubts about the donor-backed approach\nThe post Indonesia&#8217;s failing Just Energy Transition Partnership is a cautionary tale appeared first on Climate Home News.",
+      "raw_meta": "The government has abandoned its plan to shut down a major coal plant, which was a key part of the deal, raising doubts about the donor-backed approach"
+    },
+    {
+      "title": "Young South Africans take up sustainable agriculture for food security",
+      "url": "https://www.climatechangenews.com/2026/06/02/young-south-africans-take-up-sustainable-agriculture-for-food-security/",
+      "source": "Climate Home News",
+      "date": "2 Jun 2026",
+      "pub_date_iso": "2026-06-02T18:11:15+00:00",
+      "summary": "Aquaponics is seeing a revival in South Africa's schools, boosted by government support and climate concerns\nThe post Young South Africans take up sustainable agriculture for food security appeared fi...",
+      "tone": "neutral",
+      "topic": "Other",
+      "raw_rss": "Aquaponics is seeing a revival in South Africa's schools, boosted by government support and climate concerns\nThe post Young South Africans take up sustainable agriculture for food security appeared first on Climate Home News.",
+      "raw_meta": "Aquaponics is seeing a revival in South Africa&#039;s schools, boosted by government support and climate concerns"
+    },
+    {
+      "title": "Santa Marta process can confront trade protection for fossil fuels, experts say",
+      "url": "https://www.climatechangenews.com/2026/06/02/santa-marta-process-can-confront-trade-protection-for-fossil-fuels-experts-say/",
+      "source": "Climate Home News",
+      "date": "2 Jun 2026",
+      "pub_date_iso": "2026-06-02T18:09:07+00:00",
+      "summary": "Academics at the first fossil fuel phase-out summit urged governments to recognise investor protection treaties as a barrier to the energy transition\nThe post Santa Marta process can confront trade pr...",
+      "tone": "neutral",
+      "topic": "Other",
+      "raw_rss": "Academics at the first fossil fuel phase-out summit urged governments to recognise investor protection treaties as a barrier to the energy transition\nThe post Santa Marta process can confront trade protection for fossil fuels, experts say appeared first on Climate Home News.",
+      "raw_meta": "Academics at the first fossil fuel phase-out summit urged governments to recognise investor protection treaties as a barrier to the energy transition"
+    },
+    {
+      "title": "Q&A: The current state of ‘carbon dioxide removal’ around the world",
+      "url": "https://www.carbonbrief.org/qa-the-current-state-of-carbon-dioxide-removal-around-the-world/",
+      "source": "Carbon Brief",
+      "date": "2 Jun 2026",
+      "pub_date_iso": "2026-06-02T13:31:33+00:00",
+      "summary": "Carbon dioxide removal (CDR) technologies will need to be deployed at rates even faster than...\nThe post Q&amp;A: The current state of ‘carbon dioxide removal’ around the world appeared first on Carbo...",
+      "tone": "neutral",
+      "topic": "Other",
+      "raw_rss": "Carbon dioxide removal (CDR) technologies will need to be deployed at rates even faster than...\nThe post Q&amp;A: The current state of ‘carbon dioxide removal’ around the world appeared first on Carbon Brief.",
+      "raw_meta": "A new report says that CDR technologies will need to be deployed at rates even faster than solar power, to have a chance of limiting global warming to 1.5C."
+    },
     {
       "title": "Birmingham elects Liberal Democrat to lead council as smallest group takes control",
       "url": "https://www.gbnews.com/politics/birmingham-city-council-liberal-democrat-reform",
