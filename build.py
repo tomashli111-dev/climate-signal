@@ -11,7 +11,6 @@ from urllib.error import URLError
 # CONFIGURATION — add or remove feeds here
 # ─────────────────────────────────────────────
 RSS_FEEDS = [
-   RSS_FEEDS = [
     # Right-leaning / sceptic
     {"source": "The Spectator",       "url": "https://www.spectator.co.uk/feed/"},
     {"source": "GB News",             "url": "https://www.gbnews.com/feeds/news.rss"},
