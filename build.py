@@ -11,21 +11,30 @@ from urllib.error import URLError, HTTPError
 # CONFIGURATION
 # ─────────────────────────────────────────────
 RSS_FEEDS = [
-    # Right-leaning
+    # Right-leaning / sceptic
     {"source": "GB News",          "url": "https://www.gbnews.com/feeds/news.rss",                            "max": 50},
+    {"source": "GB News",          "url": "https://www.gbnews.com/feeds/politics.rss",                        "max": 30},
+    {"source": "GB News",          "url": "https://www.gbnews.com/feeds/opinion.rss",                         "max": 30},
     {"source": "Daily Mail",       "url": "https://www.dailymail.co.uk/sciencetech/index.rss",                "max": 50},
+    {"source": "Daily Mail",       "url": "https://www.dailymail.co.uk/news/environment/index.rss",           "max": 30},
     {"source": "The Sun",          "url": "https://www.thesun.co.uk/feed/",                                   "max": 50},
+    {"source": "The Spectator",    "url": "https://www.spectator.co.uk/feed/",                                "max": 50},
+    {"source": "The Express",      "url": "https://www.express.co.uk/posts/rss",                              "max": 50},
 
     # Centre
     {"source": "BBC Environment",  "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",    "max": 20},
     {"source": "Sky News",         "url": "https://feeds.skynews.com/feeds/rss/home.xml",                     "max": 50},
+    {"source": "Sky News",         "url": "https://feeds.skynews.com/feeds/rss/politics.xml",                 "max": 30},
     {"source": "Evening Standard", "url": "https://www.standard.co.uk/news/rss",                              "max": 50},
     {"source": "The i",            "url": "https://inews.co.uk/feed",                                         "max": 20},
 
     # Centre-left
     {"source": "The Guardian",     "url": "https://www.theguardian.com/environment/climate-crisis/rss",       "max": 20},
+    {"source": "The Guardian",     "url": "https://www.theguardian.com/environment/rss",                      "max": 20},
     {"source": "The Independent",  "url": "https://www.independent.co.uk/rss",                                "max": 50},
+    {"source": "The Independent",  "url": "https://www.independent.co.uk/climate-change/rss",                 "max": 20},
     {"source": "The Mirror",       "url": "https://www.mirror.co.uk/?service=rss",                            "max": 50},
+    {"source": "The Mirror",       "url": "https://www.mirror.co.uk/science/?service=rss",                    "max": 30},
     {"source": "Channel 4 News",   "url": "https://www.channel4.com/news/feed",                               "max": 50},
 ]
 
@@ -202,9 +211,18 @@ def fetch_articles():
                     })
                     count += 1
 
-            print(f"✓ {feed_config['source']}: {count} articles (within {ROLLING_DAYS} days)")
+            print(f"✓ {feed_config['source']} ({feed_config['url'].split('/')[2]}): {count} articles")
         except Exception as e:
             print(f"✗ {feed_config['source']}: {e}")
+
+    # Deduplicate by URL before filtering
+    seen = set()
+    unique = []
+    for a in articles:
+        if a['url'] not in seen:
+            seen.add(a['url'])
+            unique.append(a)
+    articles = unique
 
     filtered = []
     for article in articles:
@@ -394,7 +412,6 @@ def main():
 
     out_path = os.path.join(os.path.dirname(__file__), "docs", "articles.json")
 
-    # Load and prune existing archive
     existing = load_existing(out_path)
     existing_urls = {a['url'] for a in existing}
     print(f"\nExisting archive: {len(existing)} articles")
@@ -407,13 +424,11 @@ def main():
     ]
     print(f"After pruning: {len(existing)} articles remain")
 
-    # Fetch new articles
     print("\nFetching RSS feeds...")
     new_raw = fetch_articles()
     new_articles = [a for a in new_raw if a['url'] not in existing_urls]
     print(f"\nNew articles to process: {len(new_articles)}")
 
-    # Fetch meta descriptions for new articles
     if new_articles:
         print("\nFetching meta descriptions...")
         for i, article in enumerate(new_articles):
@@ -423,7 +438,6 @@ def main():
             print(f"  {status} [{i+1}/{len(new_articles)}] {article['source']}: {article['title'][:45]}...")
             time.sleep(0.2)
 
-    # Build processed new articles (without topic yet)
     processed_new = []
     for article in new_articles:
         processed_new.append({
@@ -436,13 +450,11 @@ def main():
             "raw_content": article.get("raw_content", ""),
             "raw_meta": article.get("meta_description", ""),
             "raw_summary": article.get("raw_summary", ""),
-            # placeholders
             "summary": "",
             "topic": "",
             "low_confidence": False,
         })
 
-    # Combine full archive
     all_articles = existing + processed_new
 
     if not ANTHROPIC_API_KEY:
@@ -454,12 +466,10 @@ def main():
                 a['topic'] = 'General'
         topic_summaries = {}
     else:
-        # Step 1: Generate topics for full archive
         print(f"\nGenerating topics for {len(all_articles)} articles...")
         topics = generate_topics(all_articles)
         time.sleep(0.5)
 
-        # Step 2: Assign every article to a topic + generate summary
         print(f"\nAnalysing all {len(all_articles)} articles...")
         for i, article in enumerate(all_articles):
             print(f"  [{i+1}/{len(all_articles)}] {article['title'][:55]}...")
@@ -469,7 +479,6 @@ def main():
             article['low_confidence'] = analysis.get('low_confidence', False)
             time.sleep(0.3)
 
-        # Step 3: Generate topic meta-summaries
         print("\nGenerating topic summaries...")
         topic_summaries = {}
         grouped = {}
@@ -486,7 +495,6 @@ def main():
                 topic_summaries[topic] = summary
                 time.sleep(0.3)
 
-    # Sort by date
     all_articles.sort(key=lambda a: a.get('pub_date_iso', ''), reverse=True)
 
     output = {
