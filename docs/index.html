@@ -253,7 +253,8 @@ function articleHTML(a){
   const hasRss=a.raw_rss&&a.raw_rss.trim();
   const hasMeta=a.raw_meta&&a.raw_meta.trim()&&a.raw_meta!==a.raw_rss;
   const hasContent=a.raw_content&&a.raw_content.trim()&&a.raw_content!==a.raw_rss;
-  const dataUsed=[hasRss&&'RSS excerpt',hasContent&&'full RSS content',hasMeta&&'page description'].filter(Boolean).join(' + ')||'title only';
+  const hasJina=a.jina_text&&a.jina_text.trim().length>=200;
+  const sourceUsed=a.source_used||'RSS excerpt only';
 
   return `
     <div class="article" data-topic="${a.topic||''}">
@@ -264,6 +265,7 @@ function articleHTML(a){
             <div class="meta-dot"></div>
             <span class="article-date">${a.date}</span>
             ${a.low_confidence?'<span class="low-confidence-badge">low data</span>':''}
+            ${hasJina?'<span class="low-confidence-badge" style="background:#eef5f1;color:#2a5c3f;border-color:rgba(42,92,63,0.2)">full article</span>':''}
           </div>
           <a class="article-title" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${a.title}</a>
           <p class="article-summary${a.low_confidence?' low-confidence':''}">${a.summary}</p>
@@ -275,18 +277,19 @@ function articleHTML(a){
       </div>
       <div class="source-panel" id="${pid}">
         <div class="source-tabs">
-          <button class="source-tab active" onclick="switchTab(this,'${pid}-rss')">RSS excerpt</button>
-          <button class="source-tab" onclick="switchTab(this,'${pid}-content')">Full RSS content</button>
+          ${hasJina?`<button class="source-tab active" onclick="switchTab(this,'${pid}-jina')">Full article text</button>`:''}
+          <button class="source-tab${!hasJina?' active':''}" onclick="switchTab(this,'${pid}-rss')">RSS excerpt</button>
           <button class="source-tab" onclick="switchTab(this,'${pid}-meta')">Page description</button>
           <button class="source-tab" onclick="switchTab(this,'${pid}-about')">About this analysis</button>
         </div>
-        <div class="source-content" id="${pid}-rss">
-          <div class="data-label">Raw RSS excerpt</div>
+        ${hasJina?`
+        <div class="source-content" id="${pid}-jina">
+          <div class="data-label">Full article text (via Jina Reader)</div>
+          <p class="source-text">${a.jina_text.substring(0,1500)}${a.jina_text.length>1500?'…':''}</p>
+        </div>`:''}
+        <div class="source-content${hasJina?' hidden':''}" id="${pid}-rss">
+          <div class="data-label">RSS excerpt</div>
           ${hasRss?`<p class="source-text">"${a.raw_rss}"</p>`:`<p class="source-empty">No RSS excerpt available.</p>`}
-        </div>
-        <div class="source-content hidden" id="${pid}-content">
-          <div class="data-label">Full RSS content</div>
-          ${hasContent?`<p class="source-text">"${a.raw_content}"</p>`:`<p class="source-empty">No full RSS content available for this feed.</p>`}
         </div>
         <div class="source-content hidden" id="${pid}-meta">
           <div class="data-label">Page meta description</div>
@@ -295,9 +298,9 @@ function articleHTML(a){
         <div class="source-content hidden" id="${pid}-about">
           <div class="data-label">About this analysis</div>
           <p class="analysis-note">
-            <strong>Data used:</strong> ${dataUsed}<br><br>
-            <strong>What Claude did:</strong> Assigned this article to a topic and generated a summary based strictly on the available source data above. Claude was instructed not to add details not present in the source text.<br><br>
-            <strong>Limitations:</strong> ${a.low_confidence?'Very limited source data was available. ':''}The topic and summary are based on headlines and excerpts only, not the full article. AI-generated analysis may not perfectly reflect the article\'s full content or intent.
+            <strong>Data used for AI analysis:</strong> ${sourceUsed}<br><br>
+            <strong>What Claude did:</strong> Assigned this article to a topic and generated a summary based strictly on the available source data. Claude was instructed not to add details not present in the source text.<br><br>
+            <strong>Limitations:</strong> ${a.low_confidence?'Very limited source data was available. ':''}${!hasJina?'Full article text could not be retrieved — summary is based on headlines and excerpts only. ':''}AI-generated analysis may not perfectly reflect the article\'s full content or intent.
           </p>
         </div>
       </div>
