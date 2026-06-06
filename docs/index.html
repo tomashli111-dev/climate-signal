@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climate Signal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,80 +14,95 @@
       --ink:#0e0e0e; --ink2:#3a3a3a; --ink3:#888;
       --paper:#f5f0e8; --paper2:#ede8dc; --paper3:#e4ddd0;
       --border:rgba(0,0,0,0.12); --border2:rgba(0,0,0,0.07);
-      --accent:#2a5c3f; --accent-light:#eef5f1;
+      --topic-bg:#1a3a2a; --topic-text:#e8f5ee; --topic-sub:#7db898;
+      --accent:#2a5c3f;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background:var(--paper);color:var(--ink);font-family:'Geist',sans-serif;font-weight:300;min-height:100vh;}
 
     /* MASTHEAD */
-    .masthead{border-bottom:3px solid var(--ink);padding:1.5rem 2.5rem 1rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:1rem;}
-    .masthead-left{font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--ink3);letter-spacing:0.04em;line-height:1.6;}
-    .masthead-title{text-align:center;}
-    .masthead-title h1{font-family:'Fraunces',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:900;letter-spacing:-0.04em;line-height:0.9;}
-    .masthead-title .tagline{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-top:0.4rem;}
-    .masthead-right{text-align:right;font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--ink3);letter-spacing:0.04em;line-height:1.6;}
-
-    /* TICKER */
-    .ticker{display:flex;align-items:center;border-bottom:1px solid var(--border);overflow:hidden;}
-    .ticker-label{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:0.45rem 1rem;white-space:nowrap;flex-shrink:0;}
-    .ticker-items{display:flex;overflow-x:auto;scrollbar-width:none;flex:1;}
-    .ticker-items::-webkit-scrollbar{display:none;}
-    .ticker-item{font-family:'Geist Mono',monospace;font-size:0.68rem;padding:0.45rem 1.25rem;border-right:1px solid var(--border);white-space:nowrap;color:var(--ink2);}
-    .ticker-item strong{color:var(--ink);font-weight:500;}
-
-    /* STATS BAR */
-    .stats-bar{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto;scrollbar-width:none;}
-    .stats-bar::-webkit-scrollbar{display:none;}
-    .stat-item{font-family:'Geist Mono',monospace;font-size:0.68rem;padding:0.55rem 1.25rem;border-right:1px solid var(--border);white-space:nowrap;color:var(--ink2);}
-    .stat-item strong{color:var(--ink);font-weight:500;}
+    .masthead{border-bottom:3px solid var(--ink);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;background:var(--paper);}
+    .masthead-brand{display:flex;align-items:baseline;gap:12px;}
+    .masthead-brand h1{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.03em;}
+    .masthead-brand .tagline{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
+    .masthead-meta{font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--ink3);text-align:right;line-height:1.6;}
 
     /* LAYOUT */
-    .layout{display:grid;grid-template-columns:1fr 260px;min-height:calc(100vh - 200px);}
-    @media(max-width:768px){.layout{grid-template-columns:1fr;}.sidebar,.masthead-left,.masthead-right{display:none;}}
+    .layout{display:grid;grid-template-columns:1fr 240px;min-height:calc(100vh - 56px);}
+    @media(max-width:768px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+
+    /* MAIN FEED */
+    .feed{border-right:1px solid var(--border);}
 
     /* TOPIC SECTION */
-    .topic-section{border-bottom:2px solid var(--ink);}
-    .topic-header{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 1.5rem;background:var(--paper2);border-bottom:1px solid var(--border);gap:1rem;flex-wrap:wrap;cursor:pointer;user-select:none;}
-    .topic-header:hover{background:var(--paper3);}
-    .topic-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;}
-    .topic-count{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);}
-    .topic-toggle{font-family:'Geist Mono',monospace;font-size:0.65rem;color:var(--ink3);transition:transform 0.2s;}
-    .topic-toggle.open{transform:rotate(180deg);}
+    .topic-section{border-bottom:1px solid var(--border);}
 
-    /* TOPIC META SUMMARY */
-    .topic-meta{padding:0.9rem 1.5rem;background:var(--accent-light);border-bottom:1px solid rgba(42,92,63,0.15);display:flex;gap:10px;align-items:flex-start;}
-    .topic-meta-icon{font-size:0.75rem;color:var(--accent);flex-shrink:0;margin-top:2px;font-family:'Geist Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;}
-    .topic-meta-text{font-size:0.82rem;color:var(--ink2);line-height:1.6;font-style:italic;}
-    .topic-meta-caveat{font-size:0.7rem;color:var(--ink3);margin-top:4px;font-style:normal;}
+    /* TOPIC HEADER — dark green band */
+    .topic-header{
+      background:var(--topic-bg);
+      padding:1rem 1.5rem;
+      cursor:pointer;
+      user-select:none;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:1rem;
+    }
+    .topic-header:hover{background:#1e4530;}
+    .topic-header-left{flex:1;min-width:0;}
+    .topic-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--topic-text);margin-bottom:0.3rem;}
+    .topic-count{font-family:'Geist Mono',monospace;font-size:0.65rem;color:var(--topic-sub);letter-spacing:0.06em;text-transform:uppercase;}
+    .topic-toggle{font-family:'Geist Mono',monospace;font-size:0.7rem;color:var(--topic-sub);flex-shrink:0;padding-top:2px;}
 
-    .topic-articles.collapsed{display:none;}
+    /* TOPIC ANALYSIS BOX */
+    .topic-analysis{
+      background:#eef5f1;
+      border-bottom:1px solid rgba(42,92,63,0.15);
+      padding:0.8rem 1.5rem;
+      display:none;
+    }
+    .topic-analysis.visible{display:block;}
+    .topic-analysis-label{font-family:'Geist Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
+    .topic-analysis-text{font-size:0.82rem;color:var(--ink2);line-height:1.65;}
+    .topic-analysis-caveat{font-size:0.7rem;color:var(--ink3);margin-top:0.3rem;}
+
+    /* TOPIC ARTICLES */
+    .topic-articles{display:none;}
+    .topic-articles.open{display:block;}
 
     /* ARTICLE */
     .article{border-bottom:1px solid var(--border);position:relative;}
-    .article-main{padding:1.2rem 1.5rem;display:grid;grid-template-columns:1fr auto;gap:1rem;transition:background 0.1s;cursor:pointer;}
+    .article-main{padding:1rem 1.5rem;display:grid;grid-template-columns:1fr auto;gap:1rem;transition:background 0.1s;cursor:pointer;}
     .article-main:hover{background:var(--paper2);}
     .article-body{min-width:0;}
-    .article-meta{display:flex;align-items:center;gap:8px;margin-bottom:0.4rem;flex-wrap:wrap;}
+    .article-meta{display:flex;align-items:center;gap:8px;margin-bottom:0.35rem;flex-wrap:wrap;}
     .source-tag{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
     .meta-dot{width:2px;height:2px;border-radius:50%;background:var(--ink3);}
     .article-date{font-family:'Geist Mono',monospace;font-size:0.6rem;color:var(--ink3);}
-    .low-confidence-badge{font-family:'Geist Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:2px 7px;border-radius:2px;}
-    .article-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.45rem;letter-spacing:-0.02em;}
+    .low-confidence-badge{font-family:'Geist Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:1px 6px;border-radius:2px;}
+    .full-text-badge{font-family:'Geist Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#eef5f1;color:var(--accent);border:1px solid rgba(42,92,63,0.2);padding:1px 6px;border-radius:2px;}
+    .article-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.4rem;letter-spacing:-0.02em;}
     .article-title:hover{color:#333;}
-    .article-summary{font-size:0.82rem;color:var(--ink2);line-height:1.65;margin-bottom:0.55rem;}
+    .article-summary{font-size:0.82rem;color:var(--ink2);line-height:1.65;margin-bottom:0.5rem;}
     .article-summary.low-confidence{color:var(--ink3);font-style:italic;}
     .article-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
     .read-more{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:color 0.1s,border-color 0.1s;}
     .read-more:hover{color:var(--ink);border-color:var(--ink);}
     .show-source-btn{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;padding:0;transition:color 0.1s;}
     .show-source-btn:hover{color:var(--ink);}
+    .tone-stripe{position:absolute;left:0;top:0;bottom:0;width:3px;}
+    .tone-stripe.alarmist{background:#c0392b;}
+    .tone-stripe.hopeful{background:#1a6b3a;}
+    .tone-stripe.neutral{background:#ccc;}
+    .tone-stripe.solutions{background:#1a4a8a;}
+    .tone-stripe.political{background:#8a5a00;}
 
     /* SOURCE PANEL */
     .source-panel{display:none;border-top:1px solid var(--border);background:var(--paper2);}
     .source-panel.open{display:block;}
     .source-tabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
     .source-tabs::-webkit-scrollbar{display:none;}
-    .source-tab{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1rem;cursor:pointer;color:var(--ink3);border-right:1px solid var(--border);border-bottom:2px solid transparent;transition:all 0.1s;background:none;border-top:none;border-left:none;white-space:nowrap;}
+    .source-tab{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.45rem 1rem;cursor:pointer;color:var(--ink3);border-right:1px solid var(--border);border-bottom:2px solid transparent;transition:all 0.1s;background:none;border-top:none;border-left:none;white-space:nowrap;}
     .source-tab.active{color:var(--ink);border-bottom-color:var(--ink);background:var(--paper);}
     .source-content{padding:1rem 1.5rem;}
     .source-content.hidden{display:none;}
@@ -96,63 +113,53 @@
     .data-label{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;}
 
     /* SIDEBAR */
-    .sidebar{padding:0;border-left:1px solid var(--border);}
-    .sidebar-block{border-bottom:1px solid var(--border);padding:1.2rem 1.25rem;}
-    .sidebar-block h3{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
-    .source-row{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);}
-    .source-row:last-child{border-bottom:none;}
-    .source-count-badge{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
-    .topic-nav-item{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);cursor:pointer;transition:color 0.1s;}
+    .sidebar{padding:1.25rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
+    .sidebar-section{margin-bottom:1.5rem;}
+    .sidebar-section h3{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+    .topic-nav-item{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);cursor:pointer;transition:color 0.1s;}
     .topic-nav-item:last-child{border-bottom:none;}
     .topic-nav-item:hover{color:var(--ink);}
     .topic-nav-count{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
+    .source-row{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);}
+    .source-row:last-child{border-bottom:none;}
+    .source-count-badge{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
 
     /* EMPTY */
     .empty-state{padding:5rem 2rem;text-align:center;color:var(--ink3);}
     .empty-state h2{font-family:'Fraunces',serif;font-size:1.8rem;color:var(--ink2);margin-bottom:0.75rem;font-weight:300;font-style:italic;}
     .empty-state p{font-size:0.85rem;line-height:1.7;max-width:380px;margin:0 auto;}
 
-    footer{border-top:2px solid var(--ink);padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+    footer{border-top:2px solid var(--ink);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
     footer span{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.04em;}
   </style>
 </head>
 <body>
 
 <div class="masthead">
-  <div class="masthead-left">
+  <div class="masthead-brand">
+    <h1>Climate Signal</h1>
+    <span class="tagline">Media analysis · Daily briefing</span>
+  </div>
+  <div class="masthead-meta">
     <div id="todays-date">—</div>
     <div><span id="stat-articles">—</span> articles · <span id="stat-sources">—</span> sources · 7-day rolling</div>
   </div>
-  <div class="masthead-title">
-    <h1>Climate Signal</h1>
-    <div class="tagline">Media analysis · Daily briefing</div>
-  </div>
-  <div class="masthead-right">
-    <div id="last-updated">—</div>
-  </div>
 </div>
-
-<div class="ticker">
-  <div class="ticker-label">Latest</div>
-  <div class="ticker-items" id="ticker-items"><div class="ticker-item">Loading…</div></div>
-</div>
-
-<div class="stats-bar" id="stats-bar"><div class="stat-item">Loading…</div></div>
 
 <div class="layout">
   <main class="feed" id="feed"></main>
   <aside class="sidebar">
-    <div class="sidebar-block">
-      <h3>Jump to topic</h3>
+    <div class="sidebar-section">
+      <h3>Topics</h3>
       <div id="topic-nav"></div>
     </div>
-    <div class="sidebar-block">
+    <div class="sidebar-section">
       <h3>Sources</h3>
       <div id="source-list"></div>
     </div>
-    <div class="sidebar-block">
+    <div class="sidebar-section">
       <h3>About</h3>
-      <p style="font-size:0.78rem;color:var(--ink2);line-height:1.6;">Climate Signal tracks how UK news outlets cover climate and environment stories. Topics are generated daily by Claude AI based on what's actually in the news. Coverage analysis is based on headlines and excerpts only.</p>
+      <p style="font-size:0.75rem;color:var(--ink2);line-height:1.6;">Climate Signal tracks how UK news outlets cover climate stories. Topics are generated daily by Claude AI. Coverage analysis is based on the best available text — full article, page description, or RSS excerpt.</p>
     </div>
   </aside>
 </div>
@@ -163,6 +170,13 @@
 </footer>
 
 <script>
+function sourceCaveat(sourceUsed){
+  if(!sourceUsed||sourceUsed==='RSS excerpt only') return 'Analysis based on headline and RSS excerpt only — may not reflect full article content.';
+  if(sourceUsed==='page description') return 'Analysis based on headline and page description.';
+  if(sourceUsed==='full article (Jina)') return 'Analysis based on full article text.';
+  return '';
+}
+
 async function loadArticles(){
   try{
     const res=await fetch('articles.json?v='+Date.now());
@@ -182,31 +196,17 @@ function render(data){
 
   const d=generated_at?new Date(generated_at):new Date();
   document.getElementById('todays-date').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  document.getElementById('last-updated').textContent='Updated '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
   document.getElementById('stat-articles').textContent=articles.length;
   document.getElementById('stat-sources').textContent=[...new Set(articles.map(a=>a.source))].length;
   document.getElementById('footer-updated').textContent='Last updated '+d.toLocaleString('en-GB');
 
-  // Stats bar
   const srcCounts={};
   articles.forEach(a=>srcCounts[a.source]=(srcCounts[a.source]||0)+1);
-  document.getElementById('stats-bar').innerHTML=Object.entries(srcCounts)
-    .sort((a,b)=>b[1]-a[1])
-    .map(([s,c])=>`<div class="stat-item"><strong>${c}</strong> ${s}</div>`)
-    .join('');
-
-  // Source list sidebar
   document.getElementById('source-list').innerHTML=Object.entries(srcCounts)
     .sort((a,b)=>b[1]-a[1])
     .map(([s,c])=>`<div class="source-row"><span>${s}</span><span class="source-count-badge">${c}</span></div>`)
     .join('');
 
-  // Ticker
-  document.getElementById('ticker-items').innerHTML=articles.slice(0,8)
-    .map(a=>`<div class="ticker-item"><strong>${a.source}</strong> — ${a.title.substring(0,55)}${a.title.length>55?'…':''}</div>`)
-    .join('');
-
-  // Group by topic
   const grouped={};
   articles.forEach(a=>{
     const t=a.topic||'General';
@@ -215,49 +215,54 @@ function render(data){
   });
   const topicList=Object.keys(grouped).sort((a,b)=>grouped[b].length-grouped[a].length);
 
-  // Topic nav
   document.getElementById('topic-nav').innerHTML=topicList
     .map(t=>`<div class="topic-nav-item" onclick="scrollToTopic('${t.replace(/'/g,"\\'")}')"><span>${t}</span><span class="topic-nav-count">${grouped[t].length}</span></div>`)
     .join('');
 
-  // Render topic sections
   document.getElementById('feed').innerHTML=topicList.map(t=>{
     const arts=grouped[t];
     const sid='topic-'+t.replace(/[^a-z0-9]/gi,'-').toLowerCase();
     const metaSummary=topic_summaries[t]||'';
+    const fullTextCount=arts.filter(a=>a.source_used==='full article (Jina)').length;
+    const analysisCaveat=fullTextCount===arts.length
+      ? 'Based on full article text.'
+      : fullTextCount>0
+        ? `Based on full article text for ${fullTextCount} of ${arts.length} articles; headlines and excerpts for the rest.`
+        : 'Based on headlines and excerpts only — may not reflect full article content.';
 
     return `
       <div class="topic-section" id="${sid}">
         <div class="topic-header" onclick="toggleTopic(this)">
-          <div>
+          <div class="topic-header-left">
             <div class="topic-title">${t}</div>
-            <div class="topic-count">${arts.length} article${arts.length!==1?'s':''}</div>
+            <div class="topic-count">${arts.length} article${arts.length!==1?'s':''} · click to expand</div>
           </div>
-          <span class="topic-toggle open">▲</span>
+          <span class="topic-toggle">▶</span>
         </div>
-        ${metaSummary ? `
-        <div class="topic-meta">
-          <span class="topic-meta-icon">Analysis</span>
-          <div>
-            <div class="topic-meta-text">${metaSummary}</div>
-            <div class="topic-meta-caveat">Based on headlines and excerpts only — may not reflect full article content.</div>
-          </div>
-        </div>` : ''}
+        ${metaSummary?`
+        <div class="topic-analysis">
+          <div class="topic-analysis-label">Coverage analysis</div>
+          <div class="topic-analysis-text">${metaSummary}</div>
+          <div class="topic-analysis-caveat">${analysisCaveat}</div>
+        </div>`:''}
         <div class="topic-articles">${arts.map(articleHTML).join('')}</div>
       </div>`;
   }).join('');
+
+  // Show analysis boxes by default
+  document.querySelectorAll('.topic-analysis').forEach(el=>el.classList.add('visible'));
 }
 
 function articleHTML(a){
   const pid='panel-'+Math.random().toString(36).substr(2,9);
   const hasRss=a.raw_rss&&a.raw_rss.trim();
   const hasMeta=a.raw_meta&&a.raw_meta.trim()&&a.raw_meta!==a.raw_rss;
-  const hasContent=a.raw_content&&a.raw_content.trim()&&a.raw_content!==a.raw_rss;
   const hasJina=a.jina_text&&a.jina_text.trim().length>=200;
-  const sourceUsed=a.source_used||'RSS excerpt only';
+  const caveat=sourceCaveat(a.source_used);
 
   return `
     <div class="article" data-topic="${a.topic||''}">
+      <div class="tone-stripe ${a.topic?'neutral':'neutral'}"></div>
       <div class="article-main" onclick="window.open('${a.url}','_blank')">
         <div class="article-body">
           <div class="article-meta">
@@ -265,7 +270,7 @@ function articleHTML(a){
             <div class="meta-dot"></div>
             <span class="article-date">${a.date}</span>
             ${a.low_confidence?'<span class="low-confidence-badge">low data</span>':''}
-            ${hasJina?'<span class="low-confidence-badge" style="background:#eef5f1;color:#2a5c3f;border-color:rgba(42,92,63,0.2)">full article</span>':''}
+            ${hasJina?'<span class="full-text-badge">full article</span>':''}
           </div>
           <a class="article-title" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${a.title}</a>
           <p class="article-summary${a.low_confidence?' low-confidence':''}">${a.summary}</p>
@@ -282,29 +287,32 @@ function articleHTML(a){
           <button class="source-tab" onclick="switchTab(this,'${pid}-meta')">Page description</button>
           <button class="source-tab" onclick="switchTab(this,'${pid}-about')">About this analysis</button>
         </div>
-        ${hasJina?`
-        <div class="source-content" id="${pid}-jina">
-          <div class="data-label">Full article text (via Jina Reader)</div>
-          <p class="source-text">${a.jina_text.substring(0,1500)}${a.jina_text.length>1500?'…':''}</p>
-        </div>`:''}
-        <div class="source-content${hasJina?' hidden':''}" id="${pid}-rss">
-          <div class="data-label">RSS excerpt</div>
-          ${hasRss?`<p class="source-text">"${a.raw_rss}"</p>`:`<p class="source-empty">No RSS excerpt available.</p>`}
-        </div>
-        <div class="source-content hidden" id="${pid}-meta">
-          <div class="data-label">Page meta description</div>
-          ${hasMeta?`<p class="source-text">"${a.raw_meta}"</p>`:`<p class="source-empty">No page description could be fetched.</p>`}
-        </div>
+        ${hasJina?`<div class="source-content" id="${pid}-jina"><div class="data-label">Full article text (Jina Reader)</div><p class="source-text">${a.jina_text.substring(0,1500)}${a.jina_text.length>1500?'…':''}</p></div>`:''}
+        <div class="source-content${hasJina?' hidden':''}" id="${pid}-rss"><div class="data-label">RSS excerpt</div>${hasRss?`<p class="source-text">"${a.raw_rss}"</p>`:`<p class="source-empty">No RSS excerpt available.</p>`}</div>
+        <div class="source-content hidden" id="${pid}-meta"><div class="data-label">Page description</div>${hasMeta?`<p class="source-text">"${a.raw_meta}"</p>`:`<p class="source-empty">No page description could be fetched.</p>`}</div>
         <div class="source-content hidden" id="${pid}-about">
           <div class="data-label">About this analysis</div>
           <p class="analysis-note">
-            <strong>Data used for AI analysis:</strong> ${sourceUsed}<br><br>
+            <strong>Data used:</strong> ${a.source_used||'RSS excerpt only'}<br><br>
             <strong>What Claude did:</strong> Assigned this article to a topic and generated a summary based strictly on the available source data. Claude was instructed not to add details not present in the source text.<br><br>
-            <strong>Limitations:</strong> ${a.low_confidence?'Very limited source data was available. ':''}${!hasJina?'Full article text could not be retrieved — summary is based on headlines and excerpts only. ':''}AI-generated analysis may not perfectly reflect the article\'s full content or intent.
+            <strong>Limitations:</strong> ${caveat}
           </p>
         </div>
       </div>
     </div>`;
+}
+
+function toggleTopic(header){
+  const section=header.closest('.topic-section');
+  const articles=section.querySelector('.topic-articles');
+  const toggle=header.querySelector('.topic-toggle');
+  const isOpen=articles.classList.toggle('open');
+  toggle.textContent=isOpen?'▼':'▶';
+  const countEl=header.querySelector('.topic-count');
+  const arts=section.querySelectorAll('.article').length;
+  countEl.textContent=isOpen
+    ?`${arts} article${arts!==1?'s':''} · click to collapse`
+    :`${arts} article${arts!==1?'s':''} · click to expand`;
 }
 
 function togglePanel(id,btn){
@@ -319,13 +327,6 @@ function switchTab(btn,contentId){
   panel.querySelectorAll('.source-content').forEach(c=>c.classList.add('hidden'));
   btn.classList.add('active');
   document.getElementById(contentId).classList.remove('hidden');
-}
-
-function toggleTopic(header){
-  const articles=header.closest('.topic-section').querySelector('.topic-articles');
-  const toggle=header.querySelector('.topic-toggle');
-  articles.classList.toggle('collapsed');
-  toggle.classList.toggle('open');
 }
 
 function scrollToTopic(topic){
