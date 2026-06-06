@@ -495,7 +495,7 @@ def main():
             article['source_used'] = source_used
             status = "✓ full" if len(jina_text) >= JINA_MIN_LENGTH else ("✓ meta" if meta_desc else "✗ rss only")
             print(f"  {status} [{i+1}/{len(new_articles)}] {article['source']}: {article['title'][:40]}...")
-            time.sleep(0.3)  # polite delay for Jina
+            time.sleep(3)  # stay within Jina's 20 RPM free tier limit
 
     # Build processed new articles
     processed_new = []
