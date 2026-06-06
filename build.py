@@ -11,13 +11,10 @@ from urllib.error import URLError, HTTPError
 # CONFIGURATION
 # ─────────────────────────────────────────────
 RSS_FEEDS = [
-    # Right-leaning / sceptic
-    {"source": "The Spectator",    "url": "https://www.spectator.co.uk/feed/",                                "max": 50},
+    # Right-leaning
     {"source": "GB News",          "url": "https://www.gbnews.com/feeds/news.rss",                            "max": 50},
     {"source": "Daily Mail",       "url": "https://www.dailymail.co.uk/sciencetech/index.rss",                "max": 50},
     {"source": "The Sun",          "url": "https://www.thesun.co.uk/feed/",                                   "max": 50},
-    {"source": "The Telegraph",    "url": "https://www.telegraph.co.uk/rss.xml",                              "max": 50},
-    {"source": "The Express",      "url": "https://www.express.co.uk/posts/rss",                              "max": 50},
 
     # Centre
     {"source": "BBC Environment",  "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",    "max": 20},
@@ -102,7 +99,7 @@ TIER1 = [
     'mangrove', 'kelp forest', 'peatland', 'wetlands loss',
 
     # Pollution
-    'plastic pollution', 'microplastics', 'water pollution', 'toxic waste',
+    'plastic pollution', 'water pollution', 'toxic waste',
     'sewage dumping', 'river pollution', 'air pollution', 'particulate matter',
     'nitrogen dioxide', 'pm2.5', 'chemical pollution',
 
@@ -133,7 +130,7 @@ TIER2 = [
     'circular economy', 'sustainable agriculture',
     'regenerative farming', 'soil health',
     'ecosystem', 'coal industry', 'gas leak', 'air quality',
-    'el nino', 'flood risk',
+    'el nino', 'flood risk', 'microplastics',
 ]
 
 def is_relevant(article):
