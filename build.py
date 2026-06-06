@@ -32,23 +32,10 @@ RSS_FEEDS = [
 ROLLING_DAYS = 7
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
-TOPICS = [
-    "Net Zero & Climate Policy",
-    "Wind & Solar Energy",
-    "Oil, Gas & Fossil Fuels",
-    "Electric Vehicles & Transport",
-    "Nature & Biodiversity",
-    "Extreme Weather & Climate Science",
-    "Pollution & Environment",
-    "International Climate Politics",
-    "Other",
-]
-
 # ─────────────────────────────────────────────
 # KEYWORD FILTER
 # ─────────────────────────────────────────────
 TIER1 = [
-    # Core climate
     'climate change', 'climate crisis', 'climate emergency', 'climate action',
     'climate policy', 'climate summit', 'climate target', 'climate model',
     'climate finance', 'climate activist', 'climate sceptic', 'climate skeptic',
@@ -61,8 +48,6 @@ TIER1 = [
     'carbon price', 'carbon market', 'carbon border', 'carbon tariff',
     'stranded assets', 'scope 3 emissions', 'methane emissions', 'co2 emissions',
     'net zero', 'decarbonisation', 'decarbonization',
-
-    # Policy & agreements
     'paris agreement', 'cop29', 'cop30', 'cop31', 'ipcc', 'unfccc',
     'emissions trading', 'emissions target', 'emissions reduction',
     'just transition', 'green new deal', 'loss and damage fund',
@@ -70,8 +55,6 @@ TIER1 = [
     'seventh carbon budget', 'sixth carbon budget', 'clean power 2030',
     'great british energy', 'energy security bill', 'climate change committee',
     'net zero strategy', 'green finance',
-
-    # Energy
     'fossil fuel', 'renewable energy', 'clean energy', 'energy transition',
     'offshore wind', 'onshore wind', 'wind farm', 'wind turbine', 'wind power',
     'solar power', 'solar panel', 'solar farm', 'solar energy',
@@ -82,14 +65,10 @@ TIER1 = [
     'coal fired', 'oil industry', 'oil drilling', 'gas drilling', 'gas pipeline',
     'oil spill', 'energy poverty', 'fuel poverty',
     'green levies', 'green tax', 'wind subsidy', 'solar subsidy',
-
-    # Transport
     'electric vehicle', 'electric car', 'ev charging', 'ev mandate',
     'petrol ban', 'diesel ban', 'boiler ban', 'boiler upgrade', 'heat pump',
     'ulez', 'low emission zone', 'war on motorists', 'war on drivers',
     'ban on petrol', 'ban on diesel', 'zero emission vehicle',
-
-    # Nature & biodiversity
     'biodiversity', 'species extinction', 'habitat loss', 'deforestation',
     'reforestation', 'rewilding', 'ocean acidification', 'sea level rise',
     'arctic ice', 'arctic melt', 'glacier retreat', 'permafrost',
@@ -97,26 +76,18 @@ TIER1 = [
     'wildlife corridor', 'species decline', 'bee population', 'insect population',
     'endangered species', 'habitat destruction', 'rainforest destruction',
     'mangrove', 'kelp forest', 'peatland', 'wetlands loss',
-
-    # Pollution
     'plastic pollution', 'water pollution', 'toxic waste',
     'sewage dumping', 'river pollution', 'air pollution', 'particulate matter',
     'nitrogen dioxide', 'pm2.5', 'chemical pollution',
-
-    # Sceptic / tabloid framing
     'green blob', 'eco zealot', 'eco madness', 'green madness',
     'net zero madness', 'net zero cost', 'net zero burden', 'net zero bill',
     'green ideology', 'green obsession', 'green targets', 'eco activist',
     'extinction rebellion', 'just stop oil', 'insulate britain',
     'greenwashing', 'wind farm backlash', 'solar farm backlash',
-
-    # Climate science & reporting
     'hottest year', 'hottest ever', 'record temperature', 'record heat',
     'extreme weather event', 'ipcc report', 'global temperature',
     'temperature record', 'sea level', 'el nino', 'el niño',
     'sea defences', 'environment agency', 'natural england',
-
-    # UK specific policy
     'climate change committee', 'carbon budget uk',
     'north sea energy', 'clean power target',
 ]
@@ -246,75 +217,17 @@ def fetch_articles():
     return filtered
 
 # ─────────────────────────────────────────────
-# CLAUDE API
+# CLAUDE API HELPERS
 # ─────────────────────────────────────────────
-def analyse_article(article):
-    available_text = (
-        article.get('raw_rss', '') + ' ' +
-        article.get('raw_content', '') + ' ' +
-        article.get('meta_description', '')
-    ).strip()
-
+def claude(prompt, max_tokens=500):
     if not ANTHROPIC_API_KEY:
-        return {
-            "summary": article["raw_summary"][:200] + "..." if len(article["raw_summary"]) > 200 else article["raw_summary"],
-            "tone": "neutral",
-            "topic": "Other",
-            "low_confidence": len(available_text) < 50,
-        }
-
-    low_confidence = len(available_text) < 50
-    if low_confidence:
-        return {
-            "summary": "Insufficient source data for a reliable summary — click to read the full article.",
-            "tone": "neutral",
-            "topic": "Other",
-            "low_confidence": True,
-        }
-
-    source_data = f"Title: {article['title']}\nSource: {article['source']}\n"
-    if article.get('raw_rss'):
-        source_data += f"RSS excerpt: {article['raw_rss']}\n"
-    if article.get('raw_content') and article['raw_content'] != article.get('raw_rss'):
-        source_data += f"Full RSS content: {article['raw_content']}\n"
-    if article.get('meta_description') and article['meta_description'] not in (article.get('raw_rss',''), article.get('raw_content','')):
-        source_data += f"Page description: {article['meta_description']}\n"
-
-    topics_list = "\n".join(f"- {t}" for t in TOPICS)
-
-    prompt = f"""You are analysing a climate and environment news article for a media monitoring tool.
-
-Here is all available data about this article:
-{source_data}
-
-Important: Base your analysis ONLY on the information provided above. Do not add details, statistics, or context not present in the source data. If the source data is limited, keep the summary brief and factual.
-
-Please respond with ONLY a JSON object in this exact format:
-{{
-  "summary": "A 2-3 sentence plain-English summary based strictly on the source data above.",
-  "tone": "one of: alarmist, hopeful, neutral, solutions, political",
-  "topic": "one of the topics listed below"
-}}
-
-Tone definitions:
-- alarmist: urgent crisis framing, fear-led language, emphasises catastrophe
-- hopeful: focuses on progress, positive outcomes, optimism
-- neutral: factual and measured, no strong emotional framing
-- solutions: centres on fixes — technology, policy, behaviour change
-- political: focuses on policy debate, blame, partisan framing
-
-Topic options (pick the single most relevant):
-{topics_list}
-
-Respond only with the JSON, no other text."""
-
+        return None
     try:
         payload = json.dumps({
             "model": "claude-sonnet-4-20250514",
-            "max_tokens": 400,
+            "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": prompt}]
         }).encode("utf-8")
-
         req = Request(
             "https://api.anthropic.com/v1/messages",
             data=payload,
@@ -324,26 +237,153 @@ Respond only with the JSON, no other text."""
                 "anthropic-version": "2023-06-01"
             }
         )
-
         with urlopen(req, timeout=30) as response:
             data = json.loads(response.read())
             text = data["content"][0]["text"].strip()
             text = re.sub(r'^```json\s*|\s*```$', '', text).strip()
-            result = json.loads(text)
-            return {
-                "summary": result.get("summary", ""),
-                "tone": result.get("tone", "neutral"),
-                "topic": result.get("topic", "Other"),
-                "low_confidence": False,
-            }
+            return text
     except Exception as e:
-        print(f"  API error for '{article['title'][:40]}...': {e}")
+        print(f"  Claude API error: {e}")
+        return None
+
+# ─────────────────────────────────────────────
+# STEP 1: GENERATE TOPICS FROM ALL ARTICLES
+# ─────────────────────────────────────────────
+def generate_topics(all_articles):
+    if not ANTHROPIC_API_KEY:
+        return ["General"]
+
+    headlines = "\n".join([
+        f"- [{a['source']}] {a['title']}"
+        for a in all_articles
+    ])
+
+    prompt = f"""You are analysing a set of climate and environment news headlines from UK media outlets over the past 7 days.
+
+Here are all the headlines:
+{headlines}
+
+Identify 5-8 distinct topics that best group these articles. Topics should be:
+- Specific enough to be meaningful (e.g. "Seventh Carbon Budget" not just "Climate Policy")
+- Broad enough that multiple articles fit
+- Named as a news editor would label a story cluster
+- Reflective of what's actually in the news this week
+
+Respond with ONLY a JSON array of topic name strings, e.g.:
+["Seventh Carbon Budget", "North Sea Oil Licensing", "EV Mandate Debate", "Nature Recovery"]
+
+No other text."""
+
+    result = claude(prompt, max_tokens=300)
+    if not result:
+        return ["General"]
+    try:
+        topics = json.loads(result)
+        if isinstance(topics, list) and len(topics) > 0:
+            print(f"Generated {len(topics)} topics: {topics}")
+            return topics
+    except Exception as e:
+        print(f"  Topic generation error: {e}")
+    return ["General"]
+
+# ─────────────────────────────────────────────
+# STEP 2: ASSIGN ARTICLE TO TOPIC + SUMMARY
+# ─────────────────────────────────────────────
+def analyse_article(article, topics):
+    available_text = (
+        article.get('raw_rss', '') + ' ' +
+        article.get('raw_content', '') + ' ' +
+        article.get('raw_meta', '')
+    ).strip()
+
+    if not ANTHROPIC_API_KEY:
         return {
-            "summary": article["raw_summary"][:200] + "..." if len(article["raw_summary"]) > 200 else article["raw_summary"],
-            "tone": "neutral",
-            "topic": "Other",
+            "summary": article.get("raw_summary", "")[:200],
+            "topic": topics[0] if topics else "General",
             "low_confidence": len(available_text) < 50,
         }
+
+    low_confidence = len(available_text) < 50
+    if low_confidence:
+        return {
+            "summary": "Insufficient source data — click to read the full article.",
+            "topic": topics[0] if topics else "General",
+            "low_confidence": True,
+        }
+
+    source_data = f"Title: {article['title']}\nSource: {article['source']}\n"
+    if article.get('raw_rss'):
+        source_data += f"RSS excerpt: {article['raw_rss']}\n"
+    if article.get('raw_content') and article['raw_content'] != article.get('raw_rss'):
+        source_data += f"Full RSS content: {article['raw_content']}\n"
+    if article.get('raw_meta') and article['raw_meta'] not in (article.get('raw_rss',''), article.get('raw_content','')):
+        source_data += f"Page description: {article['raw_meta']}\n"
+
+    topics_list = "\n".join(f"- {t}" for t in topics)
+
+    prompt = f"""You are analysing a climate and environment news article for a media monitoring tool.
+
+Available data:
+{source_data}
+
+Important: Base your summary ONLY on the information provided above. Do not add details not present in the source.
+
+Topics available (pick the single best fit):
+{topics_list}
+
+Respond with ONLY a JSON object:
+{{
+  "summary": "1-2 sentence plain-English summary based strictly on the source data.",
+  "topic": "exact topic name from the list above"
+}}
+
+No other text."""
+
+    result = claude(prompt, max_tokens=250)
+    if result:
+        try:
+            parsed = json.loads(result)
+            return {
+                "summary": parsed.get("summary", ""),
+                "topic": parsed.get("topic", topics[0]),
+                "low_confidence": False,
+            }
+        except Exception:
+            pass
+
+    return {
+        "summary": available_text[:200],
+        "topic": topics[0] if topics else "General",
+        "low_confidence": True,
+    }
+
+# ─────────────────────────────────────────────
+# STEP 3: GENERATE TOPIC META-SUMMARIES
+# ─────────────────────────────────────────────
+def generate_topic_summary(topic, articles):
+    if not ANTHROPIC_API_KEY or len(articles) < 2:
+        return ""
+
+    headlines_by_source = "\n".join([
+        f"- {a['source']}: {a['title']}"
+        for a in articles
+    ])
+
+    prompt = f"""You are a media analyst looking at how different UK news outlets are covering the same climate/environment story.
+
+Topic: {topic}
+
+Headlines from different outlets:
+{headlines_by_source}
+
+Write 2-3 sentences describing how this story is being framed across these outlets. Note any differences in emphasis, language, or angle between outlets. Be specific about which outlets frame it differently.
+
+Important: Base this ONLY on the headlines above. Do not add outside knowledge. Start directly with your observation, no preamble.
+
+Keep it under 60 words."""
+
+    result = claude(prompt, max_tokens=150)
+    return result or ""
 
 # ─────────────────────────────────────────────
 # MAIN
@@ -354,6 +394,7 @@ def main():
 
     out_path = os.path.join(os.path.dirname(__file__), "docs", "articles.json")
 
+    # Load and prune existing archive
     existing = load_existing(out_path)
     existing_urls = {a['url'] for a in existing}
     print(f"\nExisting archive: {len(existing)} articles")
@@ -364,17 +405,16 @@ def main():
         if (a.get('pub_date_iso') and datetime.fromisoformat(a['pub_date_iso']) > cutoff)
         or not a.get('pub_date_iso')
     ]
-    print(f"After dropping articles older than {ROLLING_DAYS} days: {len(existing)} articles remain")
+    print(f"After pruning: {len(existing)} articles remain")
 
+    # Fetch new articles
     print("\nFetching RSS feeds...")
     new_raw = fetch_articles()
-
     new_articles = [a for a in new_raw if a['url'] not in existing_urls]
     print(f"\nNew articles to process: {len(new_articles)}")
 
-    if not new_articles:
-        print("No new articles — archive is up to date")
-    else:
+    # Fetch meta descriptions for new articles
+    if new_articles:
         print("\nFetching meta descriptions...")
         for i, article in enumerate(new_articles):
             meta = fetch_meta_description(article['url'])
@@ -383,48 +423,83 @@ def main():
             print(f"  {status} [{i+1}/{len(new_articles)}] {article['source']}: {article['title'][:45]}...")
             time.sleep(0.2)
 
-        if not ANTHROPIC_API_KEY:
-            print("\n⚠ No ANTHROPIC_API_KEY found — skipping AI analysis, using raw summaries")
-        else:
-            print("\nRunning AI analysis on new articles...")
+    # Build processed new articles (without topic yet)
+    processed_new = []
+    for article in new_articles:
+        processed_new.append({
+            "title": article["title"],
+            "url": article["url"],
+            "source": article["source"],
+            "date": article["date"],
+            "pub_date_iso": article["pub_date_iso"],
+            "raw_rss": article.get("raw_rss", ""),
+            "raw_content": article.get("raw_content", ""),
+            "raw_meta": article.get("meta_description", ""),
+            "raw_summary": article.get("raw_summary", ""),
+            # placeholders
+            "summary": "",
+            "topic": "",
+            "low_confidence": False,
+        })
 
-        processed_new = []
-        for i, article in enumerate(new_articles):
-            print(f"  [{i+1}/{len(new_articles)}] {article['title'][:55]}...")
-            analysis = analyse_article(article)
-            if ANTHROPIC_API_KEY:
+    # Combine full archive
+    all_articles = existing + processed_new
+
+    if not ANTHROPIC_API_KEY:
+        print("\n⚠ No ANTHROPIC_API_KEY — skipping AI analysis")
+        for a in all_articles:
+            if not a.get('summary'):
+                a['summary'] = a.get('raw_summary', '')[:200]
+            if not a.get('topic'):
+                a['topic'] = 'General'
+        topic_summaries = {}
+    else:
+        # Step 1: Generate topics for full archive
+        print(f"\nGenerating topics for {len(all_articles)} articles...")
+        topics = generate_topics(all_articles)
+        time.sleep(0.5)
+
+        # Step 2: Assign every article to a topic + generate summary
+        print(f"\nAnalysing all {len(all_articles)} articles...")
+        for i, article in enumerate(all_articles):
+            print(f"  [{i+1}/{len(all_articles)}] {article['title'][:55]}...")
+            analysis = analyse_article(article, topics)
+            article['summary'] = analysis['summary']
+            article['topic'] = analysis['topic']
+            article['low_confidence'] = analysis.get('low_confidence', False)
+            time.sleep(0.3)
+
+        # Step 3: Generate topic meta-summaries
+        print("\nGenerating topic summaries...")
+        topic_summaries = {}
+        grouped = {}
+        for a in all_articles:
+            t = a.get('topic', 'General')
+            if t not in grouped:
+                grouped[t] = []
+            grouped[t].append(a)
+
+        for topic, arts in grouped.items():
+            if len(arts) >= 2:
+                print(f"  Summarising: {topic} ({len(arts)} articles)...")
+                summary = generate_topic_summary(topic, arts)
+                topic_summaries[topic] = summary
                 time.sleep(0.3)
 
-            processed_new.append({
-                "title": article["title"],
-                "url": article["url"],
-                "source": article["source"],
-                "date": article["date"],
-                "pub_date_iso": article["pub_date_iso"],
-                "summary": analysis["summary"],
-                "tone": analysis["tone"],
-                "topic": analysis["topic"],
-                "low_confidence": analysis.get("low_confidence", False),
-                "raw_rss": article.get("raw_rss", ""),
-                "raw_content": article.get("raw_content", ""),
-                "raw_meta": article.get("meta_description", ""),
-            })
-
-        existing = existing + processed_new
-
-    existing.sort(key=lambda a: a.get('pub_date_iso', ''), reverse=True)
+    # Sort by date
+    all_articles.sort(key=lambda a: a.get('pub_date_iso', ''), reverse=True)
 
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "topics": TOPICS,
-        "articles": existing,
+        "topic_summaries": topic_summaries if ANTHROPIC_API_KEY else {},
+        "articles": all_articles,
     }
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✓ Done! {len(existing)} articles in rolling archive")
+    print(f"\n✓ Done! {len(all_articles)} articles in rolling archive")
 
 if __name__ == "__main__":
     main()
