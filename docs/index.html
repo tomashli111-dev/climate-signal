@@ -62,7 +62,9 @@
     }
     .topic-analysis.visible{display:block;}
     .topic-analysis-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
-    .topic-analysis-text{font-size:0.82rem;color:var(--ink2);line-height:1.65;}
+    .topic-analysis-text{font-size:0.82rem;color:var(--ink2);line-height:1.8;}
+    .topic-analysis-text p{margin-bottom:0.3rem;}
+    .topic-analysis-text p:last-child{margin-bottom:0;}
     .topic-analysis-caveat{font-size:0.7rem;color:var(--ink3);margin-top:0.3rem;}
 
     /* TOPIC ARTICLES */
@@ -246,7 +248,7 @@ function render(data){
         ${metaSummary?`
         <div class="topic-analysis">
           <div class="topic-analysis-label">Coverage analysis</div>
-          <div class="topic-analysis-text">${metaSummary}</div>
+          <div class="topic-analysis-text">${metaSummary.split('\n').filter(l=>l.trim()).map(l=>`<p>${l.trim()}</p>`).join('')}</div>
           <div class="topic-analysis-caveat">${analysisCaveat}</div>
         </div>`:''}
         <div class="topic-articles">${arts.map(articleHTML).join('')}</div>
