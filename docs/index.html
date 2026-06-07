@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climate Signal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=Geist+Mono:wght@300;400&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink:#0e0e0e; --ink2:#3a3a3a; --ink3:#888;
@@ -18,14 +17,14 @@
       --accent:#2a5c3f;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--paper);color:var(--ink);font-family:'Geist',sans-serif;font-weight:300;min-height:100vh;}
+    body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;}
 
     /* MASTHEAD */
     .masthead{border-bottom:3px solid var(--ink);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;background:var(--paper);}
     .masthead-brand{display:flex;align-items:baseline;gap:12px;}
-    .masthead-brand h1{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.03em;}
-    .masthead-brand .tagline{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
-    .masthead-meta{font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--ink3);text-align:right;line-height:1.6;}
+    .masthead-brand h1{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.03em;}
+    .masthead-brand .tagline{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
+    .masthead-meta{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--ink3);text-align:right;line-height:1.6;}
 
     /* LAYOUT */
     .layout{display:grid;grid-template-columns:1fr 240px;min-height:calc(100vh - 56px);}
@@ -50,9 +49,9 @@
     }
     .topic-header:hover{background:#1e4530;}
     .topic-header-left{flex:1;min-width:0;}
-    .topic-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--topic-text);margin-bottom:0.3rem;}
-    .topic-count{font-family:'Geist Mono',monospace;font-size:0.65rem;color:var(--topic-sub);letter-spacing:0.06em;text-transform:uppercase;}
-    .topic-toggle{font-family:'Geist Mono',monospace;font-size:0.7rem;color:var(--topic-sub);flex-shrink:0;padding-top:2px;}
+    .topic-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--topic-text);margin-bottom:0.3rem;}
+    .topic-count{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--topic-sub);letter-spacing:0.06em;text-transform:uppercase;}
+    .topic-toggle{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--topic-sub);flex-shrink:0;padding-top:2px;}
 
     /* TOPIC ANALYSIS BOX */
     .topic-analysis{
@@ -62,7 +61,7 @@
       display:none;
     }
     .topic-analysis.visible{display:block;}
-    .topic-analysis-label{font-family:'Geist Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
+    .topic-analysis-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
     .topic-analysis-text{font-size:0.82rem;color:var(--ink2);line-height:1.65;}
     .topic-analysis-caveat{font-size:0.7rem;color:var(--ink3);margin-top:0.3rem;}
 
@@ -75,20 +74,20 @@
     .article-main{display:flex;transition:background 0.1s;cursor:pointer;}
     .article-main:hover .article-body{background:var(--paper2);}
     .article-source-col{width:88px;flex-shrink:0;background:var(--paper2);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem 0.5rem;text-align:center;}
-    .article-source-name{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);line-height:1.4;word-break:break-word;}
-    .article-source-date{font-family:'Geist Mono',monospace;font-size:0.58rem;color:var(--ink3);margin-top:4px;}
+    .article-source-name{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);line-height:1.4;word-break:break-word;}
+    .article-source-date{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--ink3);margin-top:4px;}
     .article-body{flex:1;min-width:0;padding:0.9rem 1.25rem;}
     .article-badges{display:flex;align-items:center;gap:6px;margin-bottom:0.4rem;flex-wrap:wrap;}
-    .low-confidence-badge{font-family:'Geist Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:1px 6px;border-radius:2px;}
-    .full-text-badge{font-family:'Geist Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#eef5f1;color:var(--accent);border:1px solid rgba(42,92,63,0.2);padding:1px 6px;border-radius:2px;}
-    .article-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.4rem;letter-spacing:-0.02em;}
+    .low-confidence-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:1px 6px;border-radius:2px;}
+    .full-text-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#eef5f1;color:var(--accent);border:1px solid rgba(42,92,63,0.2);padding:1px 6px;border-radius:2px;}
+    .article-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.4rem;letter-spacing:-0.02em;}
     .article-title:hover{color:#333;}
     .article-summary{font-size:0.82rem;color:var(--ink2);line-height:1.65;margin-bottom:0.5rem;}
     .article-summary.low-confidence{color:var(--ink3);font-style:italic;}
     .article-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-    .read-more{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:color 0.1s,border-color 0.1s;}
+    .read-more{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:color 0.1s,border-color 0.1s;}
     .read-more:hover{color:var(--ink);border-color:var(--ink);}
-    .show-source-btn{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;padding:0;transition:color 0.1s;}
+    .show-source-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;padding:0;transition:color 0.1s;}
     .show-source-btn:hover{color:var(--ink);}
 
     /* SOURCE PANEL */
@@ -96,7 +95,7 @@
     .source-panel.open{display:block;}
     .source-tabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
     .source-tabs::-webkit-scrollbar{display:none;}
-    .source-tab{font-family:'Geist Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.45rem 1rem;cursor:pointer;color:var(--ink3);border-right:1px solid var(--border);border-bottom:2px solid transparent;transition:all 0.1s;background:none;border-top:none;border-left:none;white-space:nowrap;}
+    .source-tab{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.45rem 1rem;cursor:pointer;color:var(--ink3);border-right:1px solid var(--border);border-bottom:2px solid transparent;transition:all 0.1s;background:none;border-top:none;border-left:none;white-space:nowrap;}
     .source-tab.active{color:var(--ink);border-bottom-color:var(--ink);background:var(--paper);}
     .source-content{padding:1rem 1.5rem;}
     .source-content.hidden{display:none;}
@@ -104,27 +103,27 @@
     .source-empty{font-size:0.78rem;color:var(--ink3);font-style:italic;}
     .analysis-note{font-size:0.78rem;color:var(--ink2);line-height:1.7;}
     .analysis-note strong{font-weight:500;color:var(--ink);}
-    .data-label{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;}
+    .data-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;}
 
     /* SIDEBAR */
     .sidebar{padding:1.25rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
     .sidebar-section{margin-bottom:1.5rem;}
-    .sidebar-section h3{font-family:'Geist Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+    .sidebar-section h3{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
     .topic-nav-item{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);cursor:pointer;transition:color 0.1s;}
     .topic-nav-item:last-child{border-bottom:none;}
     .topic-nav-item:hover{color:var(--ink);}
-    .topic-nav-count{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
+    .topic-nav-count{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
     .source-row{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);}
     .source-row:last-child{border-bottom:none;}
-    .source-count-badge{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
+    .source-count-badge{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
 
     /* EMPTY */
     .empty-state{padding:5rem 2rem;text-align:center;color:var(--ink3);}
-    .empty-state h2{font-family:'Fraunces',serif;font-size:1.8rem;color:var(--ink2);margin-bottom:0.75rem;font-weight:300;font-style:italic;}
+    .empty-state h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink2);margin-bottom:0.75rem;font-weight:300;font-style:italic;}
     .empty-state p{font-size:0.85rem;line-height:1.7;max-width:380px;margin:0 auto;}
 
     footer{border-top:2px solid var(--ink);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
-    footer span{font-family:'Geist Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.04em;}
+    footer span{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.04em;}
   </style>
 </head>
 <body>
@@ -164,11 +163,22 @@
 </footer>
 
 <script>
+function getSourceUsed(a){
+  const parts=[];
+  if(a.jina_text&&a.jina_text.trim().length>=200) parts.push('full article (Jina)');
+  else if(a.raw_content&&a.raw_content.trim().length>30&&a.raw_content!==a.raw_rss) parts.push('full RSS content');
+  if(a.raw_rss&&a.raw_rss.trim().length>30) parts.push('RSS excerpt');
+  if(a.raw_meta&&a.raw_meta.trim().length>30&&a.raw_meta.trim()!==a.raw_rss) parts.push('page description');
+  return parts.length>0?parts.join(' + '):'title only';
+}
+
 function sourceCaveat(sourceUsed){
-  if(!sourceUsed||sourceUsed==='RSS excerpt only') return 'Analysis based on headline and RSS excerpt only — may not reflect full article content.';
-  if(sourceUsed==='page description') return 'Analysis based on headline and page description.';
-  if(sourceUsed==='full article (Jina)') return 'Analysis based on full article text.';
-  return '';
+  if(!sourceUsed||sourceUsed==='title only') return 'Only the headline was available — analysis may not accurately reflect article content.';
+  if(sourceUsed.includes('full article (Jina)')) return 'Analysis based on full article text retrieved via Jina Reader.';
+  if(sourceUsed.includes('RSS excerpt')&&sourceUsed.includes('page description')) return 'Analysis based on RSS excerpt and page description.';
+  if(sourceUsed.includes('RSS excerpt')) return 'Analysis based on headline and RSS excerpt only — may not reflect full article content.';
+  if(sourceUsed.includes('page description')) return 'Analysis based on headline and page description.';
+  return 'Analysis based on available source data.';
 }
 
 async function loadArticles(){
@@ -217,7 +227,7 @@ function render(data){
     const arts=grouped[t];
     const sid='topic-'+t.replace(/[^a-z0-9]/gi,'-').toLowerCase();
     const metaSummary=topic_summaries[t]||'';
-    const fullTextCount=arts.filter(a=>a.source_used==='full article (Jina)').length;
+    const fullTextCount=arts.filter(a=>getSourceUsed(a).includes('full article')).length;
     const analysisCaveat=fullTextCount===arts.length
       ? 'Based on full article text.'
       : fullTextCount>0
@@ -249,10 +259,11 @@ function render(data){
 
 function articleHTML(a){
   const pid='panel-'+Math.random().toString(36).substr(2,9);
-  const hasRss=a.raw_rss&&a.raw_rss.trim();
-  const hasMeta=a.raw_meta&&a.raw_meta.trim()&&a.raw_meta!==a.raw_rss;
+  const hasRss=a.raw_rss&&a.raw_rss.trim().length>30;
+  const hasMeta=a.raw_meta&&a.raw_meta.trim().length>30&&a.raw_meta.trim()!==a.raw_rss;
   const hasJina=a.jina_text&&a.jina_text.trim().length>=200;
-  const caveat=sourceCaveat(a.source_used);
+  const sourceUsed=getSourceUsed(a);
+  const caveat=sourceCaveat(sourceUsed);
 
   // Break source name into lines for the left margin
   const sourceParts=a.source.split(' ');
@@ -293,7 +304,7 @@ function articleHTML(a){
         <div class="source-content hidden" id="${pid}-about">
           <div class="data-label">About this analysis</div>
           <p class="analysis-note">
-            <strong>Data used:</strong> ${a.source_used||'RSS excerpt only'}<br><br>
+            <strong>Data used:</strong> ${sourceUsed}<br><br>
             <strong>What Claude did:</strong> Assigned this article to a topic and generated a summary based strictly on the available source data. Claude was instructed not to add details not present in the source text.<br><br>
             <strong>Limitations:</strong> ${caveat}
           </p>
