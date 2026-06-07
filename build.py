@@ -462,15 +462,21 @@ Topic: {topic}
 Headlines from different outlets:
 {headlines_by_source}
 
-Write 2-4 sentences that:
-1. Briefly describe what specific events or developments are being covered (not just the general topic) — mention specific events, figures, or developments referenced in the headlines
-2. If there are multiple outlets, note how different outlets are framing or emphasising the story differently
+Write a short analysis in bullet points. Each bullet should:
+- Name the specific outlet(s) involved
+- Describe what specific event, development, or angle they are covering
+- Note any differences in framing or emphasis between outlets where relevant
 
-Important: Base this ONLY on the headlines above. Do not add outside knowledge. Start directly with the content, no preamble.
+Format: use "•" as the bullet character. 3-5 bullets maximum. Each bullet should be one concise sentence.
 
-Keep it under 80 words."""
+Example format:
+• The Guardian reports that [specific development], focusing on [angle].
+• Daily Mail covers the same story but emphasises [different angle].
+• BBC Environment notes [specific detail].
 
-    result = claude(prompt, max_tokens=150)
+Important: Base this ONLY on the headlines above. Do not add outside knowledge. Be specific — mention actual figures, events, or claims from the headlines."""
+
+    result = claude(prompt, max_tokens=300)
     return result or ""
 
 # ─────────────────────────────────────────────
