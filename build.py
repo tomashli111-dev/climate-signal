@@ -340,9 +340,11 @@ Identify 5-8 distinct topics that best group these articles. Topics should be:
 - Reflective of what's actually in the news this week
 - Mutually exclusive — topics must not overlap. An article should clearly belong to one topic only
 - If two potential topics are closely related, merge them into one broader topic rather than keeping them separate
+- If multiple articles cover the same underlying news event from different angles (e.g. one focuses on the science, another on cost-of-living impact), group them under ONE topic named after the event, not the angle
 
 Bad example: having both "Net Zero Policy" and "UK Climate Targets" as separate topics — these overlap
-Good example: merging them into "UK Net Zero and Climate Targets"
+Bad example: having both "El Niño Science" and "El Niño Cost of Living Impact" as separate topics — these are the same event
+Good example: merging both into "El Niño Threat and Outlook"
 
 Respond with ONLY a JSON array of topic name strings, e.g.:
 ["Seventh Carbon Budget", "North Sea Oil Licensing", "EV Mandate Debate", "Nature Recovery"]
