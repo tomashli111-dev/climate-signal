@@ -38,7 +38,7 @@
 
     /* TOPIC HEADER — dark green band */
     .topic-header{
-      background:var(--topic-bg);
+      background:#e8e4dc;
       padding:1rem 1.5rem;
       cursor:pointer;
       user-select:none;
@@ -46,26 +46,22 @@
       align-items:flex-start;
       justify-content:space-between;
       gap:1rem;
+      border-bottom:1px solid var(--border);
     }
-    .topic-header:hover{background:#1e4530;}
+    .topic-header:hover{background:#dedad0;}
     .topic-header-left{flex:1;min-width:0;}
-    .topic-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--topic-text);margin-bottom:0.3rem;}
-    .topic-count{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--topic-sub);letter-spacing:0.06em;text-transform:uppercase;}
-    .topic-toggle{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--topic-sub);flex-shrink:0;padding-top:2px;}
+    .topic-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.3rem;}
+    .topic-count{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--ink3);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.6rem;}
+    .topic-toggle{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--ink3);flex-shrink:0;padding-top:2px;}
 
-    /* TOPIC ANALYSIS BOX */
-    .topic-analysis{
-      background:#eef5f1;
-      border-bottom:1px solid rgba(42,92,63,0.15);
-      padding:0.8rem 1.5rem;
-      display:none;
-    }
+    /* TOPIC ANALYSIS — merged into header */
+    .topic-analysis{display:none;}
     .topic-analysis.visible{display:block;}
-    .topic-analysis-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
+    .topic-analysis-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.35rem;}
     .topic-analysis-text{font-size:0.82rem;color:var(--ink2);line-height:1.8;}
     .topic-analysis-text p{margin-bottom:0.3rem;}
     .topic-analysis-text p:last-child{margin-bottom:0;}
-    .topic-analysis-caveat{font-size:0.7rem;color:var(--ink3);margin-top:0.3rem;}
+    .topic-analysis-caveat{font-size:0.7rem;color:var(--ink3);margin-top:0.4rem;}
 
     /* TOPIC ARTICLES */
     .topic-articles{display:none;}
@@ -242,15 +238,15 @@ function render(data){
           <div class="topic-header-left">
             <div class="topic-title">${t}</div>
             <div class="topic-count">${arts.length} article${arts.length!==1?'s':''} · click to expand</div>
+            ${metaSummary?`
+            <div class="topic-analysis visible">
+              <div class="topic-analysis-label">Coverage analysis</div>
+              <div class="topic-analysis-text">${metaSummary.split('\n').filter(l=>l.trim()).map(l=>`<p>${l.trim()}</p>`).join('')}</div>
+              <div class="topic-analysis-caveat">${analysisCaveat}</div>
+            </div>`:''}
           </div>
           <span class="topic-toggle">▶</span>
         </div>
-        ${metaSummary?`
-        <div class="topic-analysis">
-          <div class="topic-analysis-label">Coverage analysis</div>
-          <div class="topic-analysis-text">${metaSummary.split('\n').filter(l=>l.trim()).map(l=>`<p>${l.trim()}</p>`).join('')}</div>
-          <div class="topic-analysis-caveat">${analysisCaveat}</div>
-        </div>`:''}
         <div class="topic-articles">${arts.map(articleHTML).join('')}</div>
       </div>`;
   }).join('');
