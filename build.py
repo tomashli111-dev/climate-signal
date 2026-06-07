@@ -20,6 +20,7 @@ RSS_FEEDS = [
     {"source": "The Sun",          "url": "https://www.thesun.co.uk/feed/",                                   "max": 50},
     {"source": "The Spectator",    "url": "https://www.spectator.co.uk/feed/",                                "max": 50},
     {"source": "The Express",      "url": "https://www.express.co.uk/posts/rss",                              "max": 50},
+    {"source": "The Times",        "url": "https://www.thetimes.co.uk/rss/",                                  "max": 50},
 
     # Centre
     {"source": "BBC Environment",  "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",    "max": 20},
@@ -27,6 +28,8 @@ RSS_FEEDS = [
     {"source": "Sky News",         "url": "https://feeds.skynews.com/feeds/rss/politics.xml",                 "max": 30},
     {"source": "Evening Standard", "url": "https://www.standard.co.uk/news/rss",                              "max": 50},
     {"source": "The i",            "url": "https://inews.co.uk/feed",                                         "max": 20},
+    {"source": "Metro",            "url": "https://metro.co.uk/feed/",                                        "max": 50},
+    {"source": "LBC",              "url": "https://www.lbc.co.uk/news/feed/",                                 "max": 50},
 
     # Centre-left
     {"source": "The Guardian",     "url": "https://www.theguardian.com/environment/climate-crisis/rss",       "max": 20},
