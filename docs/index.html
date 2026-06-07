@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink:#0e0e0e; --ink2:#3a3a3a; --ink3:#888;
+      --ink:#0e0e0e; --ink2:#3a3a3a; --ink3:#5a5a5a;
       --paper:#f5f0e8; --paper2:#ede8dc; --paper3:#e4ddd0;
-      --border:rgba(0,0,0,0.12); --border2:rgba(0,0,0,0.07);
+      --border:rgba(0,0,0,0.18); --border2:rgba(0,0,0,0.09);
       --topic-bg:#1a3a2a; --topic-text:#e8f5ee; --topic-sub:#7db898;
       --accent:#2a5c3f;
     }
@@ -20,9 +20,10 @@
     body{background:var(--paper);color:var(--ink);font-family:'Space Grotesk',sans-serif;font-weight:300;min-height:100vh;}
 
     /* MASTHEAD */
-    .masthead{border-bottom:3px solid var(--ink);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;background:var(--paper);}
-    .masthead-brand{display:flex;align-items:baseline;gap:12px;}
+    .masthead{border-bottom:3px solid var(--ink);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;background:var(--paper);}
+    .masthead-brand{display:flex;align-items:center;gap:16px;}
     .masthead-brand h1{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.03em;}
+    .masthead-divider{width:1px;height:18px;background:var(--border);}
     .masthead-brand .tagline{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
     .masthead-meta{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--ink3);text-align:right;line-height:1.6;}
 
@@ -74,11 +75,11 @@
     .article-source-col{width:88px;flex-shrink:0;background:var(--paper2);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem 0.5rem;text-align:center;}
     .article-source-name{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);line-height:1.4;word-break:break-word;}
     .article-source-date{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--ink3);margin-top:4px;}
-    .article-body{flex:1;min-width:0;padding:0.9rem 1.25rem;}
+    .article-body{flex:1;min-width:0;padding:1.1rem 1.5rem;}
     .article-badges{display:flex;align-items:center;gap:6px;margin-bottom:0.4rem;flex-wrap:wrap;}
     .low-confidence-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:1px 6px;border-radius:2px;}
     .full-text-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#eef5f1;color:var(--accent);border:1px solid rgba(42,92,63,0.2);padding:1px 6px;border-radius:2px;}
-    .article-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.4rem;letter-spacing:-0.02em;}
+    .article-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.45rem;letter-spacing:-0.02em;}
     .article-title:hover{color:#333;}
     .article-summary{font-size:0.82rem;color:var(--ink2);line-height:1.65;margin-bottom:0.5rem;}
     .article-summary.low-confidence{color:var(--ink3);font-style:italic;}
@@ -129,6 +130,7 @@
 <div class="masthead">
   <div class="masthead-brand">
     <h1>Climate Signal</h1>
+    <div class="masthead-divider"></div>
     <span class="tagline">Media analysis · Daily briefing</span>
   </div>
   <div class="masthead-meta">
@@ -156,7 +158,7 @@
 </div>
 
 <footer>
-  <span>Climate Signal — personal media monitoring project</span>
+  <span>Climate Signal — AI-powered UK climate media analysis · <a href="https://github.com/tomashli111-dev/climate-signal" target="_blank" rel="noopener" style="color:var(--ink3);text-decoration:underline;">View on GitHub</a></span>
   <span id="footer-updated">Updated daily at 08:00 BST</span>
 </footer>
 
