@@ -231,10 +231,10 @@ function render(data){
     const metaSummary=topic_summaries[t]||'';
     const fullTextCount=arts.filter(a=>getSourceUsed(a).includes('full article')).length;
     const analysisCaveat=fullTextCount===arts.length
-      ? 'Based on full article text.'
+      ? 'Coverage analysis based on full article text for all articles in this topic.'
       : fullTextCount>0
-        ? `Based on full article text for ${fullTextCount} of ${arts.length} articles; headlines and excerpts for the rest.`
-        : 'Based on headlines and excerpts only — may not reflect full article content.';
+        ? `Coverage analysis based on full article text for ${fullTextCount} of ${arts.length} articles; raw RSS excerpts for the rest.`
+        : 'Coverage analysis based on raw headlines and RSS excerpts — not Claude-generated summaries.';
 
     return `
       <div class="topic-section" id="${sid}">
