@@ -291,7 +291,7 @@ def claude(prompt, max_tokens=500):
         return None
     try:
         payload = json.dumps({
-           "model": "claude-sonnet-4-6",
+            "model": os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-6"),
             "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": prompt}]
         }).encode("utf-8")
@@ -335,6 +335,11 @@ Identify 5-8 distinct topics that best group these articles. Topics should be:
 - Broad enough that multiple articles fit
 - Named as a news editor would label a story cluster
 - Reflective of what's actually in the news this week
+- Mutually exclusive — topics must not overlap. An article should clearly belong to one topic only
+- If two potential topics are closely related, merge them into one broader topic rather than keeping them separate
+
+Bad example: having both "Net Zero Policy" and "UK Climate Targets" as separate topics — these overlap
+Good example: merging them into "UK Net Zero and Climate Targets"
 
 Respond with ONLY a JSON array of topic name strings, e.g.:
 ["Seventh Carbon Budget", "North Sea Oil Licensing", "EV Mandate Debate", "Nature Recovery"]
@@ -405,10 +410,12 @@ def analyse_article(article, topics):
 Available data:
 {source_data}
 
-Important: Base your summary ONLY on the information provided above.
+Important: Base your summary ONLY on the information provided above. Do not add details not present in the source.
 
-Topics available (pick the single best fit):
+Topics available — each is mutually exclusive, pick the single best fit:
 {topics_list}
+
+If the article could fit multiple topics, choose the one that best matches the PRIMARY subject of the article.
 
 Respond with ONLY a JSON object:
 {{
@@ -440,7 +447,7 @@ No other text."""
 # STEP 3: GENERATE TOPIC META-SUMMARIES
 # ─────────────────────────────────────────────
 def generate_topic_summary(topic, articles):
-    if not ANTHROPIC_API_KEY or len(articles) < 2:
+    if not ANTHROPIC_API_KEY or len(articles) < 1:
         return ""
 
     headlines_by_source = "\n".join([
@@ -448,18 +455,20 @@ def generate_topic_summary(topic, articles):
         for a in articles
     ])
 
-    prompt = f"""You are a media analyst looking at how different UK news outlets are covering the same climate/environment story.
+    prompt = f"""You are a media analyst summarising how UK news outlets are covering a climate/environment topic.
 
 Topic: {topic}
 
 Headlines from different outlets:
 {headlines_by_source}
 
-Write 2-3 sentences describing how this story is being framed across these outlets. Note any differences in emphasis, language, or angle between outlets. Be specific about which outlets frame it differently.
+Write 2-4 sentences that:
+1. Briefly describe what specific events or developments are being covered (not just the general topic) — mention specific events, figures, or developments referenced in the headlines
+2. If there are multiple outlets, note how different outlets are framing or emphasising the story differently
 
-Important: Base this ONLY on the headlines above. Do not add outside knowledge. Start directly with your observation, no preamble.
+Important: Base this ONLY on the headlines above. Do not add outside knowledge. Start directly with the content, no preamble.
 
-Keep it under 60 words."""
+Keep it under 80 words."""
 
     result = claude(prompt, max_tokens=150)
     return result or ""
@@ -556,7 +565,7 @@ def main():
             grouped[t].append(a)
 
         for topic, arts in grouped.items():
-            if len(arts) >= 2:
+            if len(arts) >= 1:
                 print(f"  Summarising: {topic} ({len(arts)} articles)...")
                 summary = generate_topic_summary(topic, arts)
                 topic_summaries[topic] = summary
