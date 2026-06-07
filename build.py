@@ -450,8 +450,24 @@ def generate_topic_summary(topic, articles):
     if not ANTHROPIC_API_KEY or len(articles) < 1:
         return ""
 
-    headlines_by_source = "\n".join([
-        f"- {a['source']}: {a['title']}"
+    def best_raw_text(a):
+        """Return richest available raw source text for an article."""
+        jina = a.get('jina_text', '')
+        meta = a.get('raw_meta', '')
+        rss = a.get('raw_rss', '')
+        content = a.get('raw_content', '')
+        if len(jina) >= 200:
+            return jina[:500]  # cap to keep prompt manageable
+        if content and len(content) > len(rss):
+            return content[:300]
+        if rss and len(rss) > 30:
+            return rss[:300]
+        if meta and len(meta) > 30:
+            return meta[:300]
+        return ""
+
+    articles_text = "\n".join([
+        f"- {a['source']}: {a['title']}" + (f" — {best_raw_text(a)}" if best_raw_text(a) else "")
         for a in articles
     ])
 
@@ -459,24 +475,23 @@ def generate_topic_summary(topic, articles):
 
 Topic: {topic}
 
-Headlines from different outlets:
-{headlines_by_source}
+Articles from different outlets (outlet: headline — raw source text):
+{articles_text}
 
-Write a short analysis in bullet points. Each bullet should:
-- Name the specific outlet(s) involved
-- Describe what specific event, development, or angle they are covering
-- Note any differences in framing or emphasis between outlets where relevant
+Write a short bullet point analysis. Format:
+- Use "•" as the bullet character
+- 2-3 bullets maximum
+- Each bullet is a short phrase, not a full sentence
+- Name the specific outlet(s) in each bullet
+- Focus on what's being covered and how outlets differ in their framing or emphasis
 
-Format: use "•" as the bullet character. 3-5 bullets maximum. Each bullet should be one concise sentence.
+Example:
+• Daily Mail frames El Niño as a cost-of-living threat; BBC focuses on the science.
+• The Guardian highlights policy implications; GB News questions the data.
 
-Example format:
-• The Guardian reports that [specific development], focusing on [angle].
-• Daily Mail covers the same story but emphasises [different angle].
-• BBC Environment notes [specific detail].
+Important: Base this ONLY on the source text above. Do not add outside knowledge. Be specific."""
 
-Important: Base this ONLY on the headlines above. Do not add outside knowledge. Be specific — mention actual figures, events, or claims from the headlines."""
-
-    result = claude(prompt, max_tokens=300)
+    result = claude(prompt, max_tokens=200)
     return result or ""
 
 # ─────────────────────────────────────────────
