@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Climate Signal — Preview</title>
+  <title>Climate Signal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -17,53 +19,112 @@
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;}
 
+    /* MASTHEAD */
     .masthead{border-bottom:3px solid var(--ink);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;background:var(--paper);}
     .masthead-brand{display:flex;align-items:baseline;gap:12px;}
-    .masthead-brand h1{font-family:'Lora',serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.03em;}
+    .masthead-brand h1{font-family:'Lora',serif;font-size:1.5rem;font-weight:900;letter-spacing:-0.03em;}
     .masthead-brand .tagline{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);}
     .masthead-meta{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--ink3);text-align:right;line-height:1.6;}
 
+    /* LAYOUT */
     .layout{display:grid;grid-template-columns:1fr 240px;min-height:calc(100vh - 56px);}
+    @media(max-width:768px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+
+    /* MAIN FEED */
     .feed{border-right:1px solid var(--border);}
+
+    /* TOPIC SECTION */
     .topic-section{border-bottom:1px solid var(--border);}
 
-    .topic-header{background:var(--topic-bg);padding:1rem 1.5rem;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+    /* TOPIC HEADER — dark green band */
+    .topic-header{
+      background:var(--topic-bg);
+      padding:1rem 1.5rem;
+      cursor:pointer;
+      user-select:none;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:1rem;
+    }
     .topic-header:hover{background:#1e4530;}
+    .topic-header-left{flex:1;min-width:0;}
     .topic-title{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;color:var(--topic-text);margin-bottom:0.3rem;}
     .topic-count{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--topic-sub);letter-spacing:0.06em;text-transform:uppercase;}
-    .topic-toggle{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--topic-sub);}
+    .topic-toggle{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--topic-sub);flex-shrink:0;padding-top:2px;}
 
-    .topic-analysis{background:#eef5f1;border-bottom:1px solid rgba(42,92,63,0.15);padding:0.8rem 1.5rem;}
+    /* TOPIC ANALYSIS BOX */
+    .topic-analysis{
+      background:#eef5f1;
+      border-bottom:1px solid rgba(42,92,63,0.15);
+      padding:0.8rem 1.5rem;
+      display:none;
+    }
+    .topic-analysis.visible{display:block;}
     .topic-analysis-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
     .topic-analysis-text{font-size:0.82rem;color:var(--ink2);line-height:1.8;}
     .topic-analysis-text p{margin-bottom:0.3rem;}
+    .topic-analysis-text p:last-child{margin-bottom:0;}
     .topic-analysis-caveat{font-size:0.7rem;color:var(--ink3);margin-top:0.3rem;}
 
-    .topic-articles{}
+    /* TOPIC ARTICLES */
+    .topic-articles{display:none;}
+    .topic-articles.open{display:block;}
+
+    /* ARTICLE */
     .article{border-bottom:1px solid var(--border);display:flex;flex-direction:column;}
-    .article-main{display:flex;cursor:pointer;}
+    .article-main{display:flex;transition:background 0.1s;cursor:pointer;}
     .article-main:hover .article-body{background:var(--paper2);}
     .article-source-col{width:88px;flex-shrink:0;background:var(--paper2);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem 0.5rem;text-align:center;}
     .article-source-name{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);line-height:1.4;word-break:break-word;}
     .article-source-date{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--ink3);margin-top:4px;}
     .article-body{flex:1;min-width:0;padding:0.9rem 1.25rem;}
+    .article-badges{display:flex;align-items:center;gap:6px;margin-bottom:0.4rem;flex-wrap:wrap;}
+    .low-confidence-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#fff8e6;color:#8a5a00;border:1px solid rgba(138,90,0,0.2);padding:1px 6px;border-radius:2px;}
+    .full-text-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#eef5f1;color:var(--accent);border:1px solid rgba(42,92,63,0.2);padding:1px 6px;border-radius:2px;}
     .article-title{font-family:'Lora',serif;font-size:1rem;font-weight:700;line-height:1.25;color:var(--ink);text-decoration:none;display:block;margin-bottom:0.4rem;letter-spacing:-0.02em;}
+    .article-title:hover{color:#333;}
     .article-summary{font-size:0.82rem;color:var(--ink2);line-height:1.65;margin-bottom:0.5rem;}
-    .article-footer{display:flex;align-items:center;gap:12px;}
-    .read-more{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;}
-    .show-source-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;padding:0;}
-    .full-text-badge{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;background:#eef5f1;color:var(--accent);border:1px solid rgba(42,92,63,0.2);padding:1px 6px;border-radius:2px;margin-bottom:0.4rem;display:inline-block;}
+    .article-summary.low-confidence{color:var(--ink3);font-style:italic;}
+    .article-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+    .read-more{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:color 0.1s,border-color 0.1s;}
+    .read-more:hover{color:var(--ink);border-color:var(--ink);}
+    .show-source-btn{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;padding:0;transition:color 0.1s;}
+    .show-source-btn:hover{color:var(--ink);}
 
+    /* SOURCE PANEL */
+    .source-panel{display:none;border-top:1px solid var(--border);background:var(--paper2);}
+    .source-panel.open{display:block;}
+    .source-tabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+    .source-tabs::-webkit-scrollbar{display:none;}
+    .source-tab{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.45rem 1rem;cursor:pointer;color:var(--ink3);border-right:1px solid var(--border);border-bottom:2px solid transparent;transition:all 0.1s;background:none;border-top:none;border-left:none;white-space:nowrap;}
+    .source-tab.active{color:var(--ink);border-bottom-color:var(--ink);background:var(--paper);}
+    .source-content{padding:1rem 1.5rem;}
+    .source-content.hidden{display:none;}
+    .source-text{font-size:0.8rem;color:var(--ink2);line-height:1.7;font-style:italic;}
+    .source-empty{font-size:0.78rem;color:var(--ink3);font-style:italic;}
+    .analysis-note{font-size:0.78rem;color:var(--ink2);line-height:1.7;}
+    .analysis-note strong{font-weight:500;color:var(--ink);}
+    .data-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;}
+
+    /* SIDEBAR */
     .sidebar{padding:1.25rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
     .sidebar-section{margin-bottom:1.5rem;}
     .sidebar-section h3{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
-    .topic-nav-item{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);cursor:pointer;}
+    .topic-nav-item{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);cursor:pointer;transition:color 0.1s;}
     .topic-nav-item:last-child{border-bottom:none;}
+    .topic-nav-item:hover{color:var(--ink);}
     .topic-nav-count{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
     .source-row{display:flex;align-items:center;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid var(--border2);font-size:0.78rem;color:var(--ink2);}
+    .source-row:last-child{border-bottom:none;}
     .source-count-badge{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);background:var(--paper3);padding:1px 6px;border-radius:2px;}
 
-    footer{border-top:2px solid var(--ink);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+    /* EMPTY */
+    .empty-state{padding:5rem 2rem;text-align:center;color:var(--ink3);}
+    .empty-state h2{font-family:'Lora',serif;font-size:1.8rem;color:var(--ink2);margin-bottom:0.75rem;font-weight:300;font-style:italic;}
+    .empty-state p{font-size:0.85rem;line-height:1.7;max-width:380px;margin:0 auto;}
+
+    footer{border-top:2px solid var(--ink);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
     footer span{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);letter-spacing:0.04em;}
   </style>
 </head>
@@ -75,146 +136,21 @@
     <span class="tagline">Media analysis · Daily briefing</span>
   </div>
   <div class="masthead-meta">
-    <div>Sunday, 8 June 2026</div>
-    <div>24 articles · 6 sources · 7-day rolling</div>
+    <div id="todays-date">—</div>
+    <div><span id="stat-articles">—</span> articles · <span id="stat-sources">—</span> sources · 7-day rolling</div>
   </div>
 </div>
 
 <div class="layout">
-  <main class="feed">
-
-    <!-- TOPIC 1 — expanded -->
-    <div class="topic-section">
-      <div class="topic-header">
-        <div>
-          <div class="topic-title">El Niño Fears and Extreme Weather Outlook</div>
-          <div class="topic-count">10 articles · click to collapse</div>
-        </div>
-        <span class="topic-toggle">▼</span>
-      </div>
-      <div class="topic-analysis">
-        <div class="topic-analysis-label">Coverage analysis</div>
-        <div class="topic-analysis-text">
-          <p>• Daily Mail frames a developing Super El Niño as a direct cost-of-living threat, warning of hundreds added to grocery bills.</p>
-          <p>• BBC Environment and The i focus on the scientific outlook, noting it could be the strongest El Niño in decades.</p>
-          <p>• The Guardian covers the Australian snow season and global knock-on effects, taking a more measured tone.</p>
-        </div>
-        <div class="topic-analysis-caveat">Coverage analysis based on raw headlines and RSS excerpts — not Claude-generated summaries.</div>
-      </div>
-      <div class="topic-articles">
-
-        <div class="article">
-          <div class="article-main">
-            <div class="article-source-col">
-              <div class="article-source-name">DAILY<br>MAIL</div>
-              <div class="article-source-date">7 Jun 2026</div>
-            </div>
-            <div class="article-body">
-              <span class="full-text-badge">full article</span>
-              <a class="article-title" href="#">Super El Niño could add hundreds to your grocery bill, scientists warn</a>
-              <p class="article-summary">A powerful El Niño event described as potentially the worst in history is being tracked by global weather monitoring organisations. The phenomenon could have serious knock-on effects including rising food prices and empty supermarket shelves across the UK.</p>
-              <div class="article-footer">
-                <a class="read-more" href="#">Read full article →</a>
-                <button class="show-source-btn">▸ Show source data</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="article">
-          <div class="article-main">
-            <div class="article-source-col">
-              <div class="article-source-name">BBC<br>ENVIRONMENT</div>
-              <div class="article-source-date">6 Jun 2026</div>
-            </div>
-            <div class="article-body">
-              <span class="full-text-badge">full article</span>
-              <a class="article-title" href="#">Next El Niño could be strongest in decades, scientists say</a>
-              <p class="article-summary">Climate scientists monitoring Pacific ocean temperatures have identified early signs of an unusually powerful El Niño event forming. Researchers warn the phenomenon could disrupt weather patterns across the globe through 2026 and into 2027.</p>
-              <div class="article-footer">
-                <a class="read-more" href="#">Read full article →</a>
-                <button class="show-source-btn">▸ Show source data</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="article">
-          <div class="article-main">
-            <div class="article-source-col">
-              <div class="article-source-name">GB<br>NEWS</div>
-              <div class="article-source-date">6 Jun 2026</div>
-            </div>
-            <div class="article-body">
-              <a class="article-title" href="#">Ed Miliband's Net Zero dream is a fantasy. There's one big reason why</a>
-              <p class="article-summary">An opinion piece argues that the government's net zero by 2050 target is unachievable and economically damaging, criticising Ed Miliband's energy policies as ideologically driven rather than practically grounded.</p>
-              <div class="article-footer">
-                <a class="read-more" href="#">Read full article →</a>
-                <button class="show-source-btn">▸ Show source data</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TOPIC 2 — collapsed -->
-    <div class="topic-section">
-      <div class="topic-header">
-        <div>
-          <div class="topic-title">Trump Administration's Environmental Rollbacks</div>
-          <div class="topic-count">3 articles · click to expand</div>
-        </div>
-        <span class="topic-toggle">▶</span>
-      </div>
-      <div class="topic-analysis">
-        <div class="topic-analysis-label">Coverage analysis</div>
-        <div class="topic-analysis-text">
-          <p>• The Guardian leads with Trump's wartime powers being used to fund clean energy, while also reporting California and New York weakening climate rules.</p>
-          <p>• Scientists warn Trump plans to axe ocean monitoring systems, with the Guardian framing this as a significant setback for climate research.</p>
-        </div>
-        <div class="topic-analysis-caveat">Coverage analysis based on full article text for 2 of 3 articles; raw RSS excerpts for the rest.</div>
-      </div>
-    </div>
-
-    <!-- TOPIC 3 — collapsed -->
-    <div class="topic-section">
-      <div class="topic-header">
-        <div>
-          <div class="topic-title">Wildlife and Nature Conservation in the UK</div>
-          <div class="topic-count">4 articles · click to expand</div>
-        </div>
-        <span class="topic-toggle">▶</span>
-      </div>
-      <div class="topic-analysis">
-        <div class="topic-analysis-label">Coverage analysis</div>
-        <div class="topic-analysis-text">
-          <p>• BBC Environment reports positively on white stork reintroduction and mangrove forest recovery, taking a hopeful framing.</p>
-          <p>• A separate BBC report warns of sea defence failures threatening a nature reserve, providing a cautionary counterpoint.</p>
-        </div>
-        <div class="topic-analysis-caveat">Coverage analysis based on full article text for all articles in this topic.</div>
-      </div>
-    </div>
-
-  </main>
-
+  <main class="feed" id="feed"></main>
   <aside class="sidebar">
     <div class="sidebar-section">
       <h3>Topics</h3>
-      <div class="topic-nav-item"><span>El Niño &amp; Extreme Weather</span><span class="topic-nav-count">10</span></div>
-      <div class="topic-nav-item"><span>Trump Environmental Rollbacks</span><span class="topic-nav-count">3</span></div>
-      <div class="topic-nav-item"><span>Wildlife &amp; Nature Conservation</span><span class="topic-nav-count">4</span></div>
-      <div class="topic-nav-item"><span>UK Net Zero &amp; EV Policy</span><span class="topic-nav-count">3</span></div>
-      <div class="topic-nav-item"><span>Deforestation &amp; Disease</span><span class="topic-nav-count">4</span></div>
+      <div id="topic-nav"></div>
     </div>
     <div class="sidebar-section">
       <h3>Sources</h3>
-      <div class="source-row"><span>The Guardian</span><span class="source-count-badge">8</span></div>
-      <div class="source-row"><span>Daily Mail</span><span class="source-count-badge">6</span></div>
-      <div class="source-row"><span>BBC Environment</span><span class="source-count-badge">4</span></div>
-      <div class="source-row"><span>GB News</span><span class="source-count-badge">1</span></div>
-      <div class="source-row"><span>The i</span><span class="source-count-badge">1</span></div>
+      <div id="source-list"></div>
     </div>
     <div class="sidebar-section">
       <h3>About</h3>
@@ -225,8 +161,193 @@
 
 <footer>
   <span>Climate Signal — personal media monitoring project</span>
-  <span>Last updated 08:14 BST, 8 Jun 2026</span>
+  <span id="footer-updated">Updated daily at 08:00 BST</span>
 </footer>
 
+<script>
+function getSourceUsed(a){
+  const parts=[];
+  if(a.jina_text&&a.jina_text.trim().length>=200) parts.push('full article (Jina)');
+  else if(a.raw_content&&a.raw_content.trim().length>30&&a.raw_content!==a.raw_rss) parts.push('full RSS content');
+  if(a.raw_rss&&a.raw_rss.trim().length>30) parts.push('RSS excerpt');
+  if(a.raw_meta&&a.raw_meta.trim().length>30&&a.raw_meta.trim()!==a.raw_rss) parts.push('page description');
+  return parts.length>0?parts.join(' + '):'title only';
+}
+
+function sourceCaveat(sourceUsed){
+  if(!sourceUsed||sourceUsed==='title only') return 'Only the headline was available — analysis may not accurately reflect article content.';
+  if(sourceUsed.includes('full article (Jina)')) return 'Analysis based on full article text retrieved via Jina Reader.';
+  if(sourceUsed.includes('RSS excerpt')&&sourceUsed.includes('page description')) return 'Analysis based on RSS excerpt and page description.';
+  if(sourceUsed.includes('RSS excerpt')) return 'Analysis based on headline and RSS excerpt only — may not reflect full article content.';
+  if(sourceUsed.includes('page description')) return 'Analysis based on headline and page description.';
+  return 'Analysis based on available source data.';
+}
+
+async function loadArticles(){
+  try{
+    const res=await fetch('articles.json?v='+Date.now());
+    if(!res.ok) throw new Error('no data');
+    render(await res.json());
+  }catch(e){
+    document.getElementById('feed').innerHTML=`<div class="empty-state"><h2>No articles yet</h2><p>Run the daily build workflow to populate this page.</p></div>`;
+  }
+}
+
+function render(data){
+  const{articles,generated_at,topic_summaries={}}=data;
+  if(!articles||!articles.length){
+    document.getElementById('feed').innerHTML=`<div class="empty-state"><h2>No articles yet</h2><p>Run the daily build workflow to populate this page.</p></div>`;
+    return;
+  }
+
+  const d=generated_at?new Date(generated_at):new Date();
+  document.getElementById('todays-date').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('stat-articles').textContent=articles.length;
+  document.getElementById('stat-sources').textContent=[...new Set(articles.map(a=>a.source))].length;
+  document.getElementById('footer-updated').textContent='Last updated '+d.toLocaleString('en-GB');
+
+  const srcCounts={};
+  articles.forEach(a=>srcCounts[a.source]=(srcCounts[a.source]||0)+1);
+  document.getElementById('source-list').innerHTML=Object.entries(srcCounts)
+    .sort((a,b)=>b[1]-a[1])
+    .map(([s,c])=>`<div class="source-row"><span>${s}</span><span class="source-count-badge">${c}</span></div>`)
+    .join('');
+
+  const grouped={};
+  articles.forEach(a=>{
+    const t=a.topic||'General';
+    if(!grouped[t]) grouped[t]=[];
+    grouped[t].push(a);
+  });
+  const topicList=Object.keys(grouped).sort((a,b)=>grouped[b].length-grouped[a].length);
+
+  document.getElementById('topic-nav').innerHTML=topicList
+    .map(t=>`<div class="topic-nav-item" onclick="scrollToTopic('${t.replace(/'/g,"\\'")}')"><span>${t}</span><span class="topic-nav-count">${grouped[t].length}</span></div>`)
+    .join('');
+
+  document.getElementById('feed').innerHTML=topicList.map(t=>{
+    const arts=grouped[t];
+    const sid='topic-'+t.replace(/[^a-z0-9]/gi,'-').toLowerCase();
+    const metaSummary=topic_summaries[t]||'';
+    const fullTextCount=arts.filter(a=>getSourceUsed(a).includes('full article')).length;
+    const analysisCaveat=fullTextCount===arts.length
+      ? 'Coverage analysis based on full article text for all articles in this topic.'
+      : fullTextCount>0
+        ? `Coverage analysis based on full article text for ${fullTextCount} of ${arts.length} articles; raw RSS excerpts for the rest.`
+        : 'Coverage analysis based on raw headlines and RSS excerpts — not Claude-generated summaries.';
+
+    return `
+      <div class="topic-section" id="${sid}">
+        <div class="topic-header" onclick="toggleTopic(this)">
+          <div class="topic-header-left">
+            <div class="topic-title">${t}</div>
+            <div class="topic-count">${arts.length} article${arts.length!==1?'s':''} · click to expand</div>
+          </div>
+          <span class="topic-toggle">▶</span>
+        </div>
+        ${metaSummary?`
+        <div class="topic-analysis">
+          <div class="topic-analysis-label">Coverage analysis</div>
+          <div class="topic-analysis-text">${metaSummary.split('\n').filter(l=>l.trim()).map(l=>`<p>${l.trim()}</p>`).join('')}</div>
+          <div class="topic-analysis-caveat">${analysisCaveat}</div>
+        </div>`:''}
+        <div class="topic-articles">${arts.map(articleHTML).join('')}</div>
+      </div>`;
+  }).join('');
+
+  // Show analysis boxes by default
+  document.querySelectorAll('.topic-analysis').forEach(el=>el.classList.add('visible'));
+}
+
+function articleHTML(a){
+  const pid='panel-'+Math.random().toString(36).substr(2,9);
+  const hasRss=a.raw_rss&&a.raw_rss.trim().length>30;
+  const hasMeta=a.raw_meta&&a.raw_meta.trim().length>30&&a.raw_meta.trim()!==a.raw_rss;
+  const hasJina=a.jina_text&&a.jina_text.trim().length>=200;
+  const sourceUsed=getSourceUsed(a);
+  const caveat=sourceCaveat(sourceUsed);
+
+  // Break source name into lines for the left margin
+  const sourceParts=a.source.split(' ');
+  const sourceLines=sourceParts.length>2
+    ?[sourceParts.slice(0,Math.ceil(sourceParts.length/2)).join(' '),sourceParts.slice(Math.ceil(sourceParts.length/2)).join(' ')]
+    :sourceParts;
+
+  return `
+    <div class="article" data-topic="${a.topic||''}">
+      <div class="article-main" onclick="window.open('${a.url}','_blank')">
+        <div class="article-source-col">
+          <div class="article-source-name">${sourceLines.join('<br>')}</div>
+          <div class="article-source-date">${a.date}</div>
+        </div>
+        <div class="article-body">
+          <div class="article-badges">
+            ${a.low_confidence?'<span class="low-confidence-badge">low data</span>':''}
+            ${hasJina?'<span class="full-text-badge">full article</span>':''}
+          </div>
+          <a class="article-title" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${a.title}</a>
+          <p class="article-summary${a.low_confidence?' low-confidence':''}">${a.summary}</p>
+          <div class="article-footer">
+            <a class="read-more" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read full article →</a>
+            <button class="show-source-btn" onclick="event.stopPropagation();togglePanel('${pid}',this)">▸ Show source data</button>
+          </div>
+        </div>
+      </div>
+      <div class="source-panel" id="${pid}">
+        <div class="source-tabs">
+          ${hasJina?`<button class="source-tab active" onclick="switchTab(this,'${pid}-jina')">Full article text</button>`:''}
+          <button class="source-tab${!hasJina?' active':''}" onclick="switchTab(this,'${pid}-rss')">RSS excerpt</button>
+          <button class="source-tab" onclick="switchTab(this,'${pid}-meta')">Page description</button>
+          <button class="source-tab" onclick="switchTab(this,'${pid}-about')">About this analysis</button>
+        </div>
+        ${hasJina?`<div class="source-content" id="${pid}-jina"><div class="data-label">Full article text (Jina Reader)</div><p class="source-text">${a.jina_text.substring(0,1500)}${a.jina_text.length>1500?'…':''}</p></div>`:''}
+        <div class="source-content${hasJina?' hidden':''}" id="${pid}-rss"><div class="data-label">RSS excerpt</div>${hasRss?`<p class="source-text">"${a.raw_rss}"</p>`:`<p class="source-empty">No RSS excerpt available.</p>`}</div>
+        <div class="source-content hidden" id="${pid}-meta"><div class="data-label">Page description</div>${hasMeta?`<p class="source-text">"${a.raw_meta}"</p>`:`<p class="source-empty">No page description could be fetched.</p>`}</div>
+        <div class="source-content hidden" id="${pid}-about">
+          <div class="data-label">About this analysis</div>
+          <p class="analysis-note">
+            <strong>Data used:</strong> ${sourceUsed}<br><br>
+            <strong>What Claude did:</strong> Assigned this article to a topic and generated a summary based strictly on the available source data. Claude was instructed not to add details not present in the source text.<br><br>
+            <strong>Limitations:</strong> ${caveat}
+          </p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function toggleTopic(header){
+  const section=header.closest('.topic-section');
+  const articles=section.querySelector('.topic-articles');
+  const toggle=header.querySelector('.topic-toggle');
+  const isOpen=articles.classList.toggle('open');
+  toggle.textContent=isOpen?'▼':'▶';
+  const countEl=header.querySelector('.topic-count');
+  const arts=section.querySelectorAll('.article').length;
+  countEl.textContent=isOpen
+    ?`${arts} article${arts!==1?'s':''} · click to collapse`
+    :`${arts} article${arts!==1?'s':''} · click to expand`;
+}
+
+function togglePanel(id,btn){
+  const panel=document.getElementById(id);
+  const isOpen=panel.classList.toggle('open');
+  btn.textContent=isOpen?'▾ Hide source data':'▸ Show source data';
+}
+
+function switchTab(btn,contentId){
+  const panel=btn.closest('.source-panel');
+  panel.querySelectorAll('.source-tab').forEach(t=>t.classList.remove('active'));
+  panel.querySelectorAll('.source-content').forEach(c=>c.classList.add('hidden'));
+  btn.classList.add('active');
+  document.getElementById(contentId).classList.remove('hidden');
+}
+
+function scrollToTopic(topic){
+  const el=document.getElementById('topic-'+topic.replace(/[^a-z0-9]/gi,'-').toLowerCase());
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+loadArticles();
+</script>
 </body>
 </html>
