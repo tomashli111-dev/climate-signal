@@ -181,15 +181,20 @@ def fetch_article_text(url):
     except Exception:
         pass
 
-    # Determine best source
-    if len(jina_text) >= JINA_MIN_LENGTH:
-        source_used = "full article (Jina)"
-    elif meta_description:
-        source_used = "page description"
-    else:
-        source_used = "RSS excerpt only"
+    return jina_text, meta_description
 
-    return jina_text, meta_description, source_used
+def get_source_used(jina_text, meta_description, raw_rss, raw_content):
+    """Calculate what data sources are actually available for analysis."""
+    parts = []
+    if len(jina_text) >= JINA_MIN_LENGTH:
+        parts.append('full article (Jina)')
+    if raw_content and len(raw_content) > len(raw_rss or ''):
+        parts.append('full RSS content')
+    if raw_rss and len(raw_rss.strip()) > 30:
+        parts.append('RSS excerpt')
+    if meta_description and len(meta_description.strip()) > 30 and meta_description.strip() != raw_rss:
+        parts.append('page description')
+    return ' + '.join(parts) if parts else 'title only'
 
 # ─────────────────────────────────────────────
 # LOAD EXISTING ARCHIVE
@@ -286,7 +291,7 @@ def claude(prompt, max_tokens=500):
         return None
     try:
         payload = json.dumps({
-           "model": "claude-sonnet-4-6",
+            "model": "claude-sonnet-4-20250514",
             "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": prompt}]
         }).encode("utf-8")
@@ -489,10 +494,10 @@ def main():
     if new_articles:
         print("\nFetching article text via Jina Reader...")
         for i, article in enumerate(new_articles):
-            jina_text, meta_desc, source_used = fetch_article_text(article['url'])
+            jina_text, meta_desc = fetch_article_text(article['url'])
             article['jina_text'] = jina_text
             article['raw_meta'] = meta_desc
-            article['source_used'] = source_used
+            article['source_used'] = get_source_used(jina_text, meta_desc, article.get('raw_rss',''), article.get('raw_content',''))
             status = "✓ full" if len(jina_text) >= JINA_MIN_LENGTH else ("✓ meta" if meta_desc else "✗ rss only")
             print(f"  {status} [{i+1}/{len(new_articles)}] {article['source']}: {article['title'][:40]}...")
             time.sleep(3)  # stay within Jina's 20 RPM free tier limit
