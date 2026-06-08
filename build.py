@@ -60,7 +60,7 @@ TIER1 = [
     'climate science', 'climate data', 'climate report',
     'global warming', 'greenhouse gas', 'greenhouse effect',
     'carbon emissions', 'carbon footprint', 'carbon capture', 'carbon offset',
-    'carbon tax', 'carbon budget', 'carbon neutral', 'carbon dioxide',
+    'carbon budget', 'carbon neutral', 'carbon dioxide',
     'carbon price', 'carbon market', 'carbon border', 'carbon tariff',
     'stranded assets', 'scope 3 emissions', 'methane emissions', 'co2 emissions',
     'net zero', 'decarbonisation', 'decarbonization',
@@ -118,7 +118,7 @@ TIER2 = [
     'circular economy', 'sustainable agriculture',
     'regenerative farming', 'soil health',
     'ecosystem', 'coal industry', 'gas leak', 'air quality',
-    'el nino', 'flood risk', 'microplastics',
+    'el nino', 'flood risk', 'microplastics', 'carbon tax',
 ]
 
 def is_relevant(article):
@@ -158,20 +158,30 @@ def fetch_article_text(url):
         })
         with urlopen(req, timeout=15) as response:
             raw = response.read(100000).decode('utf-8', errors='ignore')
-            # Strip Jina metadata headers
             lines = raw.split('\n')
+            nav_words = {'subscribe', 'login', 'sign up', 'newsletter', 'cookie',
+                        'menu', 'search', 'log out', 'logout', 'bookmark',
+                        'saved articles', 'get the app', 'manage newsletters',
+                        'account settings', 'contact us', 'cancel email'}
+
+            # Skip Jina metadata lines
             content_lines = []
-            nav_words = {'subscribe', 'login', 'sign up', 'newsletter', 'cookie', 'menu', 'search', 'log out', 'logout', 'bookmark', 'saved articles'}
+            found_content = False
             for l in lines:
-                # Skip Jina metadata lines
                 if any(l.startswith(p) for p in ('Title:', 'URL:', 'Published', 'Description:', 'Warning:')):
                     continue
-                # Skip navigation-like lines (short lines with multiple nav keywords)
                 l_lower = l.lower()
                 nav_matches = sum(1 for w in nav_words if w in l_lower)
+                # Skip nav-heavy lines
                 if nav_matches >= 2:
                     continue
-                content_lines.append(l)
+                # Consider it real content if it's a long line with no nav words
+                if not found_content:
+                    if len(l.strip()) > 120 and nav_matches == 0:
+                        found_content = True
+                if found_content:
+                    content_lines.append(l)
+
             jina_text = '\n'.join(content_lines).strip()
             jina_text = jina_text[:3000]
 
