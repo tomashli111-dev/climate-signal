@@ -154,18 +154,26 @@ def fetch_article_text(url):
             'User-Agent': 'Mozilla/5.0 (compatible; ClimateSignalBot/1.0)',
             'Accept': 'text/plain',
             'X-Return-Format': 'text',
+            'X-Remove-Selector': 'nav,header,footer,aside,.nav,.navigation,.menu,.cookie,.subscribe,.newsletter',
         })
         with urlopen(req, timeout=15) as response:
             raw = response.read(100000).decode('utf-8', errors='ignore')
-            # Strip Jina metadata header (first few lines)
+            # Strip Jina metadata headers
             lines = raw.split('\n')
-            content_lines = [l for l in lines if not l.startswith('Title:') and
-                           not l.startswith('URL:') and
-                           not l.startswith('Published') and
-                           not l.startswith('Description:') and
-                           not l.startswith('Warning:')]
+            content_lines = []
+            nav_words = {'subscribe', 'login', 'sign up', 'newsletter', 'cookie', 'menu', 'search', 'log out', 'logout', 'bookmark', 'saved articles'}
+            for l in lines:
+                # Skip Jina metadata lines
+                if any(l.startswith(p) for p in ('Title:', 'URL:', 'Published', 'Description:', 'Warning:')):
+                    continue
+                # Skip navigation-like lines (short lines with multiple nav keywords)
+                l_lower = l.lower()
+                nav_matches = sum(1 for w in nav_words if w in l_lower)
+                if nav_matches >= 2:
+                    continue
+                content_lines.append(l)
             jina_text = '\n'.join(content_lines).strip()
-            jina_text = jina_text[:3000]  # cap at 3000 chars for Claude
+            jina_text = jina_text[:3000]
 
     except Exception:
         pass
@@ -390,14 +398,16 @@ def analyse_article(article, topics):
 
     available_text = primary_text.strip()
 
+    # low_confidence only if we have very little text across ALL sources
+    all_text = (jina_text + ' ' + raw_content + ' ' + meta + ' ' + raw_rss).strip()
+    low_confidence = len(all_text) < 50
+
     if not ANTHROPIC_API_KEY:
         return {
             "summary": article.get("raw_summary", "")[:200],
             "topic": topics[0] if topics else "General",
-            "low_confidence": len(available_text) < 50,
+            "low_confidence": low_confidence,
         }
-
-    low_confidence = len(available_text) < 50
     if low_confidence:
         return {
             "summary": "Insufficient source data — click to read the full article.",
