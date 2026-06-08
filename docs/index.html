@@ -303,8 +303,7 @@ function articleHTML(a){
         </div>
         <div class="article-body">
           <div class="article-badges">
-            ${a.low_confidence?'<span class="low-confidence-badge">low data</span>':''}
-            ${hasJina?'<span class="full-text-badge">full article</span>':''}
+            ${hasJina?'<span class="full-text-badge">full article</span>':a.low_confidence?'<span class="low-confidence-badge">low data</span>':''}
           </div>
           <a class="article-title" href="${a.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${a.title}</a>
           <p class="article-summary${a.low_confidence?' low-confidence':''}">${a.summary}</p>
