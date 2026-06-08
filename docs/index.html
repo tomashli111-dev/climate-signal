@@ -346,6 +346,24 @@ function toggleTopic(header){
   countEl.textContent=isOpen
     ?`${arts} article${arts!==1?'s':''} · click to collapse`
     :`${arts} article${arts!==1?'s':''} · click to expand`;
+
+  // Close all other open topics
+  if(isOpen){
+    document.querySelectorAll('.topic-section').forEach(other=>{
+      if(other===section) return;
+      const otherArticles=other.querySelector('.topic-articles');
+      const otherToggle=other.querySelector('.topic-toggle');
+      const otherCount=other.querySelector('.topic-count');
+      if(otherArticles&&otherArticles.classList.contains('open')){
+        otherArticles.classList.remove('open');
+        if(otherToggle) otherToggle.textContent='▶';
+        if(otherCount){
+          const otherArts=other.querySelectorAll('.article').length;
+          otherCount.textContent=`${otherArts} article${otherArts!==1?'s':''} · click to expand`;
+        }
+      }
+    });
+  }
 }
 
 function togglePanel(id,btn){
@@ -404,8 +422,16 @@ function renderNetwork(articles){
   });
 
   const nodes = [
-    ...Object.entries(topicCounts).map(([id, count]) => ({ id, type: 'topic', count })),
-    ...Object.entries(outletCounts).map(([id, count]) => ({ id, type: 'outlet', count })),
+    ...Object.entries(topicCounts).map(([id, count]) => ({
+      id, type: 'topic', count,
+      x: width/2 + (Math.random()-0.5)*300,
+      y: height/2 + (Math.random()-0.5)*300
+    })),
+    ...Object.entries(outletCounts).map(([id, count]) => ({
+      id, type: 'outlet', count,
+      x: width/2 + (Math.random()-0.5)*300,
+      y: height/2 + (Math.random()-0.5)*300
+    })),
   ];
 
   const maxCount = Math.max(...nodes.map(n => n.count));
@@ -428,8 +454,10 @@ function renderNetwork(articles){
 
   const simulation = d3.forceSimulation(nodes)
     .force('link', d3.forceLink(simLinks).id(d => d.id).distance(130).strength(0.5))
-    .force('charge', d3.forceManyBody().strength(-240))
+    .force('charge', d3.forceManyBody().strength(-280))
     .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('x', d3.forceX(width / 2).strength(0.04))
+    .force('y', d3.forceY(height / 2).strength(0.06))
     .force('collision', d3.forceCollide().radius(d => nodeRadius(d) + 22));
 
   // Arc links — one path per article
@@ -440,12 +468,56 @@ function renderNetwork(articles){
     .selectAll('g')
     .data(nodes)
     .join('g')
+    .style('cursor', d => d.type === 'topic' ? 'pointer' : 'grab')
+    .on('click', (event, d) => {
+      if(d.type !== 'topic') return;
+      if(d._dragged) { d._dragged = false; return; } // suppress click after drag
+      // Find and open the topic section
+      const sid = 'topic-' + d.id.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+      const el = document.getElementById(sid);
+      if(!el) return;
+      const articles = el.querySelector('.topic-articles');
+      const toggle = el.querySelector('.topic-toggle');
+      const countEl = el.querySelector('.topic-count');
+      if(!articles) return;
+
+      // Close all other topics first
+      document.querySelectorAll('.topic-section').forEach(other => {
+        if(other === el) return;
+        const otherArticles = other.querySelector('.topic-articles');
+        const otherToggle = other.querySelector('.topic-toggle');
+        const otherCount = other.querySelector('.topic-count');
+        if(otherArticles && otherArticles.classList.contains('open')){
+          otherArticles.classList.remove('open');
+          if(otherToggle) otherToggle.textContent = '▶';
+          if(otherCount){
+            const n = other.querySelectorAll('.article').length;
+            otherCount.textContent = `${n} article${n!==1?'s':''} · click to expand`;
+          }
+        }
+      });
+
+      // Open this topic
+      articles.classList.add('open');
+      if(toggle) toggle.textContent = '▼';
+      if(countEl){
+        const n = el.querySelectorAll('.article').length;
+        countEl.textContent = `${n} article${n!==1?'s':''} · click to collapse`;
+      }
+
+      // Scroll to it
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    })
     .call(d3.drag()
       .on('start', (event, d) => {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         d.fx = d.x; d.fy = d.y;
+        d._dragged = false;
       })
-      .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
+      .on('drag', (event, d) => {
+        d.fx = event.x; d.fy = event.y;
+        d._dragged = true;
+      })
       .on('end', (event, d) => {
         if (!event.active) simulation.alphaTarget(0);
         d.fx = null; d.fy = null;
