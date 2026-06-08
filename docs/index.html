@@ -349,17 +349,28 @@ function toggleTopic(header){
 
   // Close all other open topics
   if(isOpen){
+    // Record position of newly opened topic before closing others
+    const newTopicTop = section.getBoundingClientRect().top + window.scrollY;
+
     document.querySelectorAll('.topic-section').forEach(other=>{
       if(other===section) return;
       const otherArticles=other.querySelector('.topic-articles');
       const otherToggle=other.querySelector('.topic-toggle');
       const otherCount=other.querySelector('.topic-count');
       if(otherArticles&&otherArticles.classList.contains('open')){
+        // Record how much height will be lost when this closes
+        const heightBefore = otherArticles.getBoundingClientRect().height;
+        const otherTop = other.getBoundingClientRect().top + window.scrollY;
         otherArticles.classList.remove('open');
         if(otherToggle) otherToggle.textContent='▶';
         if(otherCount){
           const otherArts=other.querySelectorAll('.article').length;
           otherCount.textContent=`${otherArts} article${otherArts!==1?'s':''} · click to expand`;
+        }
+        // If closed topic was above the new one, adjust scroll to compensate
+        if(otherTop < newTopicTop){
+          const heightAfter = otherArticles.getBoundingClientRect().height;
+          window.scrollBy(0, heightAfter - heightBefore);
         }
       }
     });
