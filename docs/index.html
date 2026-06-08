@@ -8,6 +8,7 @@
   <title>Climate Signal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <style>
     :root {
       --ink:#0e0e0e; --ink2:#3a3a3a; --ink3:#5a5a5a;
@@ -118,6 +119,17 @@
     .source-badge{font-family:'DM Mono',monospace;font-size:0.62rem;display:flex;align-items:center;gap:6px;padding:4px 10px;background:var(--paper);border:1px solid var(--border);border-radius:3px;color:var(--ink2);}
     .source-badge-count{background:var(--paper3);border-radius:2px;padding:1px 5px;font-size:0.58rem;color:var(--ink3);}
 
+    /* NETWORK GRAPH */
+    .network-section{border-bottom:1px solid var(--border);padding:1.5rem 2rem;}
+    .network-header{display:flex;align-items:baseline;gap:12px;margin-bottom:0.4rem;}
+    .network-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;}
+    .network-subtitle{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em;}
+    .network-caveat{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);margin-bottom:1rem;}
+    #network-graph{width:100%;height:480px;background:var(--paper2);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .network-legend{display:flex;gap:1.5rem;margin-top:0.75rem;flex-wrap:wrap;}
+    .legend-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);}
+    .legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
     /* EMPTY */
     .empty-state{padding:5rem 2rem;text-align:center;color:var(--ink3);}
     .empty-state h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;color:var(--ink2);margin-bottom:0.75rem;font-weight:300;font-style:italic;}
@@ -149,6 +161,20 @@
     <span id="sources-toggle-hint">click to expand</span>
   </div>
   <div class="sources-list collapsed" id="source-list"></div>
+</div>
+
+<div class="network-section">
+  <div class="network-header">
+    <span class="network-title">Coverage Network</span>
+    <span class="network-subtitle">This week · outlets and topics</span>
+  </div>
+  <div class="network-caveat">Lines connect outlets to topics they covered. Node size reflects article count. Drag to explore.</div>
+  <div id="network-graph"></div>
+  <div class="network-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#2a5c3f;"></div>Topic</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a8a7a;"></div>Outlet</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(0,0,0,0.15);width:30px;height:2px;border-radius:0;"></div>Coverage link</div>
+  </div>
 </div>
 
 <div class="layout">
@@ -221,8 +247,7 @@ function render(data){
     .map(t=>`<div class="topic-pill" onclick="scrollToTopic('${t.replace(/'/g,"\\'")}')"><span>${t}</span></div>`)
     .join('');
 
-  document.getElementById('feed').innerHTML=topicList.map(t=>{
-    const arts=grouped[t];
+  document.getElementById('feed').innerHTML=topicList.map(t=>{    const arts=grouped[t];
     const sid='topic-'+t.replace(/[^a-z0-9]/gi,'-').toLowerCase();
     const metaSummary=topic_summaries[t]||'';
     const fullTextCount=arts.filter(a=>getSourceUsed(a).includes('full article')).length;
@@ -251,8 +276,8 @@ function render(data){
       </div>`;
   }).join('');
 
-  // Show analysis boxes by default
-  document.querySelectorAll('.topic-analysis').forEach(el=>el.classList.add('visible'));
+  // Render network graph
+  renderNetwork(articles);
 }
 
 function articleHTML(a){
@@ -349,6 +374,125 @@ function toggleSources(toggle){
 function scrollToTopic(topic){
   const el=document.getElementById('topic-'+topic.replace(/[^a-z0-9]/gi,'-').toLowerCase());
   if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderNetwork(articles){
+  const container = document.getElementById('network-graph');
+  const width = container.clientWidth || 800;
+  const height = 480;
+
+  // Build nodes and links from articles
+  const outletCounts = {};
+  const topicCounts = {};
+  const links = [];
+  const linkSet = new Set();
+
+  articles.forEach(a => {
+    const outlet = a.source;
+    const topic = a.topic || 'General';
+    outletCounts[outlet] = (outletCounts[outlet] || 0) + 1;
+    topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+    const key = `${outlet}||${topic}`;
+    if (!linkSet.has(key)) {
+      linkSet.add(key);
+      links.push({ source: outlet, target: topic });
+    }
+  });
+
+  const nodes = [
+    ...Object.entries(topicCounts).map(([id, count]) => ({ id, type: 'topic', count })),
+    ...Object.entries(outletCounts).map(([id, count]) => ({ id, type: 'outlet', count })),
+  ];
+
+  // Size scales
+  const maxCount = Math.max(...nodes.map(n => n.count));
+  const nodeRadius = n => n.type === 'topic'
+    ? 8 + (n.count / maxCount) * 18
+    : 6 + (n.count / maxCount) * 14;
+
+  const svg = d3.select('#network-graph')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height);
+
+  // Subtle grid background
+  svg.append('rect')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('fill', 'var(--paper2)');
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(d => 120).strength(0.6))
+    .force('charge', d3.forceManyBody().strength(-200))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide().radius(d => nodeRadius(d) + 12));
+
+  // Links
+  const link = svg.append('g')
+    .selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('stroke', 'rgba(0,0,0,0.12)')
+    .attr('stroke-width', 1.5);
+
+  // Node groups
+  const node = svg.append('g')
+    .selectAll('g')
+    .data(nodes)
+    .join('g')
+    .call(d3.drag()
+      .on('start', (event, d) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      })
+      .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
+      .on('end', (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null; d.fy = null;
+      })
+    );
+
+  // Circles
+  node.append('circle')
+    .attr('r', d => nodeRadius(d))
+    .attr('fill', d => d.type === 'topic' ? '#2a5c3f' : '#5a8a7a')
+    .attr('fill-opacity', d => d.type === 'topic' ? 0.9 : 0.75)
+    .attr('stroke', 'var(--paper)')
+    .attr('stroke-width', 2);
+
+  // Labels
+  node.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', d => nodeRadius(d) + 12)
+    .attr('font-family', 'DM Mono, monospace')
+    .attr('font-size', d => d.type === 'topic' ? '9px' : '8px')
+    .attr('fill', 'var(--ink2)')
+    .attr('pointer-events', 'none')
+    .text(d => d.id.length > 22 ? d.id.substring(0, 22) + '…' : d.id);
+
+  // Article count inside node
+  node.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '0.35em')
+    .attr('font-family', 'DM Mono, monospace')
+    .attr('font-size', '9px')
+    .attr('fill', 'white')
+    .attr('font-weight', '500')
+    .attr('pointer-events', 'none')
+    .text(d => d.count);
+
+  // Tooltip
+  node.append('title')
+    .text(d => `${d.id}\n${d.count} article${d.count !== 1 ? 's' : ''}`);
+
+  simulation.on('tick', () => {
+    link
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+    node.attr('transform', d => `translate(${Math.max(30, Math.min(width-30, d.x))},${Math.max(30, Math.min(height-30, d.y))})`);
+  });
 }
 
 loadArticles();
