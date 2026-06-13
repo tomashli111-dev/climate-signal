@@ -134,7 +134,7 @@
   </div>
   <div class="masthead-meta">
     <div id="todays-date">—</div>
-    <div><span id="stat-articles">—</span> articles · <span id="stat-sources">—</span> sources · 7-day rolling</div>
+    <div><span id="stat-articles">—</span> articles · <span id="stat-sources">—</span> sources · <span id="stat-topics">—</span> topics · 7-day rolling</div>
   </div>
 </div>
 
@@ -144,7 +144,6 @@
     <span class="network-subtitle">This week · outlets and topics</span>
   </div>
   <div class="network-caveat">Lines connect outlets to topics they covered. Node size reflects article count. Drag to explore. Click a topic to open it.</div>
-  <div id="network-stats" style="display:flex;gap:1.5rem;margin-bottom:0.75rem;"></div>
   <div id="network-graph"></div>
   <div class="network-legend">
     <div class="legend-item"><div class="legend-dot" style="background:#2a5c3f;"></div>Topic</div>
@@ -202,6 +201,7 @@ function render(data){
   document.getElementById('todays-date').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   document.getElementById('stat-articles').textContent=articles.length;
   document.getElementById('stat-sources').textContent=[...new Set(articles.map(a=>a.source))].length;
+  document.getElementById('stat-topics').textContent=[...new Set(articles.map(a=>a.topic||'General'))].length;
   document.getElementById('footer-updated').textContent='Last updated '+d.toLocaleString('en-GB');
 
   const srcCounts={};
@@ -399,24 +399,6 @@ function renderNetwork(articles){
   const nodeRadius = n => n.type === 'topic'
     ? 8 + (n.count / maxCount) * 18
     : 6 + (n.count / maxCount) * 14;
-
-  // Render stats
-  const numArticles = articles.length;
-  const numOutlets = Object.keys(outletCounts).length;
-  const numTopics = Object.keys(topicCounts).length;
-  const statsEl = document.getElementById('network-stats');
-  if(statsEl){
-    statsEl.innerHTML = [
-      {label:'Articles', value:numArticles},
-      {label:'Outlets', value:numOutlets},
-      {label:'Topics', value:numTopics},
-    ].map(s=>`
-      <div style="font-family:'DM Mono',monospace;">
-        <div style="font-size:1.3rem;font-weight:500;color:#0e0e0e;line-height:1;">${s.value}</div>
-        <div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#5a5a5a;margin-top:2px;">${s.label}</div>
-      </div>
-    `).join('');
-  }
 
   // Clear previous render
   d3.select('#network-graph').selectAll('*').remove();
