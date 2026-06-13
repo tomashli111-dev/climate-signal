@@ -110,7 +110,7 @@
     .network-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;}
     .network-subtitle{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em;}
     .network-caveat{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);margin-bottom:1rem;}
-    #network-graph{width:100%;height:500px;background:var(--paper2);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    #network-graph{width:100%;height:620px;background:var(--paper2);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
     .network-legend{display:flex;gap:1.5rem;margin-top:0.75rem;flex-wrap:wrap;}
     .legend-item{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--ink3);}
     .legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
@@ -143,7 +143,8 @@
     <span class="network-title">Coverage Network</span>
     <span class="network-subtitle">This week · outlets and topics</span>
   </div>
-  <div class="network-caveat">Lines connect outlets to topics they covered. Node size reflects article count. Drag to explore.</div>
+  <div class="network-caveat">Lines connect outlets to topics they covered. Node size reflects article count. Drag to explore. Click a topic to open it.</div>
+  <div id="network-stats" style="display:flex;gap:1.5rem;margin-bottom:0.75rem;"></div>
   <div id="network-graph"></div>
   <div class="network-legend">
     <div class="legend-item"><div class="legend-dot" style="background:#2a5c3f;"></div>Topic</div>
@@ -357,7 +358,7 @@ function renderNetwork(articles){
   const container = document.getElementById('network-graph');
   // Use full container width after render
   const width = container.getBoundingClientRect().width || 900;
-  const height = 500;
+  const height = 620;
 
   // Build nodes and links from articles
   const outletCounts = {};
@@ -399,6 +400,24 @@ function renderNetwork(articles){
     ? 8 + (n.count / maxCount) * 18
     : 6 + (n.count / maxCount) * 14;
 
+  // Render stats
+  const numArticles = articles.length;
+  const numOutlets = Object.keys(outletCounts).length;
+  const numTopics = Object.keys(topicCounts).length;
+  const statsEl = document.getElementById('network-stats');
+  if(statsEl){
+    statsEl.innerHTML = [
+      {label:'Articles', value:numArticles},
+      {label:'Outlets', value:numOutlets},
+      {label:'Topics', value:numTopics},
+    ].map(s=>`
+      <div style="font-family:'DM Mono',monospace;">
+        <div style="font-size:1.3rem;font-weight:500;color:#0e0e0e;line-height:1;">${s.value}</div>
+        <div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#5a5a5a;margin-top:2px;">${s.label}</div>
+      </div>
+    `).join('');
+  }
+
   // Clear previous render
   d3.select('#network-graph').selectAll('*').remove();
 
@@ -413,12 +432,12 @@ function renderNetwork(articles){
     .attr('fill', 'var(--paper2)');
 
   const simulation = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(simLinks).id(d => d.id).distance(130).strength(0.5))
-    .force('charge', d3.forceManyBody().strength(-280))
+    .force('link', d3.forceLink(simLinks).id(d => d.id).distance(180).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-400))
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('x', d3.forceX(width / 2).strength(0.04))
-    .force('y', d3.forceY(height / 2).strength(0.06))
-    .force('collision', d3.forceCollide().radius(d => nodeRadius(d) + 22));
+    .force('x', d3.forceX(width / 2).strength(0.03))
+    .force('y', d3.forceY(height / 2).strength(0.04))
+    .force('collision', d3.forceCollide().radius(d => nodeRadius(d) + 28));
 
   // Arc links — one path per article
   const arcGroup = svg.append('g');
