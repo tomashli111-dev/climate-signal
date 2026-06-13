@@ -104,21 +104,6 @@
     .analysis-note strong{font-weight:500;color:var(--ink);}
     .data-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;}
 
-    /* TOPIC PILLS NAV BAR */
-    .topic-nav-bar{border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;height:44px;background:var(--paper);}
-    .topic-nav-bar::-webkit-scrollbar{display:none;}
-    .topic-pill{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink3);padding:4px 10px;border:1px solid var(--border);border-radius:3px;white-space:nowrap;cursor:pointer;background:var(--paper);transition:all 0.1s;flex-shrink:0;}
-    .topic-pill:hover{background:var(--paper3);color:var(--ink);}
-
-    /* SOURCES STRIP */
-    .sources-strip{border-bottom:1px solid var(--border);background:var(--paper2);}
-    .sources-toggle{padding:7px 2rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);user-select:none;}
-    .sources-toggle:hover{color:var(--ink);}
-    .sources-list{display:none;padding:8px 2rem 12px;display:flex;flex-wrap:wrap;gap:8px;}
-    .sources-list.collapsed{display:none;}
-    .source-badge{font-family:'DM Mono',monospace;font-size:0.62rem;display:flex;align-items:center;gap:6px;padding:4px 10px;background:var(--paper);border:1px solid var(--border);border-radius:3px;color:var(--ink2);}
-    .source-badge-count{background:var(--paper3);border-radius:2px;padding:1px 5px;font-size:0.58rem;color:var(--ink3);}
-
     /* NETWORK GRAPH */
     .network-section{border-bottom:1px solid var(--border);padding:1.5rem 2rem;}
     .network-header{display:flex;align-items:baseline;gap:12px;margin-bottom:0.4rem;}
@@ -151,16 +136,6 @@
     <div id="todays-date">—</div>
     <div><span id="stat-articles">—</span> articles · <span id="stat-sources">—</span> sources · 7-day rolling</div>
   </div>
-</div>
-
-<div class="topic-nav-bar" id="topic-nav-bar"></div>
-
-<div class="sources-strip">
-  <div class="sources-toggle" onclick="toggleSources(this)">
-    <span>▸ Sources this week</span>
-    <span id="sources-toggle-hint">click to expand</span>
-  </div>
-  <div class="sources-list collapsed" id="source-list"></div>
 </div>
 
 <div class="network-section">
@@ -230,10 +205,6 @@ function render(data){
 
   const srcCounts={};
   articles.forEach(a=>srcCounts[a.source]=(srcCounts[a.source]||0)+1);
-  document.getElementById('source-list').innerHTML=Object.entries(srcCounts)
-    .sort((a,b)=>b[1]-a[1])
-    .map(([s,c])=>`<div class="source-badge">${s}<span class="source-badge-count">${c}</span></div>`)
-    .join('');
 
   const grouped={};
   articles.forEach(a=>{
@@ -242,10 +213,6 @@ function render(data){
     grouped[t].push(a);
   });
   const topicList=Object.keys(grouped).sort((a,b)=>grouped[b].length-grouped[a].length);
-
-  document.getElementById('topic-nav-bar').innerHTML=topicList
-    .map(t=>`<div class="topic-pill" onclick="scrollToTopic('${t.replace(/'/g,"\\'")}')"><span>${t}</span></div>`)
-    .join('');
 
   document.getElementById('feed').innerHTML=topicList.map(t=>{    const arts=grouped[t];
     const sid='topic-'+t.replace(/[^a-z0-9]/gi,'-').toLowerCase();
@@ -347,32 +314,27 @@ function toggleTopic(header){
     ?`${arts} article${arts!==1?'s':''} · click to collapse`
     :`${arts} article${arts!==1?'s':''} · click to expand`;
 
-  // Close all other open topics
   if(isOpen){
-    // Record position of newly opened topic before closing others
-    const newTopicTop = section.getBoundingClientRect().top + window.scrollY;
-
+    // Close all other open topics
     document.querySelectorAll('.topic-section').forEach(other=>{
       if(other===section) return;
       const otherArticles=other.querySelector('.topic-articles');
       const otherToggle=other.querySelector('.topic-toggle');
       const otherCount=other.querySelector('.topic-count');
       if(otherArticles&&otherArticles.classList.contains('open')){
-        // Record how much height will be lost when this closes
-        const heightBefore = otherArticles.getBoundingClientRect().height;
-        const otherTop = other.getBoundingClientRect().top + window.scrollY;
         otherArticles.classList.remove('open');
         if(otherToggle) otherToggle.textContent='▶';
         if(otherCount){
           const otherArts=other.querySelectorAll('.article').length;
           otherCount.textContent=`${otherArts} article${otherArts!==1?'s':''} · click to expand`;
         }
-        // If closed topic was above the new one, adjust scroll to compensate
-        if(otherTop < newTopicTop){
-          const heightAfter = otherArticles.getBoundingClientRect().height;
-          window.scrollBy(0, heightAfter - heightBefore);
-        }
       }
+    });
+    // After reflow settles, scroll the header into view
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        header.scrollIntoView({behavior:'smooth', block:'start'});
+      });
     });
   }
 }
@@ -389,19 +351,6 @@ function switchTab(btn,contentId){
   panel.querySelectorAll('.source-content').forEach(c=>c.classList.add('hidden'));
   btn.classList.add('active');
   document.getElementById(contentId).classList.remove('hidden');
-}
-
-function toggleSources(toggle){
-  const list=document.getElementById('source-list');
-  const hint=document.getElementById('sources-toggle-hint');
-  const isOpen=list.classList.toggle('collapsed');
-  toggle.querySelector('span:first-child').textContent=isOpen?'▸ Sources this week':'▾ Sources this week';
-  hint.textContent=isOpen?'click to expand':'click to collapse';
-}
-
-function scrollToTopic(topic){
-  const el=document.getElementById('topic-'+topic.replace(/[^a-z0-9]/gi,'-').toLowerCase());
-  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function renderNetwork(articles){
