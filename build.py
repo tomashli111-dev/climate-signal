@@ -47,6 +47,8 @@ RSS_FEEDS = [
 ROLLING_DAYS = 7
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 JINA_MIN_LENGTH = 200  # minimum characters to consider Jina result useful
+# Bump this when the summary prompt or model changes, to re-summarise cached articles
+SUMMARY_VERSION = 1
 
 # ─────────────────────────────────────────────
 # KEYWORD FILTER
@@ -311,7 +313,7 @@ def fetch_articles():
 # ─────────────────────────────────────────────
 # CLAUDE API HELPERS
 # ─────────────────────────────────────────────
-def claude(prompt, max_tokens=500):
+def claude(prompt, max_tokens=500, timeout=30):
     if not ANTHROPIC_API_KEY:
         return None
     try:
@@ -329,7 +331,7 @@ def claude(prompt, max_tokens=500):
                 "anthropic-version": "2023-06-01"
             }
         )
-        with urlopen(req, timeout=30) as response:
+        with urlopen(req, timeout=timeout) as response:
             data = json.loads(response.read())
             text = data["content"][0]["text"].strip()
             text = re.sub(r'^```json\s*|\s*```$', '', text).strip()
@@ -386,9 +388,18 @@ No other text."""
     return ["General"]
 
 # ─────────────────────────────────────────────
-# STEP 2: ASSIGN ARTICLE TO TOPIC + SUMMARY
+# STEP 2: SUMMARISE ARTICLE (cached across runs)
 # ─────────────────────────────────────────────
-def analyse_article(article, topics):
+def has_cached_summary(article):
+    """True if this article already has a successful summary from the current prompt version."""
+    return (
+        article.get('summary_version') == SUMMARY_VERSION
+        and not article.get('low_confidence', True)
+        and bool(article.get('summary'))
+    )
+
+def summarise_article(article):
+    """Summarise one article. Returns summary, low_confidence, and whether the result may be cached."""
     # Build best available source data
     jina_text = article.get('jina_text', '')
     meta = article.get('raw_meta', '')
@@ -415,14 +426,14 @@ def analyse_article(article, topics):
     if not ANTHROPIC_API_KEY:
         return {
             "summary": article.get("raw_summary", "")[:200],
-            "topic": topics[0] if topics else "General",
             "low_confidence": low_confidence,
+            "cacheable": False,
         }
     if low_confidence:
         return {
             "summary": "Insufficient source data — click to read the full article.",
-            "topic": topics[0] if topics else "General",
             "low_confidence": True,
+            "cacheable": False,
         }
 
     source_data = f"Title: {article['title']}\nSource: {article['source']}\n"
@@ -432,8 +443,6 @@ def analyse_article(article, topics):
     if len(jina_text) >= JINA_MIN_LENGTH and raw_rss and raw_rss not in jina_text[:200]:
         source_data += f"RSS excerpt: {raw_rss[:200]}\n"
 
-    topics_list = "\n".join(f"- {t}" for t in topics)
-
     prompt = f"""You are analysing a climate and environment news article for a media monitoring tool.
 
 Available data:
@@ -441,15 +450,9 @@ Available data:
 
 Important: Base your summary ONLY on the information provided above. Do not add details not present in the source.
 
-Topics available — each is mutually exclusive, pick the single best fit:
-{topics_list}
-
-If the article could fit multiple topics, choose the one that best matches the PRIMARY subject of the article.
-
 Respond with ONLY a JSON object:
 {{
-  "summary": "2-3 sentence plain-English summary based strictly on the source data.",
-  "topic": "exact topic name from the list above"
+  "summary": "2-3 sentence plain-English summary based strictly on the source data."
 }}
 
 No other text."""
@@ -457,23 +460,82 @@ No other text."""
     result = claude(prompt, max_tokens=300)
     if result:
         try:
-            parsed = json.loads(result)
-            return {
-                "summary": parsed.get("summary", ""),
-                "topic": parsed.get("topic", topics[0]),
-                "low_confidence": False,
-            }
+            summary = json.loads(result).get("summary", "").strip()
+            if summary:
+                return {"summary": summary, "low_confidence": False, "cacheable": True}
         except Exception:
             pass
 
+    # API error or unparseable reply: fall back, and don't cache so it's retried next run
     return {
         "summary": available_text[:200],
-        "topic": topics[0] if topics else "General",
         "low_confidence": True,
+        "cacheable": False,
     }
 
 # ─────────────────────────────────────────────
-# STEP 3: GENERATE TOPIC META-SUMMARIES
+# STEP 3: ASSIGN TOPICS IN BATCHES
+# ─────────────────────────────────────────────
+TOPIC_BATCH_SIZE = 60
+
+def assign_topics(articles, topics):
+    """Assign each article to one topic using batched Claude calls (title + summary only)."""
+    fallback = topics[0] if topics else "General"
+    if not ANTHROPIC_API_KEY or len(topics) <= 1:
+        return [fallback] * len(articles)
+
+    topics_list = "\n".join(f"{i+1}. {t}" for i, t in enumerate(topics))
+    assigned = []
+
+    for start in range(0, len(articles), TOPIC_BATCH_SIZE):
+        batch = articles[start:start + TOPIC_BATCH_SIZE]
+        lines = []
+        for i, a in enumerate(batch):
+            line = f"[{i+1}] {a['source']}: {a['title']}"
+            if not a.get('low_confidence') and a.get('summary'):
+                line += f" — {a['summary']}"
+            lines.append(line)
+        articles_text = "\n".join(lines)
+
+        prompt = f"""You are sorting climate and environment news articles into topics for a media monitoring tool.
+
+Topics — each is mutually exclusive:
+{topics_list}
+
+Articles (id, outlet: headline — summary):
+{articles_text}
+
+For each article, choose the single topic that best matches its PRIMARY subject.
+
+Respond with ONLY a JSON object mapping every article id to a topic number, e.g.:
+{{"1": 3, "2": 1, "3": 3}}
+
+No other text."""
+
+        result = claude(prompt, max_tokens=20 * len(batch) + 100, timeout=120)
+        mapping = {}
+        if result:
+            try:
+                mapping = json.loads(result)
+            except Exception as e:
+                print(f"  Topic assignment parse error: {e}")
+
+        missing = 0
+        for i in range(len(batch)):
+            try:
+                topic = topics[int(mapping[str(i + 1)]) - 1]
+            except (KeyError, ValueError, TypeError, IndexError):
+                topic = fallback
+                missing += 1
+            assigned.append(topic)
+        print(f"  Assigned topics for articles {start+1}-{start+len(batch)}"
+              + (f" ({missing} fell back to '{fallback}')" if missing else ""))
+        time.sleep(0.5)
+
+    return assigned
+
+# ─────────────────────────────────────────────
+# STEP 4: GENERATE TOPIC META-SUMMARIES
 # ─────────────────────────────────────────────
 def generate_topic_summary(topic, articles):
     if not ANTHROPIC_API_KEY or len(articles) < 1:
@@ -596,14 +658,23 @@ def main():
         topics = generate_topics(all_articles)
         time.sleep(0.5)
 
-        print(f"\nAnalysing all {len(all_articles)} articles...")
-        for i, article in enumerate(all_articles):
-            print(f"  [{i+1}/{len(all_articles)}] {article['title'][:55]}...")
-            analysis = analyse_article(article, topics)
-            article['summary'] = analysis['summary']
-            article['topic'] = analysis['topic']
-            article['low_confidence'] = analysis.get('low_confidence', False)
+        to_summarise = [a for a in all_articles if not has_cached_summary(a)]
+        print(f"\nSummarising {len(to_summarise)} articles "
+              f"({len(all_articles) - len(to_summarise)} reused from cache)...")
+        for i, article in enumerate(to_summarise):
+            print(f"  [{i+1}/{len(to_summarise)}] {article['title'][:55]}...")
+            result = summarise_article(article)
+            article['summary'] = result['summary']
+            article['low_confidence'] = result['low_confidence']
+            if result['cacheable']:
+                article['summary_version'] = SUMMARY_VERSION
+            else:
+                article.pop('summary_version', None)
             time.sleep(0.3)
+
+        print(f"\nAssigning {len(all_articles)} articles to topics...")
+        for article, topic in zip(all_articles, assign_topics(all_articles, topics)):
+            article['topic'] = topic
 
         print("\nGenerating topic summaries...")
         topic_summaries = {}
