@@ -1,14 +1,116 @@
 {
-  "generated_at": "2026-11-13T20:40:44.097869+00:00",
+  "generated_at": "2026-11-14T13:57:38.524832+00:00",
   "topic_summaries": {
-    "COP31 Climate Summit": "• The Guardian dominates coverage with extensive live blogs, analysis and commentary — framing COP31 as urgent but frustratingly incremental, while highlighting key voices like Guterres, Greta Thunberg and John Kerry\n• The Independent covers similar ground but most articles are paywalled, limiting visible content; Channel 4 News takes a distinctive angle — linking Trump's Iran war and soaring fossil fuel prices to an unintended green energy boost\n• BBC and Metro contribute little substantive COP31 coverage; Evening Standard and Mirror focus on Prince William's conservation work rather than the summit itself",
-    "Fossil Fuel Industry Influence and North Sea Drilling": "• GB News dominates North Sea drilling coverage, framing Labour's ban as politically inconsistent and hypocritical — highlighting rebel MPs, Falklands drilling contradictions, and an adviser's fossil fuel investments — while Channel 4 News and The Guardian treat the broader issue through an international climate lens\n\n• The Guardian emphasises fossil fuel industry influence across multiple fronts — lobbying at Cop31, pipeline expansion, and industry-funded education — framing it as systemic obstruction to climate action\n\n• Channel 4 News and The Guardian both cover Cop31 coal expansion critically, while GB News focuses domestically on UK drilling politics rather than engaging with the global climate summit context",
-    "Energy Transition and Grid Security": "• GB News frames grid security as a vindication of gas, highlighting wind power's failures and eye-catching costs (£1m/hour); The Guardian and BBC treat the energy transition more optimistically, with the IEA declaring an \"age of electricity\"\n\n• The Guardian and The i focus on barriers to EV adoption from opposite angles — Monbiot blaming industry lobbying, The i warning of rising prices if mandates are weakened — while GB News emphasises planning obstacles, rejecting a major solar farm near Blenheim Palace\n\n• BBC foregrounds the affordability-versus-climate tension domestically, with the energy secretary conceding net zero is \"under pressure\"; The Guardian zooms out globally, spotlighting electrification gains in Norway, Rwanda and China",
-    "Air Pollution and Extreme Weather Events": "• Evening Standard and GB News focus on immediate air pollution alerts from fog, while Metro emphasises post-Bonfire Night \"code red\" pollution as a distinct seasonal hazard\n\n• The Guardian frames extreme weather through human and economic impact — a teacher's heat seizure and rising insurer subsidence claims — while BBC takes a broader food security angle via Welsh farming vulnerability\n\n• BBC and The Sun cover fog-related accidents and oil spills as acute safety stories, keeping climate framing largely absent compared to The Guardian and The Independent's more explicit climate crisis lens",
-    "El Niño: Impacts and Outlook": "• BBC and The Guardian emphasise humanitarian danger — flooding threats to Kenyan communities and maternal mortality risks in crisis zones — while Daily Mail highlights a potential benefit: fewer cold-weather deaths\n• The Guardian and The Independent frame El Niño as part of a broader climate emergency (\"new age of extremes,\" record-breaking heat), whereas Metro and The Mirror focus on the more immediate, localised threat of polar vortex disruption to UK weather\n• BBC takes a future-oriented, predictive approach (North American winter forecasts, 2026 heat records), while The Guardian covers on-the-ground economic impacts such as Latin American banana producers losing income",
-    "Andy Burnham and UK Climate Policy": "• GB News consistently frames Burnham's COP31 attendance negatively — emphasising taxpayer-funded travel costs, short speech duration, and half-empty halls — while the Guardian and Evening Standard focus on substantive policy announcements like the £12bn wind investment and world-first climate security role\n\n• Channel 4 and the Guardian highlight the appointment of a Special Representative for Climate Security as a landmark moment; GB News largely ignores this in favour of travel-cost criticism and broader scepticism via the Global Warming Policy Foundation\n\n• The Guardian offers a more nuanced debate — including a Freedland column on balancing growth with climate action — while GB News frames net zero policies purely as burdens on families and landlords"
+    "Climate Finance and Developing Nations": "• The Guardian and The Independent both cover climate finance tensions at COP31, but The Guardian emphasises rich nations' inaction leaving developing countries \"in limbo,\" while The Independent frames it as a bilateral \"stand-off\" between wealthy and smaller nations\n\n• The Independent additionally highlights agricultural and forest funding angles, including Ed Miliband's framing of forest finance as a \"powerful signal\"\n\n• The Evening Standard and The Guardian diverge entirely from the finance theme — the Evening Standard focuses on Prince William's conservation awards, while The Guardian critiques the Earthshot prize's fossil fuel-linked venue",
+    "El Niño: Impacts and Outlook": "• BBC and The Guardian lead with human and ecological impacts — Kenyan flood fears, marine life disruption, and maternal mortality risks — while Daily Mail seeks a positive angle, highlighting cold-death reductions\n• The Guardian and The Independent emphasise systemic consequences (banana supply chains, Indonesian wildfires, 2026 heat records), framing El Niño within the broader climate crisis\n• Metro and The Mirror focus on the polar vortex as a distinct weather threat, with looser connections to El Niño compared to the more direct coverage from BBC and The Guardian",
+    "COP31 Climate Summit": "• The Guardian dominates coverage with broad, substantive framing — fossil fuel lobbying, geopolitical tensions, electrification progress, and urgent warnings from Guterres and Thunberg; The Independent echoes similar themes but with less accessible content due to paywalls\n• GB News and The Sun focus on performative or embarrassing angles — Burnham's \"half-empty hall\" speech and Albanese's hot-mic gaffe — contrasting sharply with Channel 4's policy-focused reporting on coal expansion and climate security appointments\n• BBC coverage is notably peripheral, covering a local youth COP event in Dorset and a wetland sanctuary rather than the summit itself; The Mirror limits coverage to Prince William's Earthshot Prize recognition",
+    "UK Net Zero and Energy Policy": "• BBC and Evening Standard frame Burnham's COP31 attendance as a recommitment to leadership, while GB News consistently frames the same events as hypocrisy or threat to energy security\n• The Guardian emphasises investment and institutional action (£12bn wind, climate security role), while GB News highlights contradictions, rebel MPs, and fossil fuel dependency\n• BBC and The i surface affordability tensions around net zero (rising EV costs, energy bills), reflecting pressure on public support for green policies",
+    "Andy Burnham and EU Reset": "• GB News dominates coverage with a consistently sceptical framing — highlighting costs to families (£1.2k claim), Burnham's taxpayer-funded flights, and tensions with net-zero policy (EV targets, Rosebank oil)\n• The i focuses on a concrete practical benefit of the EU reset — easing post-Brexit medicine shortages — with no political editorialising\n• The Guardian and Channel 4 News treat Burnham's net-zero stance as newsworthy but relatively straightforward, while GB News frames the same EV target questions as a potential U-turn or contradiction",
+    "Air Pollution and Extreme Weather Events": "• Evening Standard and GB News focus on immediate air pollution alerts from fog, while Metro emphasises post-Bonfire Night \"code red\" pollution from fireworks\n• The Guardian frames extreme weather through climate crisis narratives — heat seizures, accelerating global temperatures, food supply risks — whereas BBC and The Sun report more locally on fog-related accidents and an oil spill\n• The Guardian and BBC link weather events to systemic consequences (subsidence claims, food vulnerability, countryside adaptation); other outlets treat incidents as isolated news stories"
   },
   "articles": [
+    {
+      "title": "Moment Australian PM is caught making crude joke about minister’s privates in hot-mic gaffe at Cop31 summit",
+      "url": "https://www.thesun.co.uk/news/41023234/moment-australian-pm-caught-joke/",
+      "source": "The Sun",
+      "date": "14 Nov 2026",
+      "pub_date_iso": "2026-11-14T13:07:04+00:00",
+      "raw_rss": "THIS is the moment Aussie PM Anthony Albanese is caught making a crude joke about his privates on a hot mic, in another embarrassing blunder for the foul-mouthed politician. Albanese was heard joking about the dangers of keeping a mobile phone near his crotch before a talk at climate summit Cop31 in Turkey on Friday....",
+      "raw_content": "THIS is the moment Aussie PM Anthony Albanese is caught making a crude joke about his privates on a hot mic, in another embarrassing blunder for the foul-mouthed politician. Albanese was heard joking about the dangers of keeping a mobile phone near his crotch before a talk at climate summit Cop31 in Turkey on Friday....",
+      "raw_meta": "",
+      "jina_text": "",
+      "source_used": "RSS excerpt",
+      "raw_summary": "THIS is the moment Aussie PM Anthony Albanese is caught making a crude joke about his privates on a hot mic, in another embarrassing blunder for the foul-mouthed politician. Albanese was heard joking about the dangers of keeping a mobile phone near his crotch before a talk at climate summit Cop31 in Turkey on Friday....",
+      "summary": "Australian Prime Minister Anthony Albanese was caught in a hot-mic gaffe at the COP31 climate summit in Turkey on Friday. He was heard making a crude joke about the dangers of keeping a mobile phone near his crotch before a talk at the event. The incident has been described as another embarrassing moment for the politician.",
+      "topic": "COP31 Climate Summit",
+      "low_confidence": false,
+      "summary_version": 1
+    },
+    {
+      "title": "Choking fires, deadly heat and devastating floods: 2026 in extreme weather",
+      "url": "https://www.theguardian.com/world/2026/nov/14/fires-heat-floods-extreme-weather-2026",
+      "source": "The Guardian",
+      "date": "14 Nov 2026",
+      "pub_date_iso": "2026-11-14T13:00:44+00:00",
+      "raw_rss": "People around the world have contended with unprecedented weather events and their fatal effects caused by the climate catastropheAfter the world’s hottest summer since records began in 1850, the death toll from extreme weather in 2026 is already in the high tens of thousands. That is a conservative estimate and is certain to rise much higher.As Cop31 continues and scientists warn that climate breakdown may be accelerating, the Guardian looks back at a year of droughts, fires and floods as a reminder that, unless the world takes urgent action to cut emissions, this disastrous year will be one of the best of the rest of our lives. Continue reading...",
+      "raw_content": "",
+      "raw_meta": "People around the world have contended with unprecedented weather events and their fatal effects caused by the climate catastrophe",
+      "jina_text": "People around the world have contended with unprecedented weather events and their fatal effects caused by the climate catastrophe\n\n\n\n\nAfter the world’s hottest summer since records began in 1850, the death toll from extreme weather in 2026 is already in the high tens of thousands. That is a conservative estimate and is certain to rise much higher.\nAs Cop31 continues and scientists warn that climate breakdown may be accelerating, the Guardian looks back at a year of droughts, fires and floods as a reminder that, unless the world takes urgent action to cut emissions, this disastrous year will be one of the best of the rest of our lives.\n\n\n\nChart showing how the past four years have overturned all monthly temperature records\nJanuary \nFourth-hottest January on record\n\n\nView image in fullscreen\nA fire in Longwood, a town in Victoria, Australia, in early January. Photograph: Michael Currie/AAP\nExtreme heat fuels wildfires in Australia \nAs temperatures jump nearly 20C (68F) above average, Victoria and other southern states register new heat records, including 50C in Port Augusta and the tiny opal mining town of Andamooka. Melbourne hospitals report a 25% increase in heat-related illnesses, while authorities in many areas struggle with wildfires. Scientists say the supercharged climate has made the heatwave five times more likely. Heatwaves already cause more deaths in Australia than all other natural hazards combined.\nFebruary \nFourth-hottest February on record\n\n\nView image in fullscreen\nPeople clear mud and debris outside homes in the aftermath of a storm, in Juiz de Fora, Brazil. Photograph: Andre Coelho/EPA\nMudslides kill 72 in Brazil after record rain \nThe city of Juiz de Fora in Minas Gerais records its wettest ever month, triggering landslides that sweep away hundreds of homes in poor communities on unstable hillsides. Floods also disrupt Rio de Janeiro and São Paulo. More than 10,000 people are displaced.\nMarch \nFourth-hottest March on record\n\n\nView image in fullscreen\nMotorists drive through heavy rains in the Kibera slums in Nairobi, Kenya.  Photograph: Donwilson Odhiambo/Getty Images\nDevastating floods across much of the world \nIn Ethiopia, at least 131 people are killed in floods and mudslides that bury entire villages. Eighty die in Kenya and 18 in Tanzania. The Arabian peninsula is battered by fierce winds and heavy downpours that flood the streets of the desert kingdom. Hailstones the size of tennis balls fall in Oman and lightning storms leave cities in the UAE inundated with water. Many areas report record rainfall. At least 30 die in Afghanistan as heavy rains trigger landslides. Hong Kong is soaked in twice the usual monthly precipitation. Flood waters in southern Russia submerge homes and leave more than 300,000 without electricity. Huge tracts of farmland are left underwater in Argentina and Chile.\nWorld’s energy imbalance accelerates rapidly \nThe World Meteorological Organization reveals an alarming buildup of energy in Earth’s sys",
+      "source_used": "full article (Jina) + RSS excerpt + page description",
+      "raw_summary": "People around the world have contended with unprecedented weather events and their fatal effects caused by the climate catastropheAfter the world’s hottest summer since records began in 1850, the death toll from extreme weather in 2026 is already in the high tens of thousands. That is a conservative estimate and is certain to rise much higher.As Cop31 continues and scientists warn that climate breakdown may be accelerating, the Guardian looks back at a year of droughts, fires and floods as a reminder that, unless the world takes urgent action to cut emissions, this disastrous year will be one of the best of the rest of our lives. Continue reading...",
+      "summary": "A Guardian article looks back at extreme weather events across 2026, describing it as a year of unprecedented droughts, fires, and floods that have already killed tens of thousands of people worldwide. Highlights include record-breaking heatwaves and wildfires in Australia, with temperatures nearly 20°C above average, and deadly mudslides in Brazil after record rainfall killed 72 people and displaced over 10,000. The article frames these disasters in the context of ongoing climate negotiations at Cop31, warning that unless urgent action is taken to cut emissions, 2026 may come to be seen as one of the better years ahead.",
+      "topic": "Air Pollution and Extreme Weather Events",
+      "low_confidence": false,
+      "summary_version": 1
+    },
+    {
+      "title": "How long cold snap will last as Arctic blast plunges temperatures to -7.2°C",
+      "url": "https://inews.co.uk/news/how-long-cold-snap-will-last-arctic-blast-4897271",
+      "source": "The i",
+      "date": "14 Nov 2026",
+      "pub_date_iso": "2026-11-14T11:49:42+00:00",
+      "raw_rss": "The weekend began with the lowest recorded temperature so far this Autumn",
+      "raw_content": "The UK’s sudden seasonal shift has continued, as temperatures dropped to -7.2°C overnight in parts of the country.\n\n\n\nThe rapid drop in temperature has brought fog and widespread frost which could impact driving conditions nationwide.\n\n\n\nThis comes as climate scientists warn that there may be an exceptionally cold winter on the horizon due to an unusual weather event taking place in the Arctic. \n\n\n\nHow long will the cold snap last?\n\n\n\nThe current cold snap began on Wednesday, with the lowest temperature recorded in South Newington, England, where it dropped to -7.2°C, the lowest recorded temperature in the UK so far this autumn.\n\n\n\nSimilarly cold temperatures are expected throughout Saturday – the wind chill will make it feel colder – before more unsettled weather and rain arrives on Saturday evening and into Sunday, forecasters say. \n\n\n\nCold weather alerts for the West Midlands and the north-west of England were issued until 12pm on Saturday. \n\n\n\nBright and clear skies are expected across most of the UK except parts of Scotland where there will be some showers. \n\n\n\nOn Sunday, the cold weather will give way to milder conditions, with temperatures expected to stay above freezing in the morning.\n\n\n\nSunshine is forecast in the east in the morning and across the far north and west later in the day.\n\n\n\nConditions are otherwise expected to be cloudy and breezy with outbreaks of rain, some heavy, and potential hill snow in the north.\n\n\n\nAccording to the Met Office, the current cold ",
+      "raw_meta": "The weekend began with the lowest recorded temperature so far this Autumn",
+      "jina_text": "This comes as climate scientists warn that there may be an exceptionally cold winter on the horizon due to an unusual weather event taking place in the Arctic. \n\n\n\n \nHow long will the cold snap last? \nThe current cold snap began on Wednesday, with the lowest temperature recorded in South Newington, England, where it dropped to -7.2°C, the lowest recorded temperature in the UK so far this autumn. \nSimilarly cold temperatures are expected throughout Saturday – the wind chill will make it feel colder – before more unsettled weather and rain arrives on Saturday evening and into Sunday, forecasters say.  \nCold weather alerts for the West Midlands and the north-west of England were issued until 12pm on Saturday.  \nBright and clear skies are expected across most of the UK except parts of Scotland where there will be some showers. \n\n\n\n \nOn Sunday, the cold weather will give way to milder conditions, with temperatures expected to stay above freezing in the morning. \nSunshine is forecast in the east in the morning and across the far north and west later in the day. \nConditions are otherwise expected to be cloudy and breezy with outbreaks of rain, some heavy, and potential hill snow in the north. \nAccording to the Met Office, the current cold weather has been caused by developments in the troposphere, the lowest part of the atmosphere. High pressure has changed the UK’s wind direction, bringing in colder air from the Arctic.  \nMilder and wetter weather is expected over the coming weeks as Atlantic low-pressure systems bring in rain and stronger winds.  \nIt follows an exceptionally dry start to November, particularly across drought-affected areas of England. \nWhat is the outlook for the rest of winter? \nWhile it is impossible to reliably forecast the weather for the coming winter, climate scientists say there is potential for extreme cold in the UK due to an event happening right now in the Arctic.\n\n\n\n \nEach year powerful winds, known as the polar vortex, develop high in the stratosphere over the Arctic during the colder months.  \nWhen these winds weaken, they can bring unusually cold temperatures to the UK, as happened during the Beast from the East in 2018. \nThe polar vortex is currently experiencing an exceptionally early and unusual disruption, which could bring colder weather to the UK in December. The Met Office is monitoring the situation, but said any impact would be likely to be short-lived. \nHowever, current long range forecasts predict the polar vortex will weaken again in January or February, which could bring more extreme cold around that time.  \nMany climate scientists believe this could be a result of the Super El Niño currently developing in the Pacific Ocean, which is expected to wreak havoc in many parts of the globe.   \nEl Niño is a natural climate phenomenon involving the significant warming of ocean water in the central and eastern tropical Pacific. It occurs every two to seven years and influences weather patterns across the world. \nThe",
+      "source_used": "full article (Jina) + full RSS content + RSS excerpt",
+      "raw_summary": "The UK’s sudden seasonal shift has continued, as temperatures dropped to -7.2°C overnight in parts of the country.\n\n\n\nThe rapid drop in temperature has brought fog and widespread frost which could impact driving conditions nationwide.\n\n\n\nThis comes as climate scientists warn that there may be an exceptionally cold winter on the horizon due to an unusual weather event taking place in the Arctic. \n\n\n\nHow long will the cold snap last?\n\n\n\nThe current cold snap began on Wednesday, with the lowest temperature recorded in South Newington, England, where it dropped to -7.2°C, the lowest recorded temperature in the UK so far this autumn.\n\n\n\nSimilarly cold temperatures are expected throughout Saturday – the wind chill will make it feel colder – before more unsettled weather and rain arrives on Saturday evening and into Sunday, forecasters say. \n\n\n\nCold weather alerts for the West Midlands and the north-west of England were issued until 12pm on Saturday. \n\n\n\nBright and clear skies are expected across most of the UK except parts of Scotland where there will be some showers. \n\n\n\nOn Sunday, the cold weather will give way to milder conditions, with temperatures expected to stay above freezing in the morning.\n\n\n\nSunshine is forecast in the east in the morning and across the far north and west later in the day.\n\n\n\nConditions are otherwise expected to be cloudy and breezy with outbreaks of rain, some heavy, and potential hill snow in the north.\n\n\n\nAccording to the Met Office, the current cold ",
+      "summary": "A cold snap that began on Wednesday brought temperatures as low as -7.2°C in South Newington, England, the lowest recorded in the UK so far this autumn. Cold conditions are expected to continue through Saturday before milder, wetter weather arrives from Sunday, driven by Atlantic low-pressure systems. Climate scientists warn that an unusual event currently occurring in the Arctic's polar vortex could bring exceptionally cold weather to the UK later in the winter.",
+      "topic": "Air Pollution and Extreme Weather Events",
+      "low_confidence": false,
+      "summary_version": 1
+    },
+    {
+      "title": "Greenpeace boulders may delay building of £12bn windfarms in North Sea",
+      "url": "https://www.theguardian.com/environment/2026/nov/14/greenpeace-boulders-norfolk-vanguard-windfarms",
+      "source": "The Guardian",
+      "date": "14 Nov 2026",
+      "pub_date_iso": "2026-11-14T11:00:43+00:00",
+      "raw_rss": "Activists dumped rocks off Norfolk coast on site of Burnham-backed project in protest against seabed trawlingThe giant offshore windfarms backed by Andy Burnham this week may face unexpected stumbling blocks after Greenpeace activists unwittingly dumped about 15 tonnes of boulders on to the site as part of a campaign against seabed trawling in the North Sea.Greenpeace created the “boulder barrier” to safeguard harbour porpoises off the Norfolk coast by dropping giant stone blocks, each weighing up to 2 tonnes, on to the sea floor to prevent a method of fishing known as bottom trawling. Continue reading...",
+      "raw_content": "",
+      "raw_meta": "Activists dumped rocks off Norfolk coast on site of Burnham-backed project in protest against seabed trawling",
+      "jina_text": "Boulders weighing up to 2 tonnes being dropped onto the seabed in the North Sea by Greenpeace Photograph: Andrew McConnell/PA\nView image in fullscreen\nBoulders weighing up to 2 tonnes being dropped onto the seabed in the North Sea by Greenpeace Photograph: Andrew McConnell/PA\n\n\nGreenpeace boulders may delay building of £12bn windfarms in North Sea\n\n\nActivists dumped rocks off Norfolk coast on site of Burnham-backed project in protest against seabed trawling\n\n\n\n\nThe giant offshore windfarms backed by Andy Burnham this week may face unexpected stumbling blocks after Greenpeace activists unwittingly dumped about 15 tonnes of boulders on to the site as part of a campaign against seabed trawling in the North Sea.\nGreenpeace created the “boulder barrier” to safeguard harbour porpoises off the Norfolk coast by dropping giant stone blocks, each weighing up to 2 tonnes, on to the sea floor to prevent a method of fishing known as bottom trawling.\n\nThe barrier will pose an additional challenge for the green energy developers because most of the boulders were dropped on to the site earmarked for one of the UK’s biggest planned windfarms, known as the Norfolk Vanguard project.\n\n\n\n\n\nGreenpeace campaigners drop boulders onto the seabed to create anti-trawler barrier\nGreenpeace began dumping boulders on to the site, without consent from the marine authority, days before the prime minister told the Cop31 summit that the UK would invest £1bn of public money in the Vanguard West and Vanguard East windfarms in what is believed to be the biggest investment of its kind in UK history.\nThe Guardian understands that Greenpeace checked the seabed for any existing cables, pipelines or shipwrecks, but it was not aware of the plans to build the Vanguard East windfarm.\n\nThe creation of the underwater barrier in one of “the most heavily trawled” areas of the southern North Sea was timed to coincide with the premiere of the BBC’s Blue Planet III documentary, narrated by Sir David Attenborough.\n\n\nSome boulders bear the signatures of celebrities including Simon Pegg and Benedict Cumberbatch, who have voiced marine conservation documentaries, and agreed to support the Greenpeace campaign.\nHowever, they are likely to be removed within months after renewable energy developers agreed a £12bn deal alongside the UK government to begin building the offshore windfarm next year. Industrial fishing activities, including bottom trawling, are also likely to move elsewhere to avoid the construction area.\nThe Guardian understands that the offshore wind developer, the German utility company RWE, is in talks with Greenpeace to verify the exact placement of the boulders so that they can update the seabed surveys they began last summer. The company is also investigating any potential impact to the construction of the project or its undersea cables.\nskip past newsletter promotion\n\nafter newsletter promotion\n\n\nView image in fullscreen\nGreenpeace crew and activists next to a boulder with a carved dep",
+      "source_used": "full article (Jina) + RSS excerpt + page description",
+      "raw_summary": "Activists dumped rocks off Norfolk coast on site of Burnham-backed project in protest against seabed trawlingThe giant offshore windfarms backed by Andy Burnham this week may face unexpected stumbling blocks after Greenpeace activists unwittingly dumped about 15 tonnes of boulders on to the site as part of a campaign against seabed trawling in the North Sea.Greenpeace created the “boulder barrier” to safeguard harbour porpoises off the Norfolk coast by dropping giant stone blocks, each weighing up to 2 tonnes, on to the sea floor to prevent a method of fishing known as bottom trawling. Continue reading...",
+      "summary": "Greenpeace activists have accidentally dropped around 15 tonnes of boulders onto the planned site of the Norfolk Vanguard offshore windfarm in the North Sea, as part of a campaign against bottom trawling. The boulders, each weighing up to 2 tonnes, were intended to protect harbour porpoises and prevent seabed trawling, but were placed without consent from the marine authority and without knowledge of the planned £12bn windfarm project. The incident could delay the development of one of the UK's largest planned offshore windfarms, which received a £1bn public investment commitment from the prime minister at the Cop31 summit.",
+      "topic": "UK Net Zero and Energy Policy",
+      "low_confidence": false,
+      "summary_version": 1
+    },
+    {
+      "title": "Climate crisis and El Niño fuelled Indonesia’s wildfires, scientists find",
+      "url": "https://www.independent.co.uk/climate-change/news/indonesia-wildfires-el-nino-climate-crisis-b3084541.html",
+      "source": "The Independent",
+      "date": "14 Nov 2026",
+      "pub_date_iso": "2026-11-14T08:24:13+00:00",
+      "raw_rss": "El Nino was the main cause of the severe lack of rain in Indonesia, cutting rainfall between July and October by about 50 per cent",
+      "raw_content": "",
+      "raw_meta": "El Nino was the main cause of the severe lack of rain in Indonesia, cutting rainfall between July and October by about 50 per cent",
+      "jina_text": "Please refresh the page or navigate to another page on the site to be automatically logged inPlease refresh your browser to be logged in\nSkip to content\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwipe for next article\n\n\n\n\n\n\n\n\n \n \n   \n   \nBecome an Independent member to bookmark this article \nWant to bookmark your favourite articles and stories to read or reference later? Start your Independent Membership today. Join today \n Already a member? Log in       \n\n\nGlobal heating and the El Nino weather pattern made the hot, dry conditions behind this year's wildfires in Indonesia far more severe, an analysis has found.\nResearchers from Indonesia, the US, the Netherlands, Sweden and the UK analysed rainfall, temperatures and short spells of hot, dry air in three regions covering parts of Sumatra, Borneo and Java between July and October.\nThey found that El Nino, the natural warming of the tropical Pacific Ocean that disrupts weather worldwide, was the main cause of the severe lack of rain, cutting rainfall between July and October by about 50 per cent. \n\n\n\n\nHuman-caused global heating, driven mainly by the burning of fossil fuels, was the primary driver of high temperatures between August and October, making the season's heat about 1.6C hotter. El Nino added about 0.3C and made the heat about 11 times more likely.\nThe study by World Weather Attribution (WWA), an international collaboration of scientists that assesses how the climate crisis influences extreme weather, was published on Thursday. \n\nThe study says observations suggest the climate crisis also reduced rainfall by about 15 per cent, but climate models did not reproduce that effect, and the authors describe the role of the climate crisis in the lack of rain as uncertain.\n\n\nThe researchers also assessed vapour pressure deficit (VPD), a measure of how strongly the air draws moisture from plants and soil, in kilopascals (kPa), a unit of pressure. They examined the highest seven-day average of daily maximum values in the season, which indicates sustained spells of hot, dry air that often lead to fires. \nHuman-caused warming made such conditions about three times more likely and raised their intensity by about 0.4 kPa, while El Nino made them about five times more likely and raised their intensity by about 0.6 kPa. The authors describe the figures as conservative because the models used include some that do not represent El Nino well, and say the conditions seen this year are relatively common in years with a similar El Nino.\n\n\n\"Our analysis shows that climate change acts as a force multiplier during El Nino years. When a strong El Nino hits, global warming makes the resulting fire weather significantly hotter, drier, and harder to contain,\" said Dr Theodore Keeping, an extreme weather and wildfire researcher at Imperial College London and an author of the study.\n\"El Nino turned off the taps, but fossil fuel emissions turned up the heat,\" said Friederike Otto, professor of climate science at Imperial College London a",
+      "source_used": "full article (Jina) + RSS excerpt",
+      "raw_summary": "El Nino was the main cause of the severe lack of rain in Indonesia, cutting rainfall between July and October by about 50 per cent",
+      "summary": "A new study by World Weather Attribution found that both the El Niño weather pattern and human-caused climate change significantly worsened the conditions that drove Indonesia's wildfires this year. El Niño was identified as the main cause of reduced rainfall, cutting precipitation by around 50% between July and October, while human-induced global heating was the primary driver of high temperatures, making the season about 1.6°C hotter. The research, involving scientists from Indonesia, the US, the Netherlands, Sweden and the UK, analysed conditions across parts of Sumatra, Borneo and Java.",
+      "topic": "El Niño: Impacts and Outlook",
+      "low_confidence": false,
+      "summary_version": 1
+    },
+    {
+      "title": "Send us your questions about climate crisis and politics for the next Stateside guest: Bill McKibben",
+      "url": "https://www.theguardian.com/us-news/2026/nov/13/climate-environment-questions-bill-mckibben",
+      "source": "The Guardian",
+      "date": "13 Nov 2026",
+      "pub_date_iso": "2026-11-13T20:23:23+00:00",
+      "raw_rss": "Kai Wright of the Guardian podcast Stateside will speak with author and environmentalist Bill McKibben – and we’d like to hear your questionsWas the climate crisis one of your top political priorities during the midterm elections? We want to hear from you: what do you want political leaders to do about it in 2027?Democrats will control the House and Senate in the new year, and they have a long list of priorities ahead of them. But it remains to be seen just how much they will focus on one of the most pressing issues of our times: the climate crisis. The UN declared this summer that, despite some progress, it is now “unavoidable” that the globe will heat past the point that scientists say will threaten human health. Despite these terrifying predictions, the US remains absent from global eff",
+      "raw_content": "",
+      "raw_meta": "Kai Wright of the Guardian podcast Stateside will speak with author and environmentalist Bill McKibben – and we’d like to hear your questions",
+      "jina_text": "Your responses may be discussed by our host and expert panelists on Stateside with Kai and Carter, a podcast from the Guardian. Illustration: Guardian Design/DeSean Mclinton-Holland\nView image in fullscreen\nYour responses may be discussed by our host and expert panelists on Stateside with Kai and Carter, a podcast from the Guardian. Illustration: Guardian Design/DeSean Mclinton-Holland\n\n\nSend us your questions about climate crisis and politics for the next Stateside guest: Bill McKibben\n\n\nKai Wright of the Guardian podcast Stateside will speak with author and environmentalist Bill McKibben – and we’d like to hear your questions\n\n\n\n\nWas the climate crisis one of your top political priorities during the midterm elections? We want to hear from you: what do you want political leaders to do about it in 2027?\nDemocrats will control the House and Senate in the new year, and they have a long list of priorities ahead of them. But it remains to be seen just how much they will focus on one of the most pressing issues of our times: the climate crisis. The UN declared this summer that, despite some progress, it is now “unavoidable” that the globe will heat past the point that scientists say will threaten human health. Despite these terrifying predictions, the US remains absent from global efforts to limit the impacts of the climate crisis.\n\nEnvironmentalist and Guardian columnist Bill McKibben has been ringing the alarm for decades. But in his most recent book, Here Comes the Sun, he’s argued that we’re at a unique moment of opportunity. The science and the markets have given us the tools to solve the crisis – we just need the politics to catch up. So what does he think is politically possible now? And what would you like to ask McKibben about this moment of peril and opportunity?\nSend your questions for McKibben for his upcoming appearance on the Guardian podcast Stateside with Kai and Carter by 20 November.\n\n\n\n\nShare your questions\n\n\nYou can share your questions for Bill McKibben in the form below.\nPlease share your story if you are 18 or over, anonymously if you wish. For more information please see our terms of service and privacy policy.\n\n\nShare this callout\n\n\n\nTell us here\n\nYour responses, which can be anonymous, are secure as the form is encrypted and only the Guardian has access to your contributions. We will only use the data you provide us for the purpose of the feature and we will delete any personal data when we no longer require it for this purpose. For alternative ways to get in touch securely please see our tips guide.\n\n\nName \n\nWhere do you live? \n\nTell us a bit about yourself (e.g. age, background, what you do) Optional\n\nShare your question for Bill McKibben here \nPlease include as much detail as possible. \n\nYou can ask another question here Optional\nPlease include as much detail as possible. \n\n\nCan we publish your response? \n\n\nYes, entirely\n\nYes, but contact me first\n\nYes, but please keep me anonymous\n\nNo, this is information only\n\nPhone numb",
+      "source_used": "full article (Jina) + RSS excerpt + page description",
+      "raw_summary": "Kai Wright of the Guardian podcast Stateside will speak with author and environmentalist Bill McKibben – and we’d like to hear your questionsWas the climate crisis one of your top political priorities during the midterm elections? We want to hear from you: what do you want political leaders to do about it in 2027?Democrats will control the House and Senate in the new year, and they have a long list of priorities ahead of them. But it remains to be seen just how much they will focus on one of the most pressing issues of our times: the climate crisis. The UN declared this summer that, despite some progress, it is now “unavoidable” that the globe will heat past the point that scientists say will threaten human health. Despite these terrifying predictions, the US remains absent from global eff",
+      "summary": "The Guardian is inviting readers to submit questions for environmentalist and author Bill McKibben, who will appear on the Guardian podcast Stateside with Kai and Carter. McKibben, known for decades of climate activism, argues in his latest book that science and markets have provided the tools to address the climate crisis, but political will is still needed. Readers are asked to share their questions about climate crisis and politics ahead of a 20 November deadline.",
+      "topic": "COP31 Climate Summit",
+      "low_confidence": false,
+      "summary_version": 1
+    },
     {
       "title": "The key financial stand-off between wealthy and smaller nations at the heart of Cop31",
       "url": "https://www.independent.co.uk/climate-change/cop31-climate-finance-aid-cuts-us-uk-b3084575.html",
@@ -22,7 +124,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Experts at Cop31 reveal to Nick Ferris that critical climate finance discussions are deadlocked in the wake of sweeping foreign aid cuts from wealthy nations – and share how things can move forward",
       "summary": "At Cop31, least developed countries are demanding more grant-based climate finance, arguing they did not cause the climate crisis and cannot afford to address its impacts, particularly those burdened by severe debt. However, sweeping foreign aid cuts from wealthy nations — including a 56.9% reduction from the US — have significantly reduced the money available, with global foreign aid falling 23% to its lowest level in a decade. This gap between funds needed and funds available has created a deadlock in climate finance negotiations, compounded by the fact that the list of countries officially required to provide money is based on terms set in 1992.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Climate Finance and Developing Nations",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -73,7 +175,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "The environmental and economic dilemmas he faces are formidable but, with a bold plan, he could set an example for leaders around the worldFor politicians of the centre-left especially, it’s the great dilemma of the age. How do you do what everyone can see is essential to save the planet from boiling – even as your voters demand action to get the economy growing and to make life more affordable? Plenty of activists will tell you there’s no contradiction, that tackling the climate crisis makes economic as well as ecological sense and, in the long term, you know they’re right. But you don’t live in the long term. You’re running the government right now and facing several unavoidable, binary choices.Andy Burnham is a prime example. This week, he addressed the Cop summit in Antalya, promising ",
       "summary": "Jonathan Freedland examines the dilemma facing Andy Burnham, who must balance tackling the climate crisis with delivering economic growth and affordability for voters. Burnham pledged 'a new era of British leadership' on climate at the Cop summit in Antalya, but his government has already approved the Jackdaw North Sea gasfield and faces further contentious decisions on the larger Rosebank oilfield and car industry emissions targets. Freedland argues that despite these tensions, a bold plan could allow Burnham to address both environmental and economic pressures while setting an example for leaders worldwide.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -124,7 +226,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham has said a deal with the EU could deliver what \"people thought they were voting for in 2016\".The Prime Minister, speaking to reporters at the European Political Community summit in Ireland, said a \"win-win\" deal with the bureaucratic bloc could be struck.Mr Burnham will meet EU leaders in Brussels next week to sign agreements on food and farming, emissions trading and a youth mobility scheme, insisting the move will raise GDP by 0.4 per cent.He said: \"I believe there is a good deal to be done that could be a win-win for Britain and Europe. I think it actually could be more like the Brexit that people thought they were voting for in 2016.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\n\"I don't think people thought they were going to get a Brexit as hard as the one that finally came thro",
       "summary": "Andy Burnham, referred to as Prime Minister in the article, has suggested that a new deal with the EU could deliver what 'people thought they were voting for in 2016' during the Brexit referendum. He made these comments while speaking to reporters at the European Political Community summit in Ireland. The article, published by GB News, frames this as Burnham edging closer to an EU reset.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -158,7 +260,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "The challenge is not to just cut subsidies for, but to redirect them without undermining farmers' livelihoods or food security, writes Carlos Alvarado",
       "summary": "Climate action for the world's most vulnerable nations must include agricultural reform to be effective, according to Carlos Alvarado. Agriculture is both a backbone of many economies and one of the sectors most exposed to rising temperatures, yet many climate-vulnerable countries are following the same path as wealthy nations in how they subsidise farming. The challenge is to redirect the estimated $800 billion in global agricultural subsidies toward sustainable practices without harming farmers' livelihoods or food security.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Climate Finance and Developing Nations",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -209,7 +311,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Chris Minns has gone out of his way to help ban peaceful protest in Newcastle, the world’s biggest coal port. Voters will remember in MarchSign up for climate and environment editor Adam Morton’s free Clear Air newsletter hereWe know that El Niño climate patterns are supercharged by the burning of fossil fuels. In Europe, more than 50,000 people died of intolerable heat this year. And yet, in September the premier of New South Wales, Chris Minns, oversaw the largest coalmine expansion in the state’s history.Coal from that operation in the Hunter Valley will inevitably increase global warming after it is exported through Newcastle and then burned overseas. Newcastle, the world’s biggest coal port, has become the target of a restless population, particularly of young Australians, alarmed by ",
       "summary": "NSW Premier Chris Minns has endorsed Newcastle Lord Mayor Gavin Morris's move to ban climate protest group Rising Tide from council-owned land, drawing criticism from former Greens leader Bob Brown. Rising Tide has been organising annual flotilla protests in Newcastle's Hunter River port, the world's biggest coal port, to slow coal shipments amid growing concern about climate change. Brown argues the move shows Trumpian disdain for climate concerns and warns it could backfire on Minns ahead of a March election, particularly given the premier's recent approval of the largest coalmine expansion in NSW history.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -226,7 +328,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "The Independent is inviting readers to join a new research community where they can share their opinions, help shape our future and earn rewards for taking part",
       "summary": "The Independent is launching a reader research community called Independent Media Insiders, where members can share their opinions on topics including solar energy and renewable energy. Participants help shape the publication's journalism and future offerings by providing feedback on areas such as news, sport, travel, and shopping. Members earn rewards, such as gift cards, in exchange for taking part in surveys and research activities.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -260,7 +362,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Delegations outnumber those of some countries most vulnerable to climate impacts, such as Nepal, which suffered glacier collapseCop31 live – latest updatesMore than 100 corporations and industry groups linked to fossil fuel interests have sent delegations to the UN climate talks in Turkey, according to an analysis.The Cop31 climate summit in Antalya is thought to be the largest ever in the three decades of the annual gatherings, with more than 92,000 delegates registered to attend talks aimed at shifting the world away from the fossil fuels that are dangerously overheating our planet. Continue reading...",
       "summary": "More than 100 corporations and industry groups linked to fossil fuel interests have sent delegations to the UN climate summit Cop31 in Antalya, Turkey, according to analysis by the Kick Big Polluters Out coalition. The 103 groups identified include 60 fossil fuel industry bodies, 16 financial companies that fund fossil fuels, and representatives from firms such as Exxon, TotalEnergies, BNP Paribas, HSBC, Amazon, and BlackRock. These corporate delegations outnumber the national delegations of some of the countries most vulnerable to climate change, such as Nepal.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -311,7 +413,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham has said a deal with the EU could deliver what \"people thought they were voting for in 2016\".The Prime Minister, speaking to reporters at the European Political Community summit in Ireland, said a \"win-win\" deal with the bloc could be made.Mr Burnham will meet EU leaders in Brussels next week and sign agreements on food and farming, emissions trading and a youth mobility scheme, which he says will raise GDP by 0.4 per cent.He said: \"I believe there is a good deal to be done that could be a win-win for Britain and Europe. I think it actually could be more like the Brexit that people thought they were voting for in 2016.\"I don't think people thought they were going to get a Brexit as hard as the one that finally came through at the end of 2019.\"He added that there was more to ne",
       "summary": "Andy Burnham has suggested that a new deal with the EU could deliver what people believed they were voting for during the 2016 Brexit referendum. The Prime Minister made these comments while speaking to reporters at the European Political Community summit in Ireland. The remarks indicate an openness to resetting the UK's relationship with the EU.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -345,7 +447,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "As many as 100 Labour MPs want Andy Burnham to allow the start of production from the Rosebank oilfield in the North Sea, a leading Labour MP has told GB News.Steve Yemm, MP for Mansfield since 2024 and chairman of a cross-party group calling for a \"sensible, worker-first approach to North Sea oil and gas\", disclosed the strength of feeling among Labour MPs who want drilling to start.There are already reports of a split with Chancellor John Healey and Business Secretary Jonathan Reynolds keen for drilling to start against opposition from Foreign Secretary Ed Miliband and Energy Secretary Miatta Fahnbulleh.The remarks to Chopper's Political Podcast lay bare the pressure the Prime Minister is under from his own backbenchers to deliver the \"pragmatic\" approach towards drilling in the North Se",
       "summary": "Up to 100 Labour MPs are reportedly prepared to challenge Andy Burnham over North Sea oil drilling, pushing for production to begin at the Rosebank oilfield. Steve Yemm, MP for Mansfield since 2024, told GB News about the scale of internal Labour opposition on the issue.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -362,7 +464,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Exclusive: Fossil fuels no longer dominant energy source, IEA leader says, as summit considers electrification pledgeThe world has left behind the age of coal, oil and gas and is now firmly in “the age of electricity”, the world’s leading energy economist has said.Fatih Birol, the executive director of the International Energy Agency (IEA), said more than twice as much electricity generation would be added to the global economy in the next decade than in the last, as countries scramble to secure their energy supplies against fossil fuel price volatility and supply shocks, such as the Iran war. Continue reading...",
       "summary": "The world has entered the 'age of electricity' and left behind the dominance of coal, oil and gas, according to Fatih Birol, executive director of the International Energy Agency (IEA), speaking at the Cop31 UN climate summit in Turkey. Birol said the world added around 5,000 gigawatts of electricity in the last decade and expects more than 12,000 gigawatts to be added in the next ten years. Key drivers of this shift include rapid electrification of transport — with electric car sales outside China rising 60% in nine months — alongside growth in AI data centres and air conditioning demand driven by intensifying heatwaves.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -379,7 +481,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Owning an electric car, driving an electric motorbike taxi, riding scooters – we speak to people in Oslo, Kigali and Shanghai about their everyday routinesThe race to electrification has emerged as a key theme of this year’s UN climate summit: increasing the use of electricity – particularly from clean sources – has the potential to improve daily life for people around the world.The summit’s co-hosts are now trying to get countries to promise to increase their electricity use to 35% of all energy used by 2035. The global figure currently stands at 23%, but some countries are already striding ahead. As 100,000 delegates, negotiators and world leaders thrash out the details in Antalya, Turkey, the Guardian spoke to three people in Norway, Rwanda and China to find out what life looks like in ",
       "summary": "The Guardian spoke to people in Norway, Rwanda, and China about everyday life in some of the world's most electrified countries, as electrification becomes a key theme at the UN climate summit in Antalya, Turkey. The summit's co-hosts are pushing countries to raise electricity's share of total energy use to 35% by 2035, up from the current global figure of 23%. One interviewee, Oslo resident Unni Berge, describes living in an energy-efficient flat powered by Norway's largely hydropower grid, in a country where nearly 99% of new cars sold in September were electric.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -413,7 +515,7 @@
       "source_used": "full article (Jina) + full RSS content + RSS excerpt",
       "raw_summary": "Before Andy Burnham travelled to Dublin for a meeting of the European Political Community, he started the day in Turkey.\nThe Prime Minister told the COP31 conference that climate change was a matter of national security.\nHe said that this summer, which saw multiple wildfires, droughts and heatwaves, “was not normal”’\nIn a world first, he also announced he had appointed a former Chair of the Joint Intelligence Committee as a new Special Representative for Climate Security.",
       "summary": "Andy Burnham has announced the appointment of a former Chair of the Joint Intelligence Committee as a Special Representative for Climate Security, described as a world first. The announcement was made before Burnham travelled to Dublin for a meeting of the European Political Community, with the day starting in Turkey. The news relates to the COP31 climate conference.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -430,7 +532,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham jetted off to Turkey to address the Cop31 summit this morning, where he warned European leaders \"climate change is a national security issue\" and reaffirmed Labour's commitment to Net Zero.But the Prime Minister only stayed in Antalya for 18 hours – delivering a six-minute speech in the process – before scrambling to Dublin this afternoon for the European Political Community, where he announced sanctions on all 10 of Russia's major oil producers.This morning, Mr Burnham joined Foreign Secretary Ed Miliband, who landed at the summit on Tuesday and insisted climate change is \"not a distant threat\", adding: \"It is upon us all now, devastating lives and livelihoods everywhere.\"Meanwhile, two wars across two continents have sent fuel prices and gas bills soaring for families and bu",
       "summary": "Andy Burnham travelled approximately 4,000 miles round trip to Turkey to address a COP31 summit, where he delivered a six-minute speech warning European leaders that 'climate change is a national security issue' and reaffirmed Labour's commitment to Net Zero. The GB News article highlights that the hall was reportedly half empty during his address. The outlet is drawing attention to the apparent contradiction of a lengthy international flight to deliver a brief climate-focused speech.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -447,7 +549,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "There have been so many UN climate conferences; it was inevitable that they would eventually run out of steam.While previously COP conferences would make big news, COP31 has struggled to attract senior world leaders. Just as most of his counterparts steer clear, Andy Burnham, ever the people pleaser, still wants to burnish his climate credentials. At COP31 in Antalya, Andy Burnham has pledged a “new era of British leadership” on climate change, calling it “a national security issue”. \nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nWhen I think of national security threats, I think of imminent dangers that could compromise Britain’s safety within days, not decades.  Climate change, however pressing, is not one of them. By contrast, at the Global Warming Policy Foundation’s Annual Lecture, former hea",
       "summary": "GB News opinion writer Ted Newson, writing for the Global Warming Policy Foundation, criticises Andy Burnham for attending COP31 in Antalya while most other world leaders have stayed away. Burnham pledged a 'new era of British leadership' on climate change at the conference, describing it as 'a national security issue'. The article argues that COP31 has struggled to attract senior world leaders and questions Burnham's priorities given concerns about Britain's energy security.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -481,7 +583,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Flanked by Greta Thunberg, Rikki Dank says the Australian PM must heed the calls for action on climate changeAn indigenous climate activist who is taking the Australian government to the UN human rights committee over its coal and gas exports stood alongside Greta Thunberg at Cop summit to demand Anthony Albanese “stop speaking and start listening.”Draped in traditional dress in front of a media throng, Rikki Dank, a Gudanji and Wakaya traditional owner, delivered an impassioned plea to Albanese to listen to “the Australian people when they say no more new coal, oil and gas”. Continue reading...",
       "summary": "Indigenous Australian climate activist Rikki Dank, a Gudanji and Wakaya traditional owner, stood alongside Greta Thunberg at the Cop31 summit in Antalya, Turkey, to demand Prime Minister Anthony Albanese block new coal, oil and gas projects. Dank is among 10 Australians who have filed a complaint against the Australian government with the UN human rights committee over its coal and gas exports. Albanese, whose country holds the Cop31 presidency, faced criticism for omitting the phrase 'fossil fuels' from his opening speech at the summit.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -498,7 +600,7 @@
       "source_used": "full article (Jina) + full RSS content + RSS excerpt",
       "raw_summary": "The UK and EU are set to strike a deal to help tackle post-Brexit shortages of medicines such as antibiotics, ADHD medication and epilepsy drugs at next week’s reset summit.\n\n\n\nThe two sides are finalising a health security agreement that will help address shortages of certain drugs which have got worse since Brexit, according to a draft text of a joint UK-EU statement seen by The i Paper.\n\n\n\nThe deal is designed to boost the sharing of intelligence on medicine supplies, helping the two sides collaborate as they experience supply shortages driven by global instability, but also partly by post-Brexit trade barriers in the case of the UK.\n\n\n\nExperts on post-Brexit health policy said the planned deal appeared to be “significant” and a “good first step” in addressing shortages that have hit both sides of the Channel in recent years, with recent crises in obtaining medicines such antibiotics needed for winter illnesses, and critical products to help people with long-term conditions such as ADHD and epilepsy.\n\n\n\nIt is expected to come alongside a major Brexit reset package of agreements on food and drink trade, carbon markets and youth mobility that Andy Burnham said will boost the UK’s economy by adding 0.4 per cent to gross domestic product.\n\n\n\nAn EU draft text of a joint statement, which is forming a key part of the negotiations, refers to both sides using the 20 November summit in Brussels to welcome the signing of a memorandum of understanding on health security.\n\n\n\nDeal is ‘s",
       "summary": "The UK and EU are set to sign a health security agreement at a Brexit reset summit on 20 November that aims to ease shortages of medicines including antibiotics, ADHD and epilepsy drugs. The deal will involve both sides sharing intelligence on medicine supplies and collaborating to source drugs during shortages, which have been worsened in the UK partly by post-Brexit trade barriers. Experts have described the planned memorandum of understanding as 'significant' and a 'good first step' in addressing medicines shortages that have affected both sides of the Channel in recent years.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -549,7 +651,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham has clocked up more than 22,500 air miles on taxpayer-funded overseas flights in his first 115 days as Prime Minister, GB News can reveal.Mr Burnham, whose jet has also flown around 1,000 miles within the UK, is close to being able to circle the world after touching down in Dublin for today's European Political Community summit.The Prime Minister flew to the Irish capital straight from Turkey following a whistle-stop visit to Antalya for the Cop31 summit.He flew almost 4,000 miles in 48 hours to deliver a 764-word speech, which averages out at five miles per word and 666 miles a minute.Mr Burnham, the only G7 leader to attend the climate summit, spent just 14 hours on Turkish soil before jetting straight to Dublin.The Prime Minister used his speech to declare the \"climate cris",
       "summary": "Andy Burnham has accumulated over 22,500 air miles on taxpayer-funded overseas flights in his first 115 days as Prime Minister, nearly enough to circle the globe. He recently flew almost 4,000 miles in 48 hours, travelling from Turkey, where he attended the COP31 climate summit and delivered a 764-word speech, to Dublin for the European Political Community summit. Despite declaring that the 'climate crisis is not a distant threat' in his COP31 speech, his extensive air travel has drawn criticism, with Shadow Minister Neil O'Brien commenting on the cost to taxpayers.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -566,7 +668,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Exclusive: With a billion dollars from both Indonesia and Brazil – in addition to money from wealthy European donors – the ‘breadth of support’ for global forest protection scheme at Cop31 is hailed by foreign secretary amid aid cuts from nations like the US and UK",
       "summary": "Foreign Secretary Ed Miliband has described billions in pledges for the Tropical Forest Forever Facility (TFFF) as a 'powerful signal' of global commitment to addressing the climate crisis. The fund, which pays countries to conserve standing forests, has attracted support not only from wealthy European donors but also from developing nations including Indonesia and Brazil, each pledging a billion dollars. Miliband made the remarks at Cop31, highlighting the broad international backing for the forest protection initiative.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Climate Finance and Developing Nations",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -583,7 +685,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Scrutiny of Andy Burnham’s travel has heightened.",
       "summary": "Downing Street has defended Prime Minister Andy Burnham's trip to Turkey for the Cop31 climate summit and then Ireland for the European Political Community meeting, saying it was 'absolutely' a good use of his time. Burnham delivered a five-minute speech at Cop31 pledging a 'new era' of British leadership on green transition, though he spoke to a half-empty plenary hall. The trip comes amid heightened scrutiny of his travel habits, following criticism that a government plane was flown from London to Manchester to collect him for a recent Commonwealth summit in the Caribbean, earning him the nickname 'Air Miles Andy'.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -600,7 +702,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "PM Andy Burnham was addressing delegates at the COP31 UN climate summit in Antalya, Turkey.",
       "summary": "UK Prime Minister Andy Burnham addressed world leaders at the COP31 climate summit in Antalya, Turkey, acknowledging that the global climate consensus has weakened but pledging a 'new era of British leadership' on climate change. He highlighted the UK's record-breaking hot summer, which led to school closures, reduced cereal harvests, and overwhelmed ambulance services, and announced the creation of a new climate security envoy role to be filled by Dame Madeleine Alessandri. However, environmental campaigners called on Burnham to match his rhetoric with stronger actions, pointing to recent government decisions such as reduced heat pump support, approval of the Jackdaw gas field, and backing for Heathrow expansion.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -651,7 +753,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "The Prime Minister pledged a ‘new era of British leadership over the next decade’ on the climate.",
       "summary": "UK Prime Minister Andy Burnham addressed the UN COP31 summit in Antalya, Turkey, pledging a 'new era of British leadership' on climate change and reaffirming the UK's commitment to its 2050 net zero target. He also committed to working with other countries to reach their own net zero goals, warning that the 'climate crisis is upon all of us now' following an extreme summer of heat, wildfires and drought. Burnham was reportedly the only G7 leader to address the summit, with the US declining to send a delegation for the second year running.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -668,7 +770,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham's climate adviser has been accused of \"unbelievable hypocrisy\" after it was revealed he has invested in fossil fuels.Steven Fries, a member of the Climate Change Committee (CCC), which issues advice on the Government's Net Zero policy, holds shares in energy giants Shell, BP and SSE, according to The Telegraph.He also holds shares in TotalEnergies, a French oil company, and Iberdrola, a Spanish energy firm.This is despite Mr Fries co-authoring a report last month warning that expanding Heathrow Airport with a third runway was not \"currently compatible\" with reaching the Government's Net Zero targets.Despite those targets being reiterated by the Prime Minister at Cop31 this morning, John Healey revealed yesterday Labour is \"behind a third runway at Heathrow\".The CCC warned a ru",
       "summary": "Andy Burnham's climate adviser, Steven Fries, a member of the Climate Change Committee (CCC), has been accused of 'unbelievable hypocrisy' after it was revealed he has invested in fossil fuels. This comes despite the Labour government outlawing new North Sea drilling. The story was reported by GB News.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -719,7 +821,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "The prince met celebrity supporters of African wildlife conservation charity Tusk including comedian John Bishop and ex-footballer Mathieu Flamini.",
       "summary": "The Prince of Wales attended the 14th annual Tusk Conservation Awards in London, where he presented awards to those protecting Africa's wildlife, wild places and communities. William, who has been royal patron of the charity Tusk since helping launch the awards in 2013, said more endangered species can be saved despite conservation being 'hard and often dangerous'. He highlighted the dangers faced by rangers, noting that at least 565 African rangers have been killed in the line of duty since 2011, and that too many pay the 'ultimate price on the front line of conservation'.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Climate Finance and Developing Nations",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -736,7 +838,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Exclusive: Madeleine Alessandri, former chair of joint intelligence committee, will take on role of advising No 10 on climate-related national security risksThe UK government has appointed the world’s first special representative for climate security, in the strongest sign yet of fears that climate breakdown will bring chaos to the country.Prime minister Andy Burnham will announce the move on Thursday at Cop31, the UN climate summit, with the new role designed to advise the government on national security risks from the climate crisis before they spell catastrophe. Continue reading...",
       "summary": "The UK government has appointed the world's first special representative for climate security, with Madeleine Alessandri, former chair of the joint intelligence committee, taking on the role of advising No 10 on climate-related national security risks. Prime Minister Andy Burnham announced the move at Cop31 in Antalya, Turkey, describing the climate crisis as an immediate threat and citing the UK's hottest summer on record, which caused health and transport disruption and thousands of premature deaths. Burnham reaffirmed the UK's commitment to reaching net zero by 2050 and pledged a new era of British climate leadership.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -753,7 +855,7 @@
       "source_used": "full article (Jina) + full RSS content + RSS excerpt + page description",
       "raw_summary": "Five years ago, at a previous UN COP conference, almost every leader on the planet agreed to start reducing their use of coal. But this year, the world will burn more coal than ever before.\nIndeed the joint hosts of this international climate summit are big coal enthusiasts &#8211; Turkey and Australia.\nWe went to southern Turkey where people are fighting against the expansion of new coal production.\nReporter: Emily Wither\nFilmmaker: Özgür Arslan\nProducer: Emre Çaylak",
       "summary": "Turkey, one of the hosts of this year's UN Climate Conference (COP), is continuing to expand coal production despite international commitments made five years ago to reduce coal use. The report highlights that global coal consumption is set to reach record levels this year, with both joint hosts Turkey and Australia being significant coal users. A Channel 4 News team travelled to southern Turkey to document local communities fighting against new coal expansion projects.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -770,7 +872,7 @@
       "source_used": "full RSS content + RSS excerpt + page description",
       "raw_summary": "Prime Minister Andy Burnham only arrived in Antalya Wednesday night, meaning he missed the traditional &#8220;family photo&#8221; opportunity with other world leaders. So Foreign Secretary Ed Miliband stepped up to the plate.\nWe caught up with him earlier today and asked him about the situation in Ukraine, his 2015 interview with Russell Brand but began by asking him about UK progress on fighting climate breakdown, and if cutting money for heat pumps sends the wrong message.",
       "summary": "Foreign Secretary Ed Miliband represented the UK at an international summit in Antalya after Prime Minister Andy Burnham arrived late, missing the traditional leaders' photo. Miliband was interviewed on a range of topics including the situation in Ukraine and his 2015 interview with Russell Brand. He was also questioned about the UK's progress on tackling climate breakdown and whether reducing funding for heat pumps sends the wrong message.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -804,7 +906,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Kemi Badenoch has marked the \"ludicrous\" decision that Labour have allowed drilling off the Falklands Islands, but not yet in the North Sea.Andy Burnham told the Commons this afternoon a decision on the Rosebank oil field in the North Sea is a \"quasi-legal decision, and it will be taken in due course\".Mrs Badenoch fumed back, declaring the UK's lawyers were in international court defending drilling off the coasts of the Falklands rather than approving Rosebank.At the International Tribunal for the Law of the Sea in Hamburg yesterday, the Argentine Government's lawyers claimed the UK had acted illegally to give the green light for the Sea Lion project to go ahead.Israeli firm Navitas Petroleum owns a 65 per cent stake in Sea Lion, while British company Rockhopper Exploration owns the remain",
       "summary": "Kemi Badenoch has criticised what she described as a 'ludicrous' decision by Labour regarding oil drilling policy. Andy Burnham told the Commons that a decision had been made to allow drilling off the Falkland Islands, but not in the North Sea. Badenoch highlighted this apparent inconsistency as a point of political attack against the Labour government.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -838,7 +940,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Third day of UN talks begin but leaders of many big polluting nations absentAfter a couple of hosts provide us a bit of background on Antalya (founded in 200BC, apparently) it is time to hear from António Guterres, the outgoing secretary-general of the UN, who will probably not be dancing.Guterres starts by praising Turkey for the “excellent organization” of the Cop, which gets smattering of applause and perhaps a few raised eyebrows given the transport nightmares endured by attenders. Continue reading...",
       "summary": "UN Secretary-General Antonio Guterres delivered a forceful speech at Cop31, calling for an accelerated phase-out of fossil fuels and declaring that 'fossil fuels must go the way of the dinosaurs,' while noting that unlike dinosaurs, the fossil fuel industry has a powerful lobby. The third day of UN climate talks in Antalya saw leaders including Tanzania's president Samia Suluhu Hassan warn that climate-related shocks cost her country up to 2-3% of GDP annually, with calls for better climate finance and more transparent carbon markets. However, leaders of many major polluting nations were absent from the summit, with representatives covering less than one-fifth of global CO2 emissions attending.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -855,7 +957,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Increasing extreme temperatures around the world are driving a new effort to frame climate action around health, rather than carbon targets and emissions, reports Nick Ferris at Cop31 in Antalya",
       "summary": "At the Cop31 conference in Antalya, Turkey, organisers are reframing climate action around human health rather than carbon targets and emissions, hoping to make the issue more tangible and less politically divisive. Turkey itself has experienced severe climate impacts, including an estimated 642.9 million working hours lost to heat stress in 2024 and a record temperature of 50.5°C in 2025 that coincided with wildfires burning around 154,000 hectares. Campaigners believe that highlighting the direct health consequences of extreme heat on communities could drive greater government accountability and public advocacy.",
-      "topic": "Air Pollution and Extreme Weather Events",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -872,7 +974,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Australian PM boasts of success in renewables but is criticised for not addressing the nation’s huge coal industryGet our breaking news email, free app or daily news podcastAnthony Albanese said governments had a “solemn responsibility” to act on climate change in a historic speech to the UN’s climate summit, but one which failed to mention the fossil fuels driving the crisis.The Australia prime minister landed in the Mediterranean resort city of Antalya on Wednesday morning where the Cop31 talks are being presided over by his climate change minister, Chris Bowen, but hosted by Turkey. Continue reading...",
       "summary": "Australian Prime Minister Anthony Albanese gave a speech at the Cop31 climate summit in Antalya, Turkey, boasting of Australia's renewable energy achievements but failing to mention fossil fuels. This came just moments after UN Secretary General António Guterres stated clearly that keeping the 1.5C temperature goal alive 'means no new coal.' The omission is notable given that Australia is the world's second largest exporter of thermal coal, the largest exporter of coking coal, and responsible for a fifth of global LNG exports.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -889,7 +991,7 @@
       "source_used": "full article (Jina) + full RSS content",
       "raw_summary": "It&#8217;s an exciting time for long-haul travel (Picture: Getty Images/Metro)\n\n\n\nIt&#8217;s official. The Guinness World Record&nbsp;for the longest commercial flight by distance has been broken. \n\nLet&#8217;s refresh our memory. In July, a flight departed Melbourne, Australia, and landed in Toulouse, France, just over 24 hours later.\n\nIt was part of the flight test campaign for the Airbus A350-1000ULR, developed for Qantas Airways under its ambitious Project Sunrise.\n\nAll in, the plane covered a whopping 12,503 nautical miles, flying over Sydney, the Pacific, and the International Date Line, before cruising over London and on to France.\n\nWhile there were no paying passengers on board — a crew of pilots and engineers locked in for the ride — there soon will be.\n\n\n\n\n\nQantas,&nbsp;Australia’s flag carrier, is gearing up to launch Project Sunrise in 2027, designed to take passengers from&nbsp;London&nbsp;to&nbsp;Sydney&nbsp;in just 22 hours.\n\nThe route is expected to revolutionise long-haul travel, complete with game-changing features such as a &#8216;Wellbeing Zone&#8217; and lighting scenes to reduce&nbsp;jet lag.\n\nHowever, as mere mortals, our bodies aren&#8217;t designed to spend such long periods of time in the air, 40,000 feet above sea level. \n\nSo, to understand what actually happens to our bodies on a long-haul flight, Metro spoke with Dr Nikki Ramskill, private GP and founder of The Female Health Doctor. \n\n24-hour flight? Ready to complete it, mate.\n\n\n\t\n\t\t\t\n\t\tIf you&#8",
       "summary": "A recent test flight for Qantas Airways' Project Sunrise saw an Airbus A350-1000ULR travel over 12,500 nautical miles from Melbourne to Toulouse in just over 24 hours. The airline plans to launch commercial flights between London and Sydney in 2027, with features like a 'Wellbeing Zone' and special lighting to combat jet lag. A doctor explains that during such ultra-long flights, the body undergoes significant changes, including blood pooling in the lower legs causing swollen ankles in the first four hours, followed by the effects of lower cabin air pressure taking hold between hours four and eight.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Air Pollution and Extreme Weather Events",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -923,7 +1025,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "181GW of gas-fired capacity proposed for sites in US and Europe because of delays in connecting to national grids, says reportDevelopers of AI datacentres plan to build on-site climate-destroying gas power stations on a huge scale to meet their energy demands, research reveals.Datacentres planned across the US, the UK and mainland Europe have proposals to build fossil fuel plants on-site to create 181GW of gas-fired capacity because of delays to connect to national grids, according to the findings. This is almost four times the total peak electricity demand of Great Britain. Continue reading...",
       "summary": "Research by BloombergNEF reveals that AI datacenter developers in the US, UK, and mainland Europe plan to build on-site gas power stations totalling 181GW of capacity — nearly four times Great Britain's peak electricity demand — due to delays in connecting to national grids. If fully built out, these facilities could emit around 345 million metric tonnes of CO2 equivalent per year in the US alone, equivalent to emissions from roughly 72.8 million fossil fuel cars. Climate campaigners warn these gas plants are unlikely to be temporary and could lock in high emissions for years.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -940,7 +1042,7 @@
       "source_used": "full article (Jina) + full RSS content + RSS excerpt + page description",
       "raw_summary": "Motorists thinking of buying an electric car risk losing hefty discounts unless they act sooner rather than later.\n\n\n\nThe cost of an electric vehicle (EV) – including second hand cars and hybrids – is set to rise significantly as it is likely that mandated sales targets for manufacturers will be watered down.\n\n\n\nEV makers currently offer discounts of several thousand pounds on cars and SUVs – the average discount last year was £2,800 – in order to meet the targets.\n\n\n\nThese discounts could take a significant cut if manufacturers are not under so much pressure to sell their stock, experts say. \n\n\n\nAnd, separately, if the Government decides to align with EU tariffs on Chinese EVs as part of efforts to get closer to Europe, it could add £12,600 to the cost of a Chinese model priced at £30,000. EVs produced in China are typically among some of the cheapest on the market.\n\n\n\nExperts says the lowest price for electric cars is likely to be “right at this moment” and that they expect them to increase from 2027 and beyond. \n\n\n\n\n\nHigher prices may lead to fewer sales of new cars which would also feed through into the second-hand market, reducing the supply of vehicles on sale and checking the reduction in prices in this market.\n\n\n\nThe Government’s Zero Emissions Vehicle (ZEV) mandate requires car makers to ensure that 33 per cent of the new cars they sell in 2026 are electric, with the target rising each year to 80 per cent by 2030. Manufacturers that fall short face a £12,000 fine for",
       "summary": "The cost of electric vehicles, including second-hand cars and hybrids, is expected to rise significantly due to likely changes to the UK government's Zero Emissions Vehicle (ZEV) mandate. Currently, manufacturers offer average discounts of around £2,800 to meet mandated sales targets, but if those targets are watered down, there will be less pressure to offer such reductions. Additionally, if the UK aligns with EU tariffs on Chinese-made EVs, it could add as much as £12,600 to the price of a £30,000 Chinese model, with experts warning that EV prices are likely at their lowest point right now and are expected to rise from 2027 onwards.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -957,7 +1059,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Residents around the Afşin-Elbistan coal plant believe it has killed family members, leaving a ghost town as people have been forced away. As Turkey welcomes world leaders to Cop31, a reliance on fossil fuels – with little end in sight – is severely undermining its climate credentials. Liz Cookman reports",
       "summary": "Turkey is facing criticism over its continued expansion of coal infrastructure, particularly the Afşin-Elbistan coal plant, even as it prepares to host the Cop31 climate summit in Antalya. Residents living near the plant report serious health consequences, including cancer deaths among family members, and describe being forced to abandon their homes due to pollution. The situation highlights a contradiction between Turkey's climate pledges and its ongoing reliance on fossil fuels.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -974,7 +1076,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "The Prime Minister said the investment was a vote of confidence in the UK.",
       "summary": "Prime Minister Andy Burnham has welcomed a £12 billion investment by energy company RWE and investment firm KKR in two offshore wind farms, Vanguard West and Vanguard East, off the Norfolk coast. The projects, which include £1 billion from the state-owned National Wealth Fund, will generate around 2.8 gigawatts of power — enough to supply three million homes — with construction due to begin early next year and power delivery expected by 2030. Burnham made the announcement as he prepared to attend the Cop31 climate summit in Antalya, Turkey, describing the deal as a vote of confidence in building in Britain and highlighting the more than 2,400 jobs it would support.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -991,7 +1093,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Package for plan off Norfolk coast revealed as government tries to calm critics after approving Jackdaw gasfieldUK politics live – latest updatesAndy Burnham has hailed a record investment in offshore wind, as the government tries to repair its green credentials after approving the controversial Jackdaw gasfield in the North Sea.On Wednesday the government announced a £12bn investment from the German energy company RWE and the US private equity firm KKR, as the prime minister prepares to travel to the Cop31 climate crisis summit in Turkey. Continue reading...",
       "summary": "Andy Burnham has praised a £12 billion investment in offshore wind energy from German company RWE and US private equity firm KKR, described as the biggest of its kind in UK history. The funding will go towards the Vanguard West and Vanguard East offshore windfarms off the Norfolk coast, with construction due to begin early next year and power generation expected by 2030. The announcement comes as the government seeks to bolster its green credentials following criticism over its approval of the Jackdaw gasfield in the North Sea, and ahead of the prime minister's attendance at the Cop31 climate summit in Turkey.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1008,7 +1110,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Exclusive: Ed Miliband says sci-fi scenarios of destruction ‘now regular occurrences’, as he prepares to address Cop31Cop31 live – latest updatesUK politics live – latest updatesThe national security of all countries is at risk from the climate crisis, as “science fiction” scenarios of widespread destruction are already coming true and economic shocks from fossil fuels are now the norm rather than the exception, the UK’s foreign secretary is to warn world leaders gathered in Turkey.Ed Miliband will tell the Cop31 UN climate summit on Wednesday that security and defence objectives are the new “frontier” of climate action, because the rapid heating of the planet will lead to food shortages, widespread economic disruption, migration and conflict. Continue reading...",
       "summary": "UK Foreign Secretary Ed Miliband has warned world leaders at the Cop31 UN climate summit in Antalya, Turkey, that the climate crisis poses a national security threat to all countries. He stated that scenarios once considered science fiction — including food shortages, infrastructure threats, mass migration, and conflict — are now regular occurrences. Miliband argued that security and defence objectives represent the new frontier of climate action, while implicitly criticising those who oppose efforts to cut greenhouse gas emissions.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1025,7 +1127,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "As the IUCN global conservation body prepares to update its red list of endangered species, scientists explain why calculating the true toll of a pandemic is so hardIt began with the brown skuas. The migratory seabirds had arrived on the sub-Antarctic island of South Georgia in 2023, harbouring a deadly passenger. Within months, the southern elephant seals that had come ashore to breed became sick. Mothers and newborn pups were weak and trembling, with many struggling to breathe. What followed was a horrific mass casualty event, caused by the highly infectious avian influenza (H5N1).By 2025, more than 53,000 female elephant seals had died on South Georgia. That is especially alarming, scientists say, because the island is home to more than half of the global breeding population. Continue r",
       "summary": "A highly potent strain of avian influenza (H5N1) has caused catastrophic die-offs among wildlife, including the deaths of more than 53,000 female southern elephant seals on the sub-Antarctic island of South Georgia, which is home to over half of the global breeding population. The virus, which began circulating in the northern hemisphere in 2021, has now spread to four of the five main southern elephant seal populations, with over 90% of newborn pups dying in some South Atlantic colonies. As the IUCN prepares to update its red list of endangered species, scientists warn that H5N1 now poses a conservation threat to at least 40 bird species, raising fears of a wave of extinctions.",
-      "topic": "El Niño: Impacts and Outlook",
+      "topic": "Air Pollution and Extreme Weather Events",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1042,7 +1144,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Kemi Badenoch has marked the \"ludicrous\" decision that Labour have allowed drilling off the Falklands Islands, but not yet in the North Sea.Andy Burnham told the Commons this afternoon that a decision on the Rosebank oil field in the North Sea is a \"quasi-legal decision, and it will be taken in due course\".Mrs Badenoch fumed back, declaring the UK's lawyers were in international court defending drilling off the coasts of the Falklands rather than approving Rosebank.The Tory leader also noted how former Energy Secretary, Ed Miliband, was against the plans.\"Why else did it take the Labour Government two years to approve Jackdaw while the Foreign Secretary [Mr Miliband] was in charge, and now he’s gone, it happened just like that?\" she asked.\"That’s the real reason they didn’t do it - the For",
       "summary": "Kemi Badenoch has criticised as 'ludicrous' the Labour government's position on oil drilling, after Andy Burnham told the Commons that drilling would be permitted off the Falkland Islands but not in the North Sea. Badenoch highlighted what she sees as a contradiction in Labour's energy policy. The story was reported by GB News.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1059,7 +1161,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Many governments are yet to set targets, leaving recipient countries struggling to plan and attract private investmentDeveloping countries have been left in limbo by the failure of some of the world’s biggest economies to flesh out their plans for new climate finance.Poor countries are supposed to receive $300bn a year from the governments of industrialised nations by 2035, along with about $1tn from other sources, to help them cope with the effects of extreme weather and shift to a low-carbon future. Continue reading...",
       "summary": "Developing countries are struggling to plan and attract private investment because many rich nations have yet to set out their climate finance targets and plans beyond this year or next. Under the NCQG agreement reached at Cop29, industrialised nations are meant to provide $300bn a year to poorer countries by 2035, with around $1tn expected from other sources. Analysis by NRDC and E3G think tanks suggests the developed world is broadly on track to meet the goal, projecting around $229bn a year by 2030, with multilateral development banks contributing roughly $185bn of that amount.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Climate Finance and Developing Nations",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1076,7 +1178,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "The transition to electric vehicles should be moving apace, but it is not. And why? Incompetence, expedience and cowardiceThis is how it works. An industry puts tremendous effort into resisting change: lobbying governments, mobilising the media, pouring money into junktanks. It argues that a transition would threaten jobs, or damage the national interest, or harm poor people, while what it really fears is the cost of retooling its plants or developing new protocols. Then, when the inevitable cliff edge approaches, it whines that change is coming too soon. For reasons beyond its control, it isn’t ready, so the government must delay its plans.This is what triggered the Dutch nitrate crisis, and the UK’s repeated “emergency” exemptions from the ban on a devastating class of pesticides. Now th",
       "summary": "George Monbiot argues in The Guardian that Britain's streets remain polluted because car manufacturers have resisted transitioning to electric vehicles, despite having had over 130 years to anticipate the shift and 30 years of clear technological signals. He contends that the industry has lobbied governments, influenced media, and funded think tanks to delay change, only to now claim they are unprepared as deadlines approach. Monbiot warns that as COP31 begins, the UK's slow EV transition risks a significant and avoidable increase in greenhouse gas emissions, driven by what he describes as political incompetence, expedience, and cowardice.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1110,7 +1212,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "A giant solar farm has been rejected after ministers ruled it would harm the historic setting of Sir Winston Churchill's ancestral home.The Botley West project, proposed on land largely belonging to the Blenheim Palace estate, would have been one of the largest solar farms in Europe, covering more than 2,000 acres. Photovolt Development Partners, behind the scheme, said the project would have powered the equivalent of 275,000 homes, with the solar panels in place for 40 years. But it met with fierce opposition from campaigners who complained that the solar farm would be an \"ocean of glass and steel\" across the Oxfordshire countryside.Developers argued the project was set back from the grounds of the palace itself, which is a Unesco world heritage site. They said the scheme, which would hav",
       "summary": "The Labour government has rejected the Botley West solar farm project, which would have been one of Europe's largest solar farms. Ministers ruled against the proposal on the grounds that it would harm the historic setting of Winston Churchill's ancestral home. The project was proposed on land largely belonging to the area around Churchill's birthplace.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1144,7 +1246,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham should approve the Rosebank oilfield immediately – because the European Union is desperate for Britain's oil.With the world in the grip of an energy crisis, greenlighting the giant field \"would strengthen the security of the UK and its European neighbours alike\", a report from consultancy group PF Global finds. Britain's role in supplying European refineries is a \"strategic asset\" and a lever the Prime Minister can pull when the crunch talks come on November 20, the authors say. Norway has \"built much of its relationship with Europe on being a reliable and significant supplier\" of energy, says the report, commissioned by North Sea energy firm Adura, which operates Rosebank. \nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\n\"The UK should be making a comparable case in its own interest as",
       "summary": "GB News is reporting that Andy Burnham should approve the Rosebank oilfield development, arguing that the European Union urgently needs British oil amid an ongoing energy crisis. The article suggests that greenlighting the giant oilfield would help meet European energy demands. The piece appears to take a pro-development stance on the controversial North Sea oilfield project.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1195,7 +1297,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Find out which solar panel grants and funding schemes are available in the UK in 2026, who qualifies for free solar panels and how to apply",
       "summary": "UK households can access solar panel grants and funding schemes in 2026, with eligible lower-income households able to receive free solar panels through schemes such as ECO4 and the Warm Homes: Local Grant. Qualifying for a grant does not automatically guarantee solar panels, as recommendations depend on the specific scheme and property. Homeowners who don't qualify for grants can still access financial support through the Warm Homes Loan Scheme, zero per cent VAT on qualifying installations, and payments for exporting surplus electricity to the grid.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1212,7 +1314,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "The west London borough declared a climate emergency in 2019, but a report shows most measures designed to make the council carbon neutral are now off track",
       "summary": "Hounslow Council in west London is behind on 80% of the measures needed to meet its 2030 net zero target, a report has found. The Labour-led borough declared a climate emergency in 2019 and adopted a climate action emergency plan, but one year on from a refreshed version of that plan, most policies are off track, including replacing gas boilers with heat pumps in council-owned properties. Hounslow's 2030 target is 20 years ahead of the UK Government's national net zero goal of 2050.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1263,7 +1365,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "A gas-fired power station was paid over £1m an hour to keep the grid running yesterday after wind output plummeted.Wind power slumped between Monday last week, when it made up 28 per cent of the energy mix, to just two per cent a week later.This meant that grid operator Neso had to pay gas power stations to step in and keep the lights on, with costs reaching up to 10 times the average.One gas plant, Langage Power Station in Devon, received the equivalent of £1.4million an hour on Monday evening, market data showed.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nAt least three power stations were paid £1,500 per megawatt hour to cover potential shortfalls and ensure there was a safety margin between supply and demand.The sums were paid between 3.30pm and 5pm on Monday.Neso had earlier issued an aler",
       "summary": "A gas-fired power station was paid over £1 million per hour to keep the electricity grid running after wind power output plummeted. Wind power had previously made up 28 per cent of energy supply the previous Monday before sharply declining. The high payment highlights the costs associated with maintaining grid stability when renewable energy generation falls significantly.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1382,7 +1484,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "The global campaign to restore the \"soggy secret weapon\" that can combat against climate change.",
       "summary": "Scientists say wetlands such as saltmarshes and mangrove swamps could be even more important than rainforests in fighting climate change, as they can absorb carbon four times faster than trees. The Wildfowl and Wetlands Trust (WWT), which is celebrating 80 years since its first wetland bird reserve was founded at Slimbridge in Gloucestershire, is calling for one million hectares of wetlands to be restored worldwide. WWT's CEO has highlighted the wide-ranging benefits of these habitats, warning that 85% of the world's wetlands have already been lost.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1416,7 +1518,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Key environmental groups come out against bipartisan Baaja bill over fears it could spur datacenters and ICE jailsThe Senate on Monday advanced bipartisan legislation aimed at speeding up permitting reviews for datacenters and other infrastructure projects, in the first major action since last week’s election that soundly repudiated Donald Trump and congressional Republicans.It’s a bill that would make it easier to build big infrastructure projects in America – everything from fossil fuel pipelines to transmission lines that would add more clean energy to the grid. And it would roll back environmental and social protections to achieve this goal. That is why climate advocates are torn over the Bipartisan American Affordability and Jobs act (Baaja). Continue reading...",
       "summary": "The US Senate advanced the Bipartisan American Affordability and Jobs Act (Baaja) with a 73-25 cloture vote, moving the bill closer to passage. The legislation aims to speed up permitting reviews for infrastructure projects including gas pipelines, clean energy transmission lines, and datacenters, but would roll back environmental protections such as the National Environmental Policy Act (NEPA). Key environmental groups including Earthjustice, the Sierra Club, and the ACLU have come out against the bill, citing concerns that it could accelerate harmful projects including datacenters and ICE detention facilities.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1467,7 +1569,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Unelected bodies are costing taxpayers hundreds of millions of pounds and delaying major infrastructure projects for years, a think tank said, as it calls for a sweeping \"bonfire of the quangos\".A damning new report, backed by Conservative deputy leader Alex Burghart, calls for a clear-out of taxpayer-funded bodies accused of wielding too much power with too little accountability.It highlights a £100million tunnel built to protect bats from HS2 trains and a £700million scheme to stop fish being sucked into a nuclear power station as examples of environmental requirements sending costs soaring.And it reveals that more than 300 public bodies employed around 397,000 people in 2023-24 - two-thirds more than a decade earlier.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nThe proposals could help shape ",
       "summary": "A think tank has accused unelected taxpayer-funded bodies (quangos) of costing Britain hundreds of millions of pounds and causing significant delays to major infrastructure projects. The report calls for a sweeping 'bonfire of the quangos' to address the problem. The findings have been reported by GB News amid broader political debate about the role and cost of such bodies.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1484,7 +1586,7 @@
       "source_used": "RSS excerpt + page description",
       "raw_summary": "Plummeting wind power over the past week highlights the need for gas-fired electricity to keep the lights on, industry leaders say. As wind output fell, the National Energy System Operator (Neso) issued an alert asking generators to make extra capacity available for this morning.The grid operator's electricity margin notice (EMN) called for a greater safety margin between supply and demand. It was later withdrawn.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nBut experts said it showed the need for firm power alongside the intermittent energy provided by wind and solar.Britain is moving towards a clean energy grid, with Labour planning for 95 per cent of electricity to come from clean sources by 2030.This means a greater reliance on renewables. But while gas-fired power can be dispatched when it i",
       "summary": "A drop in Britain's wind power output has prompted experts to highlight the continued importance of gas as a reliable energy source. Specialists warned that firm power sources like gas are essential to complement the intermittent nature of wind and solar energy. The situation underscores the challenges of relying solely on renewable energy to keep the lights on.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1501,7 +1603,7 @@
       "source_used": "RSS excerpt + page description",
       "raw_summary": "Landlords who fail to bring their rental properties up to a minimum EPC rating of C by October 2030 could be hit with civil penalties of up to £30,000 under legislation now before Parliament.The Energy Independence Bill, put forward by Energy Secretary Miatta Fahnbulleh, represents a dramatic escalation in enforcement, with the proposed maximum fine six times greater than the existing £5,000 cap.The legislation applies to breaches of the Energy Efficiency (Private Rented Property) (England and Wales) Regulations 2015. The Government confirmed in January that the minimum standard for privately rented homes would rise from E to C.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nCouncils would gain significantly expanded powers under the Bill, including the authority to request documentation, conduct p",
       "summary": "Labour is introducing a crackdown on rental homes that fail to meet net zero targets, with landlords facing fines of up to £30,000. The government confirmed in January that the minimum energy efficiency standard for privately rented homes will be raised from an E rating to a C rating.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1518,7 +1620,7 @@
       "source_used": "full article (Jina) + full RSS content + RSS excerpt",
       "raw_summary": "World leaders are being urged to set aside the wars, soaring inflation and concerns over AI to focus on climate as the COP31 summit kicks off in Turkey. Despite this year being on course to be the hottest on record, Andy Burnham&#8217;s government is reported to be considering watering down its electric vehicle targets. But two leaders who ARE driving more people and nations to embrace green energy are Vladimir Putin and Donald Trump, as our Chief Correspondent Alex Thomson explains from Antalya.",
       "summary": "World leaders gathering at the COP31 summit in Turkey are being urged to prioritise climate issues above global conflicts, inflation, and AI concerns, even as this year is set to be the hottest on record. In the UK, Andy Burnham's government is reportedly considering weakening its electric vehicle targets. Paradoxically, Vladimir Putin and Donald Trump are said to be among the driving forces pushing more nations towards embracing green energy, according to Channel 4's Chief Correspondent Alex Thomson reporting from Antalya.",
-      "topic": "COP31 Climate Summit",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1552,7 +1654,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham has insisted no decision has been made on electric vehicle targets amid reports that his deputy is set to water down Net Zero rules on car sales. The Prime Minister has recused himself from ruling on the zero-emissions targets because his wife, Marie-France van Heel, advises the board of electric vehicle charging company, Be.EV.This means the decision will be overseen by his de facto deputy, Louise Haigh. It was reported that she is expected to agree to cut the target for EV sales by about a quarter.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nThe zero-emission vehicle (ZEV) mandate sets targets for the proportion of new-car sales that must be zero-emission.Industry leaders believe the targets are moving more quickly than the market can bear, increasing costs and lessening consumer ",
       "summary": "Andy Burnham has refused to rule out a U-turn on electric vehicle targets, stating that no decision has been made amid reports that his deputy is considering watering down Net Zero rules on car sales. Ministers are reportedly considering slashing the mandate that requires a certain proportion of new car sales to be electric vehicles. The Prime Minister has recused himself from the matter.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1586,7 +1688,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Hospital consultants are set to go on a two-day strike at the end of OctoberDowning Street has insisted that the government remains committed to the principle of the zero emission vehicle (ZEV) mandate – while not denying today’s Guardian report saying interim targets to achieve it are set to be watered down. (See 9.26am.)Asked about the story at the daily lobby briefing, the PM’s spokesperson said:The government is fully behind the zero emission vehicle mandate, and no decisions have been taken yet.We’re sticking to our commitment, phasing out new cars that run only on petrol or diesel by 2030, every new car and van will be zero emission by 2035, and our legally binding net zero targets. None of that is changing. Continue reading...",
       "summary": "UK Prime Minister Andy Burnham has warned that the NHS will struggle to cope if hospital consultants do not resume pay talks, amid reports of a planned two-day strike at the end of October. Burnham is also facing questions over reports that the government is set to water down electric vehicle (EV) targets for the car industry, despite commitments to the zero emission vehicle mandate. The Guardian reports that Labour is expected to cut EV targets, with critics including the Green Party accusing the government of having a 'shocking record' on climate issues.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1637,7 +1739,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "The energy secretary says reducing bills is key to maintaining public support for climate action.",
       "summary": "UK Energy Secretary Miatta Fahnbulleh has stated that affordability is her 'overriding objective', arguing that the government's push for cleaner energy is key to reducing bills in the long term. Speaking to BBC Panorama, she acknowledged that the drive to cut carbon emissions is 'under pressure' due to rising energy costs, with UK households currently paying some of the highest electricity rates in Europe. The government faces additional political pressure from Reform UK and the Conservatives, who have criticised public subsidies for renewables, while ministers also brace for a predicted surge in energy prices in January.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1688,7 +1790,7 @@
       "source_used": "RSS excerpt",
       "raw_summary": "From floods to wildfires to heatwaves, 2026 is the year it became hard to ignore the impact of climate change on UK weather. But will soaring living costs affect the government’s commitment to tackling climate change?",
       "summary": "In 2026, the UK experienced a range of extreme weather events including floods, wildfires, and heatwaves, making the effects of climate change increasingly difficult to ignore. However, rising living costs are now posing a challenge to the government's commitment to achieving net zero. The article raises questions about whether financial pressures on households will undermine climate action ambitions.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1722,7 +1824,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "New EU rules have put strict conditions on offset-based green claims. Caroline Garland speaks to Dan Morrell, who helped put ‘carbon neutral’ into the dictionary – and he says good riddance – but warns brands not to fall silent",
       "summary": "New EU rules under the Empowering Consumers for the Green Transition Directive now ban businesses from using terms like 'carbon neutral' or 'climate neutral' if those claims are based on offset purchases outside a product's direct supply chain. Dan Morrell, who helped coin the phrase 'carbon neutral' and saw it entered into the Oxford English Dictionary, says he welcomes the ban and regrets having created the term. The directive aims to eliminate vague green marketing by requiring specific proof and independent certification for environmental claims.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1807,7 +1909,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Increased heat will supercharge extreme weather events, warns UN agency as Cop31 climate summit beginsHeat is accumulating in Earth’s systems at an accelerating rate, the UN’s weather agency has reported as the Cop31 climate change summit begins in Turkey, with 2026 on track to be one of the four warmest years on record.The imbalance between incoming energy from the sun and energy leaving Earth reached its highest level since monitoring began, the World Meteorological Organization (WMO) said in its State of the Global Climate update. Continue reading...",
       "summary": "The UN's World Meteorological Organization has reported that heat is accumulating in Earth's systems at an accelerating rate, with the imbalance between incoming and outgoing energy reaching its highest level since monitoring began. For January to September 2026, average surface temperatures were about 1.47°C above preindustrial levels, with sea surface temperatures hitting monthly records and sea levels at their highest since records began. The findings, released as the Cop31 climate summit begins in Turkey, warn that this heat accumulation will supercharge extreme weather events such as heatwaves, droughts and tropical cyclones, with UN Secretary General António Guterres declaring 'we have entered a new age of climate extremes.'",
-      "topic": "El Niño: Impacts and Outlook",
+      "topic": "Air Pollution and Extreme Weather Events",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1892,7 +1994,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Lesson for teenagers included how cattle’s methane emissions contribute to climate crisis, but it was then scrappedA beef industry-funded effort to teach teenagers about cattle’s climate impact was quietly scrapped following backlash from some ranchers, who disputed the premise that cows contribute to global heating.The episode is the latest example of the livestock industry’s decades-long battle to determine what US children learn about cows and the climate. Continue reading...",
       "summary": "A beef industry-funded science curriculum used by around 1.2 million US students removed a lesson on cattle methane emissions and climate change after backlash from ranchers who disputed that cows contribute to global heating. The American Farm Bureau Foundation for Agriculture quietly took down the lesson following online criticism, with a prominent South Dakota farmer calling it a 'slap in the face.' A replacement lesson on cattle digestion published in July makes no mention of methane or climate, and the original lesson has not been restored.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "COP31 Climate Summit",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1909,7 +2011,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Britons could face a £23billion bill over the next decade as a result of Andy Burnham’s bid for an \"EU reset\", new research has shown.In new Conservative analysis, details of a leaked draft agreement suggest that British taxpayers would have to contribute to \"reducing economic and social disparities between regions of the EU\".This could mean Britons will be funding net zero schemes or infrastructure programs in Romania and Hungary, at the cost of £1,220 per working family.In addition to the possible £13billion bill for contributions to reducing economic and social disparities, Labour has already agreed to pay £570million for the Erasmus+ scheme in 2027.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nMaking the announcement today, Culture Secretary Lisa Nandy said Britain should honour its veterans ",
       "summary": "New Conservative research claims that Andy Burnham's pursuit of an 'EU reset' could cost British families over £1,200 each. The analysis, based on details from a leaked draft agreement, suggests the total bill for Britons could reach £23 billion over the next decade.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1926,7 +2028,7 @@
       "source_used": "full article (Jina) + full RSS content + RSS excerpt",
       "raw_summary": "When the Government legalised plug-in solar panels in the UK this summer, John Steel knew immediately he wanted to buy them.\n\n\n\nThe 72-year-old retired A&amp;E nurse had solar on the roof of his previous home so had experienced the benefits of cheap electricity firsthand. \n\n\n\nBut that setup was funded by the Government and he couldn’t afford a full installation at his new home, a detached bungalow in Gainsborough, Lincolnshire. The bungalow’s roof was also north-facing, meaning the prospect of a traditional solar setup was less attractive.\n\n\n\nSteel installed plug-in solar panels on his property’s south-facing wall two weeks ago. While the grey weather has generated limited savings so far, he expects to save at least £160 by the end of his first year.\n\n\n\n\n\nPanels to be paid off in ‘three to four years’\n\n\n\nPlug-in solar panels are a cheaper, lightweight version of the green technology, which can be plugged directly into a standard socket to provide instant renewable power. \n\n\n\nThey became legal in the UK in August and can be bought from a range of retailers including Argos, Homebase and Amazon. The Government has estimated, based on the output of a 800W solar panel kit, that the technology would save people £70 to £110 a year.\n\n\n\nSteel bought two 920W panels from his energy provider, Octopus Energy, at a cost of £650 including all the hardware needed for installation. \n\n\n\nThe savings have been modest so far due to the weather. His best day over the past two weeks has seen him g",
       "summary": "Retired nurse John Steel, 72, has installed plug-in solar panels on the south-facing wall of his bungalow in Gainsborough, Lincolnshire, after the UK legalised the technology in August. He paid £650 for two 920W panels from Octopus Energy and expects to save at least £160 in his first year, with the panels set to pay for themselves within three to four years. Although savings have been modest so far due to grey winter weather, with his best day generating 3.5 kWh worth around 90p, he anticipates much greater savings during the longer summer days.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -1960,7 +2062,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Trump administration has gutted regulations that protect lives and natural resources as pipeline build-out continuesDatacenters are spurring a boom in fossil fuel pipeline projects at a time when the Trump administration is gutting rules that protect from disasters along the lines, a new review of federal records shows.The report, compiled by the Environmental Integrity Project, also found pipelines are being built to meet demand for natural gas exports fueled by wars in Ukraine and Iran. Federal records identified almost 200 pipeline projects that are proposed or in the works, and would collectively span 17,000 miles (27,000km). Continue reading...",
       "summary": "A new review of federal records by the Environmental Integrity Project has found that demand from datacenters and natural gas exports is driving a major boom in fossil fuel pipeline projects in the US, with nearly 200 projects proposed or underway that would collectively span 17,000 miles. The Trump administration has simultaneously gutted environmental and safety regulations governing pipelines and pledged not to enforce existing rules. The US already experiences around 1.7 pipeline accidents per day, and the new projects — which could transport 40% more natural gas daily than the current system — are expected to increase that risk further.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -2011,7 +2113,7 @@
       "source_used": "full article (Jina) + RSS excerpt",
       "raw_summary": "Energoatom warns operating in ‘blackout mode’ could lead to a ‘radiation accident’",
       "summary": "The Russian-controlled Zaporizhzhia nuclear power plant in southeastern Ukraine has lost its external electricity supply after the Ferosplavna power line disconnected, raising fears of a radiation accident. The plant, which does not generate electricity but requires external power to keep its nuclear fuel cool, is currently relying on emergency diesel generators with approximately two weeks of fuel reserves. Ukraine's Energoatom has warned that operating in 'blackout mode' risks failure of life-support and cooling systems, which could lead to a radiation accident if the generators break down or run out of fuel.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -2062,7 +2164,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "North Pennines National Landscape's plan includes restoring peatland and wildfire preparedness.",
       "summary": "The North Pennines National Landscape has adopted a five-year management plan for 2026-31, focusing on climate change readiness and improving public access to the countryside. Key measures include restoring peatland to reduce flooding, protecting existing woodlands, and equipping farmers with wildfire-fighting tools such as drones. The plan, described as the most ambitious yet, was adopted by four local councils and aims to prepare the upland area for warmer, wetter winters and hotter, drier summers.",
-      "topic": "Energy Transition and Grid Security",
+      "topic": "Air Pollution and Extreme Weather Events",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -2096,7 +2198,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Mumbai facility is part of Reliance Industries, owner of world’s biggest oil refinery and funder of controversial mega-zooThe Prince of Wales’s Earthshot prize will host its forthcoming annual awards ceremony at a venue owned by the billionaire Ambani family conglomerate, drawing criticism from conservationists over their fossil fuel businesses and their foundation’s controversial mega-zoo.A spokesperson for the Earthshot prize, which awards £1m to five winners every year to invest in conservation work, confirmed to the Guardian and the news outlet Mongabay that this year’s ceremony will be held at the Jio World Convention Centre in Mumbai on 17 November. Continue reading...",
       "summary": "The Prince of Wales's Earthshot prize has chosen the Jio World Convention Centre in Mumbai, owned by billionaire Mukesh Ambani's Reliance Industries, as the venue for its annual awards ceremony on 17 November. Reliance Industries owns the world's largest oil refinery and funds Vantara, a controversial 400-hectare private zoo housing over 150,000 animals, including critically endangered species. Conservationists have criticised the choice, warning it could grant undeserved environmental credibility to a corporate group already under scrutiny from the global conservation community.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
+      "topic": "Climate Finance and Developing Nations",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -2113,7 +2215,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Andy Burnham has insisted that closer ties with the European Union will lower the cost of living.The Prime Minister has also claimed that a coming summit with the bloc \"doesn't need to be the end of our ambition\".On November 20, he will meet with representatives of the bloc and is expected to buckle to the EU's demands.The EU-UK summit will focus on removing post-Brexit red tape on food and farming, and working closely together on emissions trading.\nTRENDING\n\nStories\nVideos\nYour Say\n\n\n\n\nLabour has also announced that the UK will rejoin the Erasmus+ scheme, which would make it easier for European students to study in Britain and vice versa.Several senior Labour MPs and figures fear that closer ties to the EU could put them at risk of losing their seats to Reform UK.But Mr Burnham has now su",
       "summary": "Andy Burnham has claimed that closer ties with the European Union would help lower the cost of living. The Prime Minister has also suggested that an upcoming summit with the EU 'doesn't need to be the end' of ongoing negotiations or developments in the relationship between the UK and the bloc.",
-      "topic": "Andy Burnham and UK Climate Policy",
+      "topic": "Andy Burnham and EU Reset",
       "low_confidence": false,
       "summary_version": 1
     },
@@ -2130,41 +2232,7 @@
       "source_used": "full article (Jina) + RSS excerpt + page description",
       "raw_summary": "Charity’s AGM decides overwhelmingly to begin tendering process amid criticism of Barclays’ fossil fuel investmentsThe National Trust has voted overwhelmingly to seek a new banking partner in a significant victory for members who have long argued that its relationship with Barclays was at odds with its commitment to protecting the natural world.The resolution, passed at the charity’s annual general meeting on Saturday with the backing of its board of trustees, instructs the organisation to begin a competitive tendering process for its banking arrangements. Continue reading...",
       "summary": "The National Trust's AGM has voted overwhelmingly to begin a competitive tendering process for its banking arrangements, with 53,256 votes in favour and 4,094 against. The move comes amid criticism of the charity's relationship with Barclays over its fossil fuel investments, and any new banking partner will be required to demonstrate a commitment to protecting biodiversity and addressing climate change. However, the National Trust's deputy chair of trustees cautioned that the vote is not binding on the board, and insiders suggest the tendering process will not begin for at least a year.",
-      "topic": "Fossil Fuel Industry Influence and North Sea Drilling",
-      "low_confidence": false,
-      "summary_version": 1
-    },
-    {
-      "title": "Delhi air pollution tracker: Why is winter haze so bad in India’s capital?",
-      "url": "https://www.independent.co.uk/asia/india/delhi-air-aqi-today-diwali-smog-pollution-tracker-b3079483.html",
-      "source": "The Independent",
-      "date": "7 Nov 2026",
-      "pub_date_iso": "2026-11-07T06:32:48+00:00",
-      "raw_rss": "The city’s air quality is already in the ‘very poor’ category and is expected to worsen over the Diwali weekend",
-      "raw_content": "",
-      "raw_meta": "The city’s air quality is already in the ‘very poor’ category and is expected to worsen over the Diwali weekend",
-      "jina_text": "Please refresh the page or navigate to another page on the site to be automatically logged inPlease refresh your browser to be logged in\nSkip to content\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSwipe for next article\n\n\n\n\n\n\n\n\n \n \n   \n   \nBecome an Independent member to bookmark this article \nWant to bookmark your favourite articles and stories to read or reference later? Start your Independent Membership today. Join today \n Already a member? Log in       \n\n\n\n\n\n\n \n\n\nDeeperDive is a GenAI Answer Engine built for trusted publishers. It delivers clear answers and real-time content based on what people are reading now — showcasing various stories from the The Independent Network that highlight not just what happened, but why it matters. \nExplore DeeperDive\n\n\nAsk The Independent AI anything\n \n\n\n\nWhat measures are included in Stage II of Delhi's Graded Response Action Plan?\n \n\nHow many vehicles were turned back at Delhi's borders under the Winter Action Plan?\n \n\n\nAsk The Independent\nDeeperDive AI \n\n\nDeeperDive is a GenAI Answer Engine built for trusted publishers. It delivers clear answers and real-time content based on what people are reading now — showcasing various stories from the The Independent Network that highlight not just what happened, but why it matters. \nExplore DeeperDive\n\n\n\nFull SummaryDelhi's air quality has entered the 'very poor' category as the city prepares for the Diwali festival, prompting authorities to invoke emergency pollution control measures. The deterioration is attributed to factors including crop burning, vehicle emissions, and weather conditions that trap pollutants near the ground.\nDelhi’s air quality fell into the \"very poor\" category this week, days before the Hindu festival of Diwali was expected to make it worse.\nThe Central Pollution Control Board classes readings of 301 to 400 as \"very poor\" and beyond 400 as \"severe\". \nThe deterioration in air quality came after the Indian capital saw the lowest average AQI for October in eight years, at 166, and north-westerly winds carrying smoke from crop burning in neighbouring states returned after a storm.\n\n\n\n\n\nThe Commission for Air Quality Management, which coordinates pollution control across the National Capital Region, invokes Stage II of the Graded Response Action Plan on Monday. Stage II involves the use of measures such as more mechanical sweeping and water sprinkling to control road dust, higher parking charges to discourage private vehicle use, restrictions on the use of coal and firewood in open eateries and restaurants, stricter rules on diesel generators, and more inspections of construction and demolition sites. The commission also asked governments and municipal bodies to consider staggered working hours for public offices. \nThe Delhi state government's Winter Action Plan also came into force this week. It bars vehicles that don’t meet Bharat Stage VI, India's latest vehicle emissions standard, from entering the capital until 31 January, with authorities turning back 1,539 s",
-      "source_used": "full article (Jina) + RSS excerpt",
-      "raw_summary": "The city’s air quality is already in the ‘very poor’ category and is expected to worsen over the Diwali weekend",
-      "summary": "Delhi's air quality has fallen into the 'very poor' category, with an Air Quality Index reading between 301 and 400, as the city approaches the Diwali festival. The situation is expected to worsen over the Diwali weekend, with contributing factors including crop burning, vehicle emissions, and weather conditions that trap pollutants near the ground. This deterioration follows what had been the lowest average October AQI in eight years, at 166, prompting authorities to introduce emergency pollution control measures.",
-      "topic": "Air Pollution and Extreme Weather Events",
-      "low_confidence": false,
-      "summary_version": 1
-    },
-    {
-      "title": "What’s the point? Ten years after the Paris treaty, are climate talks getting anywhere?",
-      "url": "https://www.theguardian.com/environment/ng-interactive/2026/nov/07/whats-the-point-ten-years-after-the-paris-treaty-are-climate-talks-getting-anywhere",
-      "source": "The Guardian",
-      "date": "7 Nov 2026",
-      "pub_date_iso": "2026-11-07T05:00:02+00:00",
-      "raw_rss": "Its key temperature goal has been missed but experts say the agreement is still proving a vital moral compass for progressIt was a curious way of conducting negotiations. Ahead of the 2025 climate summit, in the Amazonian port of Belém last year, the Brazilian hosts had taken off the table the issue that most had assumed would be at its heart: concrete plans from each country laying out exactly what they would be doing to cut their greenhouse gas emissions.Brazil was insisting, instead, that these plans – the bedrock of the Paris agreement – were the business of national governments and not up for negotiation. “In that case, it will be a very short Cop,” one seasoned global south negotiator told the Guardian shortly before, reflecting a widespread unease. “There is nothing to negotiate.” C",
-      "raw_content": "",
-      "raw_meta": "Its key temperature goal has been missed but experts say the agreement is still proving a vital moral compass for progress",
-      "jina_text": "A wildfire at Lacanau in south-west France in July. Scientists say human-caused climate change has increased the risk of wildfires. Photograph: Maximilien Lamy/AFP/Getty Images\n\n\n\nIts key temperature goal has been missed but experts say the agreement is still proving a vital moral compass for progress\n\n\n\n\n\n\n \n \nIt was a curious way of conducting negotiations. Ahead of the 2025 climate summit, in the Amazonian port of Belém last year, the Brazilian hosts had taken off the table the issue that most had assumed would be at its heart: concrete plans from each country laying out exactly what they would be doing to cut their greenhouse gas emissions.\n\nBrazil was insisting, instead, that these plans – the bedrock of the Paris agreement – were the business of national governments and not up for negotiation. “In that case, it will be a very short Cop,” one seasoned global south negotiator told the Guardian shortly before, reflecting a widespread unease. “There is nothing to negotiate.”\n“They have decided that there is no appetite for negotiation, with the US out of Paris,” said another developing country diplomat. “Countries won’t engage.”\nThe summit ended with a deal, although few loved it. But, as the faultlines from the Brazilian decision deepen going into this year’s summit, it is clear that the Paris agreement, and climate action around the world, has reached an impasse.\n\n\nView image in fullscreen\nAndré Corrêa do Lago, Cop30 president, sits as Simon Stiell, UN climate chief, left, speaks with other officials at Cop30 in Belém. The summit in Brazil ended with a deal that few loved. Photograph: André Penner/AP\nAnd it is not just Cop insiders who are worried. For many outside the vast white air-conditioned conference halls, the question, as this year’s summit begins, will be: what is the point?\nThose same governments have pledged year after year since the Paris agreement was signed in 2015 – and entered into force a year later – to limit global heating to 1.5C above preindustrial levels. Yet temperatures for two years have exceeded that threshold, and the UN revealed a few weeks ago that its most optimistic estimate was now for about 1.7 to 1.8C of heating.\nThere could be no clearer evidence that the Paris agreement, on the face of it, has failed. It is impossible not to wonder whether the Cop process itself is just not fit for purpose.\nThe charge sheet against Paris is long, with the central issue being the failure to achieve its goal. Beyond that immediate failure, the negotiation processes are endlessly convoluted and cause their own problems. It took more than five years just to negotiate the Paris “rulebook” under which the treaty is interpreted and put into effect.\nThe convention that all resolutions must pass by consensus has given bad actors free rein. Donald Trump’s allies – in Saudi Arabia, Russia, Venezuela and some other petrostates – frequently veto measures and obstruct progress.\nIt took more than 30 years of negotiation since the UN frame",
-      "source_used": "full article (Jina) + RSS excerpt + page description",
-      "raw_summary": "Its key temperature goal has been missed but experts say the agreement is still proving a vital moral compass for progressIt was a curious way of conducting negotiations. Ahead of the 2025 climate summit, in the Amazonian port of Belém last year, the Brazilian hosts had taken off the table the issue that most had assumed would be at its heart: concrete plans from each country laying out exactly what they would be doing to cut their greenhouse gas emissions.Brazil was insisting, instead, that these plans – the bedrock of the Paris agreement – were the business of national governments and not up for negotiation. “In that case, it will be a very short Cop,” one seasoned global south negotiator told the Guardian shortly before, reflecting a widespread unease. “There is nothing to negotiate.” C",
-      "summary": "Ten years after the Paris climate agreement, experts and negotiators are questioning the effectiveness of annual climate summits (COPs), with the key 1.5C temperature goal already missed. At the 2025 climate summit in Belém, Brazil controversially removed national emissions reduction plans from the negotiating agenda, arguing they were a matter for individual governments, leaving many diplomats feeling there was little to negotiate. While the summit ended with a deal that few were satisfied with, the Paris agreement is still considered by some experts to serve as an important moral compass for global climate action.",
-      "topic": "COP31 Climate Summit",
+      "topic": "UK Net Zero and Energy Policy",
       "low_confidence": false,
       "summary_version": 1
     }
